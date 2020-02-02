@@ -18,6 +18,7 @@ $().ready(function() {
                     let id = $(this).data('id');
                     let url = $(this).data('body');
 
+                    //alert(url)
                     $.ajax({
                         url: url+'s/'+id,
                         method: 'GET',
@@ -27,7 +28,7 @@ $().ready(function() {
 
                         }, error: function (response) {
 
-                            //modalHide();
+                            modalHide();
                             swal("Failed to load data", "", "error");
                         }
                     })
@@ -114,7 +115,8 @@ function loadData(url, response) {
             break;
 
         case 'procedure' :
-            //tinyMCE_init();
+            tinyMCE_init();
+            loadProcedure(response)
             break;
 
         case 'program':
@@ -122,15 +124,19 @@ function loadData(url, response) {
             break;
 
         case 'scholarship':
+            loadScholarship(response)
             break;
 
         case 'service':
+            loadService(response)
             break;
 
         case 'linker':
+            loadLinker(response)
             break;
 
-        case 'successstory':
+        case 'storie':
+            loadStory(response)
             break;
 
         case 'testimonial':
@@ -140,6 +146,9 @@ function loadData(url, response) {
             break;
         case 'owner':
             loadOwnerInfo(response);
+            break;
+        case 'slider':
+            loadSlider(response);
             break;
     }
 
@@ -208,4 +217,46 @@ function loadOwnerInfo(response) {
     $('#owner_name').val(response.owner_name);
     $('#owner_message').val(response.owner_message);
     $('#old_logo').attr('src',response.owner_image);
+}
+
+function loadProcedure(response) {
+    $('#procedure_id').val(response.id);
+    $('#old_country_name').val(response.country['country_name']);
+    $('#description').val(response.description);
+
+}
+function loadScholarship(response) {
+    $('#scholarship_id').val(response.id);
+    $('#scholarship_title').val(response.scholarship_title);
+    $('#scholarship_description').val(response.scholarship_description);
+    $('#old_logo').attr('src',response.scholarship_image);
+}
+
+function loadService(response) {
+
+    $('#service_id').val(response.id);
+    $('#service_title').val(response.service_title);
+    $('#service_description').val(response.service_description);
+    $('#old_logo').attr('src',response.service_image);
+}
+function loadLinker(response) {
+    $('#social_linker_id').val(response.id);
+    $('#name').val(response.name);
+    $('#social_link').val(response.social_link);
+    $('#old_logo').attr('src',response.social_icon);
+}
+
+function loadSlider(response) {
+    $('#slider_id').val(response.id);
+    $('#slider_name').val(response.slider_name);
+    $('#old_logo').attr('src',response.slider_image);
+
+}
+function loadStory(response) {
+    $('#success_story_id').val(response.id);
+    $('#old_country').val(response.country['country_name']);
+    $('#description').val(response.description);
+    $('#source').val(response.source);
+    $('#title').val(response.title);
+
 }

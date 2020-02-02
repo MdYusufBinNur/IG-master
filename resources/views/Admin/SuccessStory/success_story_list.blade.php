@@ -49,10 +49,10 @@
                                     </thead>
 
                                     <tbody>
-                                    @if(!empty($successStories))
-                                        @foreach($successStories as $successStory)
+                                    @if(!empty($stories))
+                                        @foreach($stories as $successStory)
                                             <tr>
-                                                <td class="text-center">{!! $successStory->country_name !!}</td>
+                                                <td class="text-center">{!! $successStory->country->country_name !!}</td>
                                                 <td class="text-center">{!! $successStory->title !!}</td>
                                                 <td class="text-center">{!! $successStory->description !!}</td>
                                                 <td class="text-center">{!! $successStory->source !!}</td>
@@ -61,7 +61,6 @@
 
                                                 <td class="text-center">
 
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#BrandModal"><i class="ti-eye"></i></a>
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "storie" }}" data-id="{{ $successStory->id }}" data-target="#Modal"><i class="ti-pencil-alt"></i></a>
                                                     <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $successStory->id }}" data-body="{{ "storie" }}" id="del_brand_item" ><i class="ti-trash"></i></a>
 
@@ -112,7 +111,7 @@
 
                                     @if(!empty($countries))
                                         @foreach($countries as $country)
-                                            <option value="{!! $country->id !!}">{!! $country->countryname !!}</option>
+                                            <option value="{!! $country->id !!}">{!! $country->country_name !!}</option>
                                         @endforeach
                                     @endif
 

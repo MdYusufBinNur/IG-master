@@ -35,29 +35,31 @@ class ScholarshipController extends Controller
      */
     public function create()
     {
-        return view('Admin.Scholarship.scholarship');
+        $countries = $this->scholarshipRepo->all_countries();
+        return view('Admin.Scholarship.scholarship',compact('countries'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->scholarshipRepo->store($request);
+        return $this->scholarshipRepo->returnBack($result);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Admin\Scholarship  $scholarship
-     * @return \Illuminate\Http\Response
+     * @return Scholarship|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
     public function show(Scholarship $scholarship)
     {
-        //
+        return $scholarship;
     }
 
     /**
@@ -91,6 +93,6 @@ class ScholarshipController extends Controller
      */
     public function destroy(Scholarship $scholarship)
     {
-        //
+        $this->scholarshipRepo->delete($scholarship);
     }
 }

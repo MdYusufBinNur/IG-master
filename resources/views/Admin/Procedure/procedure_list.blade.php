@@ -52,11 +52,10 @@
                                     @if(!empty($procedures))
                                         @foreach($procedures as $procedure)
                                             <tr>
-                                                <td class="text-center">{!! $procedure->country_name !!}</td>
+                                                <td class="text-center">{!! $procedure->country->country_name !!}</td>
                                                 <td class="text-center">{!! $procedure->description !!}</td>
                                                 <td class="text-center">
 
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#BrandModal"><i class="ti-eye"></i></a>
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "procedure" }}" data-id="{{ $procedure->id }}" data-target="#Modal"><i class="ti-pencil-alt"></i></a>
                                                     <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $procedure->id }}" data-body="{{ "procedure" }}" id="del_brand_item" ><i class="ti-trash"></i></a>
 
@@ -104,8 +103,12 @@
                             <input type="text" id="procedure_id" hidden name="procedure_id">
 
                             <div class="form-group">
+                                <label for="">Selected Country<star>*</star></label>
+                                <input type="text" id="old_country_name" readonly class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="">Select Country<star>*</star></label>
-                                <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="country_id" id="country_id" required >
+                                <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="country_id" id="country_id" >
 
                                     @if(!empty($countries))
                                         @foreach($countries as $country)

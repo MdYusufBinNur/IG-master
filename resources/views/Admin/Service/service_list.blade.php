@@ -28,7 +28,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="title"> List</h4>
+                    <h4 class="title">Service List</h4>
                     <br>
 
                     <div class="card">
@@ -61,7 +61,6 @@
 
                                                 <td class="text-center">
 
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#BrandModal"><i class="ti-eye"></i></a>
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "service" }}" data-id="{{ $service->id }}" data-target="#Modal"><i class="ti-pencil-alt"></i></a>
                                                     <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $service->id }}" data-body="{{ "service" }}" id="del_brand_item" ><i class="ti-trash"></i></a>
 
@@ -117,7 +116,7 @@
 
                             <div class="form-group">
                                 <label class="control-label" for="service_image"> Image </label>
-                                <input type="file" name="service_image" class="form-control" required/>
+                                <input type="file" name="service_image" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label for="old_logo">Old Image</label>

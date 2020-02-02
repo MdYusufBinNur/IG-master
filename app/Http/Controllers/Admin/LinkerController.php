@@ -23,6 +23,7 @@ class LinkerController extends Controller
     public function index()
     {
         $socialLinkers = $this->socialLinkerRepository->index();
+
         return view('Admin.SocialLinker.linker_list', compact('socialLinkers'));
     }
 

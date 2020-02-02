@@ -42,11 +42,11 @@
 
                             <div class="card-content">
                                 <div class="form-group">
-                                    <label class="control-label" for="slider_title">
+                                    <label class="control-label" for="slider_name">
                                         Title
                                     </label>
 
-                                    <input class="form-control" type="text" name="slider_title" id="slider_title" required/>
+                                    <input class="form-control" type="text" name="slider_name" id="slider_name" required/>
                                 </div>
 
 
