@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+
+use Illuminate\Http\Request;
+
 class PagesController extends Controller
 {
     //
@@ -29,5 +32,8 @@ class PagesController extends Controller
     }
     public function apply() {
         return view('View.apply');
+    }
+    public function save_apply(Request $request){
+        return $request;
     }
 }

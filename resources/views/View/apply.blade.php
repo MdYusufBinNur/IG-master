@@ -19,14 +19,14 @@
             form<br><small>carefully</small>
         </h2>
         <div class="card shadow rounded p-3 border-0">
-            <form>
+            <form action="{{ url('/save_apply') }}" method="post" enctype="multipart/form-data">
 
+                @csrf()
                 <div class="form-row">
-
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="firstName"><small>First Name</small></label>
-                        <input type="text" class="form-control" id="firstName" placeholder="First Name" value=""
+                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value=""
                             required>
                     </div>
 
@@ -88,16 +88,11 @@
                         </select>
                     </div>
 
-
-
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="previousQualification"><small>Previous Qualification</small></label>
                         <input type="text" class="form-control" id="previousQualification"
                             placeholder="Previous Qualification" value="" required>
                     </div>
-
-
-
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
@@ -109,9 +104,6 @@
                             <option value="">Three</option>
                         </select>
                     </div>
-
-
-
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
@@ -168,16 +160,15 @@
 
 
                     <div class="form-group col-md-12 mb-3 d-flex align-items-center mt-5">
-                        <a href="#"
-                            class="btn btn-dark mx-auto text-capitalize font-weight-bold rounded-0 px-5">Submit</a>
+                        <input type="submit"  class="btn btn-dark mx-auto text-capitalize font-weight-bold rounded-0 px-5" value="SUBMIT">
+
                     </div>
 
-
+                </div>
 
             </form>
-
-
         </div>
+    </div>
 </section>
 
 

@@ -69,6 +69,21 @@
                                         @endforeach
                                     @endif
 
+                                    <tr>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+
+                                        <td class="text-center">
+
+                                        </td>
+
+
+                                        <td class="text-center">
+
+                                            <a href="#" class="btn btn-simple btn-success btn-icon " data-toggle="modal"   data-target="#Modal" onclick="loadApplicant('Hello')"><i class="ti-eye"></i></a>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -99,7 +114,7 @@
                             <input type="text" id="applicant_id" hidden name="applicant_id">
 
                             <div class="form-group text-center">
-                                <strong> <h4 id="applicant_name">YUSUF</h4> </strong>
+                                <strong> <h4 id="applicant_name">Arya Stark</h4> </strong>
                             </div>
                             <div class="form-group">
                                 <div class="row">
@@ -107,7 +122,7 @@
                                         <img src="{{ asset('Admin/paper_dashboard/assets/img/default-avatar.png') }}" alt="" width="100" height="auto" id="applicant_image">
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <p id="applicant_email">yusuf@octoriz.com  </p>
+                                        <p id="applicant_email">arya@octoriz.com  </p>
                                         <p id="applicant_mobile">01815625375 </p>
                                         <p id="applicant_nationality">Bnagladeshi </p>
                                     </div>
@@ -145,7 +160,7 @@
                                     </tr>
                                     <tr>
                                         <td>Research Paper</td>
-                                        <td><a href="" target="_blank"> <p id="applicant_resarch_paper">pdf</p> </a></td>
+                                        <td><a href="" target="_blank"> <p id="applicant_research_paper">pdf</p> </a></td>
                                     </tr>
                                 </table>
                             </div>

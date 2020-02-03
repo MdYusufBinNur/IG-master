@@ -100,6 +100,33 @@
                     </ul>
                 </div>
             </li>
+
+            <li>
+                <a data-toggle="collapse" href="#blog">
+                    <i class="ti-email"></i>
+                    <p>Blog
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="blog">
+                    <ul class="nav">
+                        <li>
+                            <a href="{{ url('/blogs/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New Blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/blogs') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Blog List</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+
             <li>
                 <a data-toggle="collapse" href="#contacts">
                     <i class="ti-email"></i>

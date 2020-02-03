@@ -45,14 +45,14 @@ class ApplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Admin\Apply  $apply
-     * @return \Illuminate\Http\Response
+     * @return Apply
      */
     public function show(Apply $apply)
     {

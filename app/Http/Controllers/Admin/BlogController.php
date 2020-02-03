@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Admin\Testimonial;
+use App\Admin\Blog;
 use App\Http\Controllers\Controller;
-use App\Repositories\TestimonialRepository;
+use App\Repositories\BlogRepository;
 use Illuminate\Http\Request;
 
-class TestimonialController extends Controller
+class BlogController extends Controller
 {
-    public $testimonialRepository;
-    public function __construct(TestimonialRepository $testimonialRepository)
+    public $blogRepository;
+    public function __construct(BlogRepository $blogRepository)
     {
-        $this->testimonialRepository = $testimonialRepository;
+        $this->blogRepository = $blogRepository;
     }
 
     /**
@@ -22,8 +22,8 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = $this->testimonialRepository->index();
-        return view('Admin.Testimonial.testimonial_list', compact('testimonials'));
+        $blogs = $this->blogRepository->index();
+        return view('Admin.Blog.blog_list', compact('blogs'));
     }
 
     /**
@@ -33,7 +33,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('Admin.Testimonial.testimonial');
+        return view('Admin.Blog.blog');
     }
 
     /**
@@ -44,28 +44,28 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        $result  = $this->testimonialRepository->store($request);
-        return $this->testimonialRepository->returnBack($result);
+        $result = $this->blogRepository->store($request);
+        return $this->blogRepository->returnBack($result);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin\Testimonial  $testimonial
-     * @return Testimonial
+     * @param  \App\Admin\Blog  $blog
+     * @return Blog
      */
-    public function show(Testimonial $testimonial)
+    public function show(Blog $blog)
     {
-        return  $testimonial;
+        return  $blog;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin\Testimonial  $testimonial
+     * @param  \App\Admin\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Testimonial $testimonial)
+    public function edit(Blog $blog)
     {
         //
     }
@@ -74,10 +74,10 @@ class TestimonialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin\Testimonial  $testimonial
+     * @param  \App\Admin\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimonial $testimonial)
+    public function update(Request $request, Blog $blog)
     {
         //
     }
@@ -85,11 +85,11 @@ class TestimonialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin\Testimonial  $testimonial
+     * @param  \App\Admin\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy(Blog $blog)
     {
-        $this->testimonialRepository->delete($testimonial);
+        $this->blogRepository->delete($blog);
     }
 }

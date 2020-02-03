@@ -61,19 +61,7 @@ $().ready(function() {
                                     success: function (data) {
                                         console.log(data);
                                         swal("success", "Data Updated", "success");
-
                                         window.location.href = url+'s'
-                                        /*swal({
-                                            title: "Deleted",
-                                            text: "You won't be able to retrieve this file.",
-                                            type: "success",
-                                            confirmButtonText: "OK",
-                                        }), function (ifConfirm) {
-                                            if (ifConfirm){
-                                                alert('Hi')
-                                            }
-                                        }*/
-
                                     },
                                     error: function (response) {
                                         swal("error", "Failed to delete", "error");
@@ -116,7 +104,7 @@ function loadData(url, response) {
 
         case 'procedure' :
             tinyMCE_init();
-            loadProcedure(response)
+            loadProcedure(response);
             break;
 
         case 'program':
@@ -124,31 +112,39 @@ function loadData(url, response) {
             break;
 
         case 'scholarship':
-            loadScholarship(response)
+            loadScholarship(response);
             break;
 
         case 'service':
-            loadService(response)
+            loadService(response);
             break;
 
         case 'linker':
-            loadLinker(response)
+            loadLinker(response);
             break;
 
         case 'storie':
-            loadStory(response)
+            loadStory(response);
             break;
 
         case 'testimonial':
+            loadTestimonial(response);
             break;
 
         case 'applie':
+            loadApplicant(response)
             break;
+
         case 'owner':
             loadOwnerInfo(response);
             break;
+
         case 'slider':
             loadSlider(response);
+            break;
+
+        case 'blog':
+            loadBlog(response);
             break;
     }
 
@@ -225,6 +221,7 @@ function loadProcedure(response) {
     $('#description').val(response.description);
 
 }
+
 function loadScholarship(response) {
     $('#scholarship_id').val(response.id);
     $('#scholarship_title').val(response.scholarship_title);
@@ -239,6 +236,7 @@ function loadService(response) {
     $('#service_description').val(response.service_description);
     $('#old_logo').attr('src',response.service_image);
 }
+
 function loadLinker(response) {
     $('#social_linker_id').val(response.id);
     $('#name').val(response.name);
@@ -252,6 +250,7 @@ function loadSlider(response) {
     $('#old_logo').attr('src',response.slider_image);
 
 }
+
 function loadStory(response) {
     $('#success_story_id').val(response.id);
     $('#old_country').val(response.country['country_name']);
@@ -259,4 +258,33 @@ function loadStory(response) {
     $('#source').val(response.source);
     $('#title').val(response.title);
 
+}
+
+function loadTestimonial(response) {
+    $('#testimonial_id').val(response.id);
+    $('#testimonial_title').val(response.testimonial_title);
+    $('#testimonial_description').val(response.testimonial_description);
+    $('#old_logo').attr('src',response.testimonial_image);
+}
+
+function loadBlog(response) {
+    $('#blog_id').val(response.id);
+    $('#blog_title').val(response.blog_title);
+    $('#blog_description').val(response.blog_description);
+    $('#old_logo').attr('src',response.blog_image);
+}
+
+function loadApplicant(response) {
+    $('#applicant_id').val(response.id);
+    $('#applicant_name').text(response.first_name + '' + response.last_name);
+    $('#applicant_email').text(response.email);
+    $('#applicant_mobile').text(response.mobile);
+    $('#applicant_nationality').text(response.nationality);
+    $('#applicant_pre_address').text(response.present_address);
+    $('#applicant_per_address').text(response.permanent_address);
+    $('#applicant_dob').text(response.dob);
+    $('#applicant_interested_course').text(response.interested_course);
+    $('#applicant_academic_certificate').text(response.academic_files);
+    $('#applicant_present_qualification').text(response.previous_qualification);
+    $('#applicant_research_paper').text(response.research_paper);
 }

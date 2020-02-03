@@ -2,6 +2,8 @@
 
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="{{asset('Admin/paper_dashboard/assets/tinymce/tinymce.min.js') }}" ></script>
+
 @endsection
 
 @section('content')
@@ -20,7 +22,7 @@
                     @if(Session::get('error'))
                         <div class="alert alert-warning">
                             <button type="button" aria-hidden="true" data-notify="dismiss" class="close">×</button>
-                            <span><b> Success - </b> {{ Session::get('error') }}</span>
+                            <span><b> Error - </b> {{ Session::get('error') }}</span>
                         </div>
                     @endif
 
@@ -48,21 +50,20 @@
                                     </thead>
 
                                     <tbody>
-                                    @if(!empty($testimonials))
-                                        @foreach($testimonials as $testimonial)
+                                    @if(!empty($blogs))
+                                        @foreach($blogs as $blog)
                                             <tr>
-                                                <td class="text-center">{!! $testimonial->testimonial_title !!}</td>
-                                                <td class="text-center">{!! $testimonial->testimonial_description !!}</td>
+                                                <td class="text-center">{!! $blog->blog_title !!}</td>
+                                                <td class="text-center">{!! $blog->blog_description !!}</td>
 
                                                 <td class="text-center">
-                                                    <img src="{!! $testimonial->testimonial_image !!}" width="50px" height="auto" alt="">
+                                                    <img src="{!! $blog->blog_image !!}" width="50px" height="auto" alt="">
                                                 </td>
 
 
                                                 <td class="text-center">
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#BrandModal"><i class="ti-eye"></i></a>
-                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "testimonial" }}" data-id="{{ $testimonial->id }}" data-target="#Modal"><i class="ti-pencil-alt"></i></a>
-                                                    <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $testimonial->id }}" data-body="{{ "testimonial" }}" id="del_brand_item" ><i class="ti-trash"></i></a>
+                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "blog" }}" data-id="{{ $blog->id }}" data-target="#Modal"><i class="ti-pencil-alt" onclick="tinyMCE_init()"></i></a>
+                                                    <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $blog->id }}" data-body="{{ "blog" }}" id="del_brand_item" ><i class="ti-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -87,32 +88,32 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Testimonial Information</h4>
                 </div>
-                <form action="{{ url('testimonials') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('blogs') }}" method="post" enctype="multipart/form-data">
                     @csrf()
                     <div class="modal-body">
                         <div class="row" style="padding: 10px">
 
-                            <input type="text" id="testimonial_id" hidden name="testimonial_id">
+                            <input type="text" id="blog_id" hidden name="blog_id">
 
                             <div class="form-group">
-                                <label class="control-label" for="testimonial_title">
-                                    Testimonial Title
+                                <label class="control-label" for="blog_title">
+                                    Blog Title
                                 </label>
 
-                                <input class="form-control" type="text" name="testimonial_title" id="testimonial_title" required/>
+                                <input class="form-control" type="text" name="blog_title" id="blog_title" required/>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="testimonial_description">
+                                <label class="control-label" for="blog_description">
                                     Description
                                 </label>
 
-                                <textarea class="form-control" name="testimonial_description" id="testimonial_description" rows="3" required>
+                                <textarea class="form-control" name="blog_description" id="blog_description" rows="3" required>
 
                                     </textarea>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="testimonial_image"> Image </label>
-                                <input type="file" name="testimonial_image" class="form-control"/>
+                                <label class="control-label" for="blog_image"> Image </label>
+                                <input type="file" name="blog_image" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label for="old_logo">Old Image</label>

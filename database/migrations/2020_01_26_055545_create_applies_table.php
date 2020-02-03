@@ -23,6 +23,8 @@ class CreateAppliesTable extends Migration
             $table->longText('permanent_address')->nullable();
             $table->string('mobile');
             $table->string('nationality');
+            $table->string('passport_no')->nullable();
+            $table->string('student_type')->nullable();
             $table->string('previous_qualification')->nullable();
             $table->string('interested_course');
             $table->string('photo')->nullable();
