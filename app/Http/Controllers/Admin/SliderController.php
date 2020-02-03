@@ -40,22 +40,23 @@ class SliderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->sliderRepository->store($request);
+        return $this->sliderRepository->returnBack($result);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Admin\Slider  $slider
-     * @return \Illuminate\Http\Response
+     * @return Slider
      */
     public function show(Slider $slider)
     {
-        //
+        return $slider;
     }
 
     /**
@@ -89,6 +90,6 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $this->sliderRepository->delete($slider);
     }
 }

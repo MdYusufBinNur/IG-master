@@ -42,23 +42,23 @@
 
                             <div class="card-content">
                                 <div class="form-group">
-                                    <label class="control-label" for="services_title">
+                                    <label class="control-label" for="service_title">
                                         Title
                                     </label>
 
-                                    <input class="form-control" type="text" name="services_title" id="services_title" required/>
+                                    <input class="form-control" type="text" name="service_title" id="service_title" required/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label" for="services_description"> Description<star>*</star></label>
-                                    <textarea class="form-control" name="services_description" id="services_description" rows="3" required>
+                                    <label class="control-label" for="service_description"> Description<star>*</star></label>
+                                    <textarea class="form-control" name="service_description" id="service_description" rows="3" required>
 
                                     </textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label" for="services_image"> Image </label>
-                                    <input type="file" name="services_image" class="form-control" required/>
+                                    <label class="control-label" for="service_image"> Image </label>
+                                    <input type="file" name="service_image" class="form-control" required/>
                                 </div>
                                 <div class="category"><star>*</star> Required fields</div>
                             </div>

@@ -52,7 +52,7 @@
                                     @if(!empty($sliders))
                                         @foreach($sliders as $slider)
                                             <tr>
-                                                <td class="text-center">{!! $slider->slider_title !!}</td>
+                                                <td class="text-center">{!! $slider->slider_name !!}</td>
 
 
                                                 <td class="text-center">
@@ -100,7 +100,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Edit Scholarship Information</h4>
+                    <h4 class="modal-title">Edit Slider Information</h4>
                 </div>
                 <form action="{{ url('sliders') }}" method="post" enctype="multipart/form-data">
                     @csrf()
@@ -110,16 +110,16 @@
                             <input type="text" id="slider_id" hidden name="slider_id">
 
                             <div class="form-group">
-                                <label class="control-label" for="slider_title">
+                                <label class="control-label" for="slider_name">
                                     Title
                                 </label>
 
-                                <input class="form-control" type="text" name="slider_title" id="slider_title" required/>
+                                <input class="form-control" type="text" name="slider_name" id="slider_name" required/>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label" for="slider_image"> Image </label>
-                                <input type="file" name="slider_image" class="form-control" required/>
+                                <input type="file" name="slider_image" class="form-control" />
                             </div>
 
                             <div class="form-group">

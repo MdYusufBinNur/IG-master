@@ -43,11 +43,11 @@
 
                                 <div class="form-group">
                                     <label for="">Select Country<star>*</star></label>
-                                    <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="program_id" id="program_id" required >
+                                    <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="country_id" id="country_id" required >
 
                                         @if(!empty($countries))
                                             @foreach($countries as $country)
-                                                <option value="{!! $country->id !!}">{!! $country->countryname !!}</option>
+                                                <option value="{!! $country->id !!}">{!! $country->country_name !!}</option>
                                             @endforeach
                                         @endif
 

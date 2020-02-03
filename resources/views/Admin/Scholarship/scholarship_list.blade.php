@@ -117,7 +117,7 @@
 
                             <div class="form-group">
                                 <label class="control-label" for="scholarship_image"> Image </label>
-                                <input type="file" name="scholarship_image" class="form-control" required/>
+                                <input type="file" name="scholarship_image" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label for="old_logo">Old Image</label>

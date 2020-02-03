@@ -49,29 +49,26 @@
                                     </thead>
 
                                     <tbody>
-                                    @if(!empty($sociallinkers))
-                                        @foreach($sociallinkers as $sociallinker)
+                                    @if(!empty($socialLinkers))
+                                        @foreach($socialLinkers as $linker)
                                             <tr>
-                                                <td class="text-center">{!! $sociallinker->name !!}</td>
+                                                <td class="text-center">{!! $linker->name !!}</td>
 
 
                                                 <td class="text-center">
-                                                    <img src="{!! $sociallinker->social_icon !!}" width="50px" height="auto"
+                                                    <img src="{!! $linker->social_icon !!}" width="50px" height="auto"
                                                          alt="">
                                                 </td>
 
 
                                                 <td class="text-center">
 
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view"
-                                                       data-toggle="modal" data-target="#BrandModal"><i
-                                                            class="ti-eye"></i></a>
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit"
                                                        data-toggle="modal" data-body="{{ "linker" }}"
-                                                       data-id="{{ $sociallinkers->id }}" data-target="#Modal"><i
+                                                       data-id="{{ $linker->id }}" data-target="#Modal"><i
                                                             class="ti-pencil-alt"></i></a>
                                                     <a href="" class="btn btn-simple btn-info btn-icon del_brand remove"
-                                                       data-id="{{ $sociallinkers->id }}" data-body="{{ "linker" }}"
+                                                       data-id="{{ $linker->id }}" data-body="{{ "linker" }}"
                                                        id="del_brand_item"><i class="ti-trash"></i></a>
 
                                                 </td>
@@ -125,7 +122,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="social_icon"> Image </label>
-                                <input type="file" name="social_icon" class="form-control" required/>
+                                <input type="file" name="social_icon" class="form-control" />
                             </div>
 
                             <div class="form-group">

@@ -22,8 +22,11 @@ class ProcedureController extends Controller
      */
     public function index()
     {
-        $procedures = $this->procedureRepository->index();
-        return view('Admin.Procedure.procedure_list', compact('procedures'));
+        $results = $this->procedureRepository->index();
+        $procedures = $results['procedures'];
+        $countries = $results['countries'];
+
+        return view('Admin.Procedure.procedure_list', compact('procedures','countries'));
     }
 
     /**
@@ -33,29 +36,31 @@ class ProcedureController extends Controller
      */
     public function create()
     {
-        return view('Admin.Procedure.procedure');
+        $countries = $this->procedureRepository->all_countries();
+        return view('Admin.Procedure.procedure', compact('countries'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->procedureRepository->store($request);
+        return $this->procedureRepository->returnBack($result);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Admin\Procedure  $procedure
-     * @return \Illuminate\Http\Response
+     * @return Procedure|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object
      */
     public function show(Procedure $procedure)
     {
-        //
+        return $this->procedureRepository->show($procedure);
     }
 
     /**
@@ -89,6 +94,8 @@ class ProcedureController extends Controller
      */
     public function destroy(Procedure $procedure)
     {
-        //
+        $this->procedureRepository->delete($procedure);
     }
+
+
 }

@@ -40,22 +40,23 @@ class ServiceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $result = $this->serviceRepository->store($request);
+        return $this->serviceRepository->returnBack($result);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Admin\Service  $service
-     * @return \Illuminate\Http\Response
+     * @return Service
      */
     public function show(Service $service)
     {
-        //
+        return $service;
     }
 
     /**
@@ -89,6 +90,6 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $this->serviceRepository->delete($service);
     }
 }

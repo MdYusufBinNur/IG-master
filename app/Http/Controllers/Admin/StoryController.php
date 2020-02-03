@@ -26,7 +26,7 @@ class StoryController extends Controller
         $results = $this->successStoryRepository->index();
         $countries = $results['countries'];
         $stories = $results['stories'];
-        return view('Admin.SuccessStory.successstory_list', compact('stories','countries'));
+        return view('Admin.SuccessStory.success_story_list', compact('stories','countries'));
     }
 
     /**
@@ -38,7 +38,7 @@ class StoryController extends Controller
     {
         $countries = $this->successStoryRepository->all_countries();
 
-        return view('Admin.SuccessStory.successstory_list', compact('countries'));
+        return view('Admin.SuccessStory.success_story', compact('countries'));
     }
 
     /**
@@ -61,7 +61,7 @@ class StoryController extends Controller
      */
     public function show(Story $story)
     {
-        return  $story;
+        return  $this->successStoryRepository->show($story);
     }
 
     /**
