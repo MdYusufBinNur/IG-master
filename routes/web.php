@@ -32,6 +32,9 @@ Route::get('/view_apply', 'PagesController@apply')->name('view_apply');
 Route::get('/view_find-course', 'PagesController@find')->name('view_find-course');
 
 Route::post('save_apply', 'PagesController@save_apply');
+Route::post('send_message', 'PagesController@send_message');
+Route::get('get_country','PagesController@country_list');
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('abouts', 'AboutController');

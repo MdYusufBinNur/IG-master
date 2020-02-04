@@ -1,97 +1,92 @@
 @extends('View.layout')
 @section('page-content')
     <!-- Slider Section -->
+
+
     <section>
-        <div id="slider" class="carousel slide intro-slider" data-ride="carousel">
-            <!--<ol class="carousel-indicators">
-                <li data-target="#slider" data-slide-to="0" class="active"></li>
-            </ol>-->
+        <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    {{-- <img src="img/slider2.jpg" class="d-block w-100" alt="Slider 2"> --}}
                     <img src="{{ asset('View/img/slider2.jpg') }}" class="img-fluid" alt="Slider 2">
-                    <div class="w-100 h-100 position-absolute slider-overlay">
-                        <div class="row h-100 d-flex align-items-center">
-                            <div class="col-10 h-auto col-md-4 offset-1">
-                                <div class="text-light slider-course-finder w-100 h-100 p-1 rounded shadow">
-                                    <h4 class="text-uppercase text-center">Find a course!</h4>
-                                    <form class="slider-form" action="{{route('view_find-course')}}" method="GET">
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label for="find-course-country">Country</label>
-                                                <select name="find-course-country" id="find-course-country"
-                                                        class="form-control form-control-sm">
-                                                    <option selected>Select Country</option>
-                                                    <option>UK</option>
-                                                    <option>USA</option>
-                                                    <option>Canada</option>
-                                                    <option>Australia</option>
-                                                    <option>New Zealand</option>
-                                                    <option>Ireland</option>
-                                                    <option>Netherland</option>
-                                                    <option>Sweden</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col">
-                                                <label for="find-course-university">University</label>
-                                                <select name="find-course-university" id="find-course-university"
-                                                        class="form-control form-control-sm">
-                                                    <option selected>Select University</option>
-                                                    <option>Northumbria University</option>
-                                                    <option>Loading more...</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label for="find-course-program">Program</label>
-                                                <select name="find-course-program" id="find-course-program"
-                                                        class="form-control form-control-sm">
-                                                    <option selected>Select Program</option>
-                                                    <option>Undergraduate</option>
-                                                    <option>Masters/Post Graduation</option>
-                                                    <option>Ph.D</option>
-                                                    <option>D.B.A</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col">
-                                                <label for="find-course-course">Course</label>
-                                                <select name="find-course-course" id="find-course-course"
-                                                        class="form-control form-control-sm">
-                                                    <option selected>Select Course</option>
-                                                    <option>Computer Science</option>
-                                                    <option>Software Engineering</option>
-                                                    <option>Accounting</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-3">
-                                            <div class="form-group col">
-                                                <button type="submit"
-                                                        class="btn btn-sm btn-success text-uppercase text-light w-100">find <i
-                                                        class="fas fa-search"></i></button>
-                                            </div>
-                                            <div class="form-group col">
-                                                <button type="reset"
-                                                        class="btn btn-sm btn-danger text-uppercase text-light w-100">reset <i
-                                                        class="fas fa-times"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('View/img/slider.jpg') }}" class="img-fluid" alt="Slider 2">
+                </div>
+            </div>
+
+            <!--First Slider Overlay-->
+            <div class="w-100 h-100 position-absolute slider-overlay">
+                <div class="row h-100 d-flex align-items-center">
+                    <div class="col-10 h-auto col-md-4 offset-1">
+                        <div class="text-light slider-course-finder w-100 h-100 p-1 rounded shadow">
+                            <h4 class="text-uppercase text-center">Find a course!</h4>
+                            <form class="slider-form" action="{{route('view_find-course')}}" method="GET">
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="find-course-country">Country</label>
+                                        <select name="find-course-country" id="find-course-country"
+                                                class="form-control form-control-sm">
+                                            <option selected>Select Country</option>
+                                            <option>UK</option>
+                                            <option>USA</option>
+                                            <option>Canada</option>
+                                            <option>Australia</option>
+                                            <option>New Zealand</option>
+                                            <option>Ireland</option>
+                                            <option>Netherland</option>
+                                            <option>Sweden</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="find-course-university">University</label>
+                                        <select name="find-course-university" id="find-course-university"
+                                                class="form-control form-control-sm">
+                                            <option selected>Select University</option>
+                                            <option>Northumbria University</option>
+                                            <option>Loading more...</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="find-course-program">Program</label>
+                                        <select name="find-course-program" id="find-course-program"
+                                                class="form-control form-control-sm">
+                                            <option selected>Select Program</option>
+                                            <option>Undergraduate</option>
+                                            <option>Masters/Post Graduation</option>
+                                            <option>Ph.D</option>
+                                            <option>D.B.A</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="find-course-course">Course</label>
+                                        <select name="find-course-course" id="find-course-course"
+                                                class="form-control form-control-sm">
+                                            <option selected>Select Course</option>
+                                            <option>Computer Science</option>
+                                            <option>Software Engineering</option>
+                                            <option>Accounting</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row mt-3">
+                                    <div class="form-group col">
+                                        <button type="submit"
+                                                class="btn btn-sm btn-success text-uppercase text-light w-100">find <i
+                                                class="fas fa-search"></i></button>
+                                    </div>
+                                    <div class="form-group col">
+                                        <button type="reset"
+                                                class="btn btn-sm btn-danger text-uppercase text-light w-100">reset <i
+                                                class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--<a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>-->
         </div>
     </section>
     <!-- Inside Background (About, Numbers, Services) -->
@@ -214,138 +209,110 @@
         </section>
     </div>
     <!-- Destinations Grid -->
-    <section id="countries" class="mt-5 d-none ">
-        <h2 class="display-4 text-uppercase text-center color-primary mb-5">Countries</h2>
-        <div class="d-block countries-grids">
-            <div class="w-15 float-left">
-                <img src="{{ asset('View/img/countries/uk.jpg') }}" alt="UK" class="img-fluid rounded-lg" />
-                <div
-                    class="countries-overlay position-relative rounded-lg d-flex justify-content-center align-items-center">
-                    <h2 class="text-light text-center text-uppercase display-5">uk</h2>
-                </div>
-            </div>
-            <div class="w-15 float-left">
-                <img src="{{ asset('View/img/countries/usa.jpg') }}" alt="USA" class="img-fluid rounded-lg" />
-                <div
-                    class="countries-overlay position-relative rounded-lg d-flex justify-content-center align-items-center">
-                    <h2 class="text-light text-center text-uppercase display-5">USA</h2>
-                </div>
-            </div>
-            <div class="w-15 float-left">
-                <img src="{{ asset('View/img/countries/canada.jpg') }}" alt="Canada" class="img-fluid rounded-lg" />
-                <div
-                    class="countries-overlay position-relative rounded-lg d-flex justify-content-center align-items-center">
-                    <h2 class="text-light text-center text-uppercase display-5">canada</h2>
-                </div>
-            </div>
-            <div class="w-15 float-left">
-                <img src="{{ asset('View/img/countries/australia.jpg') }}" alt="Australia" class="img-fluid rounded-lg" />
-                <div
-                    class="countries-overlay position-relative rounded-lg d-flex justify-content-center align-items-center">
-                    <h2 class="text-light text-center text-uppercase display-5">australia</h2>
-                </div>
-            </div>
-            <div class="w-15 float-left">
-                <img src="{{ asset('View/img/countries/netherland.jpg') }}" alt="Netherland" class="img-fluid rounded-lg" />
-                <div
-                    class="countries-overlay position-relative rounded-lg d-flex justify-content-center align-items-center">
-                    <h2 class="text-light text-center text-uppercase display-5">netherland</h2>
-                </div>
-            </div>
-        </div>
-        <div class="d-block text-center mt-4">
-            <a href="{{route('view_countries')}}" class="btn btn-lg btn-theme text-light text-uppercase">all countries <i
-                    class="fas fa-chevron-right"></i></a>
-        </div>
-    </section>
 
     <section id="countries" class="mt-5 bg-light">
         <h2 class="display-4 color-primary text-uppercase text-center mb-5 pt-3">countries</h2>
+
         <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/australia.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">Australia</p>
+            <div class="row d-flex">
+                <div class="col-12 col-md-10 mx-auto d-flex">
+                    <div id="country-carousel" class="owl-carousel p-2 d-flex">
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img src="{{ asset('View/img/countries/uk.jpg') }}" class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">Australia</p>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/canada.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">canada</p>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img src="{{ asset('View/img/countries/usa.jpg') }}" class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">canada</p>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/ireland.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">ireland</p>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img src="{{ asset('View/img/countries/canada.jpg') }}" class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">ireland</p>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/netherland.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">netherland</p>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img  src="{{ asset('View/img/countries/australia.jpg') }}" class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">netherland</p>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/sweden.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">sweden</p>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img src="{{ asset('View/img/countries/netherland.jpg') }}" class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">sweden</p>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/uk.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">UK</p>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img src="{{ asset('View/img/countries/netherland.jpg') }}"  class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">UK</p>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm p-4">
-                    <a href="#" class="text-decoration-none">
-                        <div class="w-100 h-100">
-                            <img src="{{ asset('View/img/countries/usa.jpg') }}" class="img-fluid rounded" />
-                            <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">usa</p>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <a href="#" class="text-decoration-none">
+                                <img src="{{ asset('View/img/countries/netherland.jpg') }}" class="img-fluid" />
+                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">usa</p>
+                            </a>
                         </div>
-                    </a>
+
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+
     <!-- Institutes -->
     <section id="institutes" class="my-5">
         <h2 class="display-4 text-uppercase text-center color-primary mb-5">institutes</h2>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-2 text-center">
-                    <img src="{{ asset('View/img/institutes/1.jpg') }}" class="img-fluid" />
-                </div>
-                <div class="col-2 text-center">
-                    <img src="{{ asset('View/img/institutes/2.jpg') }}" class="img-fluid" />
-                </div>
-                <div class="col-2 text-center">
-                    <img src="{{ asset('View/img/institutes/3.jpg') }}" class="img-fluid" />
-                </div>
-                <div class="col-2 text-center">
-                    <img src="{{ asset('View/img/institutes/4.jpg') }}" class="img-fluid" />
-                </div>
-                <div class="col-2 text-center">
-                    <img src="{{ asset('View/img/institutes/5.jpg') }}" class="img-fluid" />
-                </div>
-                <div class="col-2 text-center">
-                    <img src="{{ asset('View/img/institutes/6.jpg') }}" class="img-fluid" />
+
+
+            <div class="row d-flex">
+                <div class="col-12 col-md-10 mx-auto d-flex">
+                    <div id="institute-carousel" class="owl-carousel p-2 d-flex">
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <img src="{{ asset('View/img/institutes/1.jpg') }}" class="img-fluid" />
+                        </div>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <img src="{{ asset('View/img/institutes/2.jpg') }}" class="img-fluid" />
+                        </div>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <img src="{{ asset('View/img/institutes/3.jpg') }}" class="img-fluid" />
+                        </div>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <img src="{{ asset('View/img/institutes/4.jpg') }}" class="img-fluid" />
+                        </div>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <img src="{{ asset('View/img/institutes/5.jpg') }}" class="img-fluid" />
+                        </div>
+
+                        <div class="card align-items-center justify-content-center row d-flex border-0">
+                            <img src="{{ asset('View/img/institutes/6.jpg') }}" class="img-fluid" />
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
         </div>
     </section>
     <!-- Numbers Section -->
@@ -490,26 +457,27 @@
     <section id="contact" class="py-5">
         <h2 class="display-4 color-primary text-uppercase text-center">contact</h2>
         <div class="container pt-3">
-            <form class="row" action="contact.php" method="GET">
+            <form class="row" action="{{ '/send_message' }}" method="post">
+                @csrf()
                 <div class="col-6 form-group">
                     <label for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="contact-name" class="form-control w-100"
-                           placeholder="John Doe">
+                    <input type="text" id="contact-name" name="name" class="form-control w-100"
+                           placeholder="John Doe" required>
                 </div>
                 <div class="col-6 form-group">
                     <label for="contact-phone">Contact Number</label>
-                    <input type="text" id="contact-phone" name="contact-phone" class="form-control w-100"
-                           placeholder="+8801777777777">
+                    <input type="text" id="contact-phone" name="phone" class="form-control w-100"
+                           placeholder="+8801777777777" required>
                 </div>
                 <div class="col-12 form-group">
                     <label for="contact-name">Email</label>
-                    <input type="email" id="contact-email" name="contact-email" class="form-control w-100"
-                           placeholder="name@domain.com">
+                    <input type="email" id="contact-email" name="email" class="form-control w-100"
+                           placeholder="name@domain.com" required>
                 </div>
                 <div class="col-12 form-group">
                     <label for="contact-message">Email</label>
-                    <textarea class="form-control w-100" name="contact-message" id="contact-message"
-                              placeholder="Your Message Here..." row="50"></textarea>
+                    <textarea class="form-control w-100" name="message" id="contact-message"
+                              placeholder="Your Message Here..." rows="5" required></textarea>
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center">
                     <button type="submit" class="btn btn-lg btn-theme mt-3 text-light text-uppercase">send message</button>

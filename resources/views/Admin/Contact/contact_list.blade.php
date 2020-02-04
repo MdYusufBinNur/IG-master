@@ -40,6 +40,7 @@
                                 <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                     <tr>
+                                        <th class="text-center"> Date</th>
                                         <th class="text-center"> Name</th>
                                         <th class="text-center"> Email</th>
                                         <th class="text-center"> Phone</th>
@@ -49,15 +50,16 @@
                                     </thead>
 
                                     <tbody>
-                                    @if(!empty($messages))
-                                        @foreach($messages as $message)
+                                    @if(!empty($contacts))
+                                        @foreach($contacts as $message)
                                             <tr>
+                                                <td class="text-center">{!! $message->created_at->format('d M, Y') !!}</td>
                                                 <td class="text-center">{!! $message->name !!}</td>
                                                 <td class="text-center">{!! $message->email !!}</td>
                                                 <td class="text-center">{!! $message->phone !!}</td>
                                                 <td class="text-center">{!! $message->message !!}</td>
                                                 <td class="text-center">
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#messageModal"><i class="ti-eye"></i></a>
+                                                    <a href="#" class="btn btn-simple btn-success btn-icon edit" data-toggle="modal"  data-target="#Modal" data-id="{{ $message->id }}" data-body="{{ 'contact' }}"><i class="ti-eye"></i></a>
                                                 </td>
                                             </tr>
 
@@ -77,7 +79,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="messageModal" role="dialog">
+    <div class="modal fade" id="Modal" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->

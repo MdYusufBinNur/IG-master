@@ -14,6 +14,42 @@ header a:hover { color: #0c1b55 !important; font-weight: bold; }
 .color-primary { color: #0c1b55; }
 .bg-color-primary { background-color: #0c1b55; }
 .btn-theme { background-image: linear-gradient(to right, #03073a, #143f90); padding: 15px 40px; font-size: 1.2rem; border-radius: 50px; }
+.btn-theme-sm {
+    background-image: linear-gradient(to right, #03073a, #143f90);
+    padding: 4px 10px;
+    font-size: .875rem;
+    border-radius: 50px;
+    color: #ffffff;
+}
+
+.btn-theme-sm:hover{
+    color: #cbd3da!important;
+}
+
+.list-group-item.active{
+    background-image: linear-gradient(to right, #03073a, #143f90);
+    border-color: transparent;
+}
+
+/* .cutom-pagination{
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+
+.page-item .page-link,
+.page-item:first-child .page-link,
+.page-item:last-child .page-link{
+    border-radius: 50%;
+}
+
+.page-item.active .page-link{
+    background-color: #0c1b55;
+    background-image: linear-gradient(to right, #03073a, #143f90);
+    border-color: #0c1b55;
+} */
+
 .w-15 { width: 15vw !important; }
 .object-cover { object-fit: cover; object-position: center; }
 /* Navbar */
@@ -50,13 +86,20 @@ header a:hover { color: #0c1b55 !important; font-weight: bold; }
     }
 
     .slider-overlay .offset-1{
-        /*padding: 5px;*/
+        padding: 5px;
     }
-
-    .intro-slider .img-fluid{
+    .carousel-inner .carousel-item img{
         max-width: 140%;
     }
 
+    .tab-content{
+        font-size: 80%;
+    }
+
+    .list-group a.list-group-item{
+        padding: 8px;
+        font-size: 80%;
+    }
 }
 
 
@@ -70,3 +113,46 @@ header a:hover { color: #0c1b55 !important; font-weight: bold; }
 #countries .w-15 { margin-left: 4.16%; height: 15vw; }
 .countries-overlay { width: 15vw; height: 15vw; background: rgba(0,0,0,0.4); top: -15vw; }
 .countries-grids { height: 15vw; }
+
+
+
+/*Slider Starts*/
+
+#country-carousel .owl-nav,
+#institute-carousel .owl-nav{
+    position: absolute;
+    bottom: 50%;
+    width: 99%;
+}
+
+#country-carousel .owl-prev,
+#institute-carousel .owl-prev {
+    display: block;
+    float: left;
+    margin-left: -50px;
+    width: 50px;
+    height: 50px;
+    outline: none !important;
+}
+
+#country-carousel .owl-next,
+#institute-carousel .owl-next {
+    float: right;
+    margin-right: -50px;
+    display: block;
+    height: 50px;
+    width: 50px;
+    outline: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+

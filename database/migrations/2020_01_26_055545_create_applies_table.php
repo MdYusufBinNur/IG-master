@@ -28,6 +28,7 @@ class CreateAppliesTable extends Migration
             $table->string('previous_qualification')->nullable();
             $table->string('interested_course');
             $table->string('photo')->nullable();
+            $table->string('passport_file')->nullable();
             $table->string('academic_files')->nullable();
             $table->string('research_paper')->nullable();
             $table->timestamps();

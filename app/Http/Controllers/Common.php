@@ -35,7 +35,7 @@ class Common
             Image::make($image)->save($imageUrl);
         }
         else{
-            $imageUrl = "";
+            $imageUrl = "No Valid File";
         }
 
         return $imageUrl;
@@ -47,6 +47,13 @@ class Common
         }else{
             return back()->with('error','Failed To Store Data !!');
         }
+    }
+
+    public function send_notification($message, $alert_type){
+        return back()->with(array(
+            'message' => $message,
+            'alert-type' => $alert_type
+        ));
     }
 
     public function all_countries(){

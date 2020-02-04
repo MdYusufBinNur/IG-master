@@ -4,7 +4,7 @@
     <title>Inspiren Global Education | Study in UK</title>
     <meta name="description" content="Study in UK, USA, Canada, Australia and abroad.">
     <meta name="keywords" content="best study couseling, best study abroad agency, best agency to process student visas">
-    <meta name="author" content="Zubair Hasan">
+    <meta name="author" content="YUSUF">
     <meta copyright="Octoriz Private Limited">
     <!-- Including Favicons -->
 
@@ -29,11 +29,26 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Including Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Including Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
     <!-- Including FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/1c781ab882.js" crossorigin="anonymous"></script>
+
+    <!-- Including Base Owl Carousel -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- Including Owl Carouse Theme -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
     <!-- Including Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('View/css/default.css') }}" />
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+    @yield('style')
 </head>

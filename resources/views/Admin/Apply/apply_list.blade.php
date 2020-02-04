@@ -63,27 +63,12 @@
 
                                                 <td class="text-center">
 
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon edit" data-toggle="modal" data-id="{{ $applicant->id }}" data-body="applicant"  data-target="#Modal"><i class="ti-eye"></i></a>
+                                                    <a href="#" class="btn btn-simple btn-success btn-icon edit" data-toggle="modal" data-id="{{ $applicant->id }}" data-body="applie"  data-target="#Modal"><i class="ti-eye"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @endif
 
-                                    <tr>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-
-                                        <td class="text-center">
-
-                                        </td>
-
-
-                                        <td class="text-center">
-
-                                            <a href="#" class="btn btn-simple btn-success btn-icon " data-toggle="modal"   data-target="#Modal" onclick="loadApplicant('Hello')"><i class="ti-eye"></i></a>
-                                        </td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -147,20 +132,22 @@
                             <div class="form-group">
                                 <table class="table  table-bordered ">
                                     <tr>
+                                        <td>Present Qualification</td>
+                                        <td> <p id="applicant_present_qualification">pdf</p></td>
+                                    </tr>
+
+                                    <tr>
                                         <td>Interested Course</td>
                                         <td id="applicant_interested_course">Course Name</td>
                                     </tr>
                                     <tr>
                                         <td>Academic Certificates</td>
-                                        <td><a href="" target="_blank"> <p id="applicant_academic_certificate">pdf</p> </a></td>
+                                        <td><a href="" target="_blank" id="applicant_academic_certificate_"> <p id="applicant_academic_certificate">pdf</p> </a></td>
                                     </tr>
-                                    <tr>
-                                        <td>Present Qualification</td>
-                                        <td><a href="" target="_blank"> <p id="applicant_present_qualification">pdf</p> </a></td>
-                                    </tr>
+
                                     <tr>
                                         <td>Research Paper</td>
-                                        <td><a href="" target="_blank"> <p id="applicant_research_paper">pdf</p> </a></td>
+                                        <td><a href="" target="_blank" id="applicant_research_paper_"> <p id="applicant_research_paper">pdf</p> </a></td>
                                     </tr>
                                 </table>
                             </div>

@@ -1,5 +1,8 @@
 @extends('View.layout')
 
+@section('style')
+
+@endsection
 @section('page-content')
 
 
@@ -32,76 +35,76 @@
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="lastName"><small>Last Name</small></label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" required>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" name="last_name" required>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="email"><small>Email</small></label>
-                        <input type="email" class="form-control" id="email" placeholder="Eemail" value="" required>
+                        <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" required>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="dob"><small>Date of Birth</small></label>
-                        <input type="date" class="form-control" id="dob" value="" required>
+                        <input type="date" class="form-control" id="dob" name="dob" value="" required>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="presentAddress"><small>Present Address</small></label>
                         <textarea class="form-control" id="presentAddress" rows="3" placeholder="Present Address"
-                            value="" required></textarea>
+                           name="present_address" required></textarea>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="permanentAddress"><small>Permanent Address</small></label>
                         <textarea class="form-control" id="permanentAddress" rows="3" placeholder="Permanent Address"
-                            value="" required></textarea>
+                            name="permanent_address" required></textarea>
                     </div>
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="phoneNumber"><small>Phone Number</small></label>
-                        <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" value=""
+                        <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" value="" name="mobile"
                             required>
                     </div>
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="nationality"><small>Nationality</small></label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Nationality" value=""
+                        <input type="text" class="form-control" id="lastName" placeholder="Nationality" value="" name="nationality"
                             required>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="passportNumber"><small>Passport Number</small></label>
-                        <input type="text" class="form-control" id="passportNumber" placeholder="Passport Number"
+                        <input type="text" class="form-control" id="passportNumber" placeholder="Passport Number" name="passport_no"
                             value="" required>
                     </div>
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="typeOfStudent"><small>Type of Student</small></label>
-                        <select class="form-control typeOfStudent" required>
+                        <select class="form-control typeOfStudent" required name="student_type">
                             <option value="Type of student" selected>Type of student</option>
-                            <option value="">One</option>
-                            <option value="">Two</option>
-                            <option value="">Three</option>
+                            <option value="Home">One</option>
+                            <option value="International">Two</option>
+
                         </select>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="previousQualification"><small>Previous Qualification</small></label>
-                        <input type="text" class="form-control" id="previousQualification"
+                        <input type="text" class="form-control" id="previousQualification" name="previous_qualification"
                             placeholder="Previous Qualification" value="" required>
                     </div>
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="interestedCourse"><small>Interested Course</small></label>
-                        <select class="form-control interestedCourse" required>
+                        <select class="form-control interestedCourse" name="interested_course" required>
                             <option value="Interested Course" selected>Interested Course</option>
-                            <option value="">One</option>
-                            <option value="">Two</option>
-                            <option value="">Three</option>
+                            <option value="CSE">CSE</option>
+                            <option value="BBA">BBA</option>
+                            <option value="LAW">LAW</option>
                         </select>
                     </div>
 
@@ -110,16 +113,15 @@
                         <label for="userPhoto"><small>Upload Your Photo (Upload as JPG or PNG, maximum file size
                                 2MB)</small></label>
                         <div class="custom-file">
-                            <input type="file" class="form-control userPhotoInput" id="userPhoto" required>
+                            <input type="file" class="form-control userPhotoInput" id="userPhoto" name="photo" required>
                             <label class="custom-file-label" for="userPhoto">Choose Photo</label>
                         </div>
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="userPassport"><small>Passport Scan Copy (Minimum First 6 Pages, upload as ZIP
-                                archive)</small></label>
+                        <label for="userPassport"><small>Passport Scan Copy (Minimum First 6 Pages, upload as PDF )</small></label>
                         <div class="custom-file">
-                            <input type="file" class="form-control userPassportInput" id="userPassport" required>
+                            <input type="file" class="form-control userPassportInput" id="userPassport" name="passport_file" required>
                             <label class="custom-file-label" for="userPassport">Choose File</label>
                         </div>
                     </div>
@@ -127,10 +129,9 @@
 
 
                     <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="userCertificates"><small>Academic Transcripts & Certificates (Upload as ZIP
-                                archive)</small></label>
+                        <label for="userCertificates"><small>Academic Transcripts & Certificates (Upload as PDF)</small></label>
                         <div class="custom-file">
-                            <input type="file" class="form-control userCertificatesInput" id="userCertificates"
+                            <input type="file" class="form-control userCertificatesInput" id="userCertificates" name="academic_files"
                                 required>
                             <label class="custom-file-label" for="userCertificates">Choose File</label>
                         </div>
@@ -142,7 +143,7 @@
                         <label for="userResearch"><small>Upload Research Papers for D.B.A or Ph.D / Mphil or Research
                                 Degrees</small></label>
                         <div class="custom-file">
-                            <input type="file" class="form-control userResearchInput" id="userResearch" required>
+                            <input type="file" class="form-control userResearchInput" id="userResearch" name="research_paper" required>
                             <label class="custom-file-label" for="userResearch">Choose Photo</label>
                         </div>
                     </div>
@@ -170,6 +171,10 @@
         </div>
     </div>
 </section>
+
+
+@endsection
+@section('script')
 
 
 @endsection

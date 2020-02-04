@@ -276,7 +276,7 @@ function loadBlog(response) {
 
 function loadApplicant(response) {
     $('#applicant_id').val(response.id);
-    $('#applicant_name').text(response.first_name + '' + response.last_name);
+    $('#applicant_name').text(response.first_name + ' ' + response.last_name);
     $('#applicant_email').text(response.email);
     $('#applicant_mobile').text(response.mobile);
     $('#applicant_nationality').text(response.nationality);
@@ -287,4 +287,7 @@ function loadApplicant(response) {
     $('#applicant_academic_certificate').text(response.academic_files);
     $('#applicant_present_qualification').text(response.previous_qualification);
     $('#applicant_research_paper').text(response.research_paper);
+    $('#applicant_image').attr('src',response.photo);
+    $('#applicant_academic_certificate_').attr('href',response.academic_files);
+    $('#applicant_research_paper_').attr('href',response.research_paper);
 }
