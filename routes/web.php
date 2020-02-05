@@ -21,7 +21,9 @@ Auth::routes([
 ]);
 
 Route::get('/ig_admin', 'HomeController@index')->name('home');
+
 Route::get('/', 'PagesController@home')->name('/');
+
 Route::get('/view_about', 'PagesController@about')->name('view_about');
 Route::get('/view_services', 'PagesController@services')->name('view_services');
 Route::get('/view_countries', 'PagesController@countries')->name('view_countries');
@@ -31,10 +33,14 @@ Route::get('/view_blog', 'PagesController@blog')->name('view_blog');
 Route::get('/view_apply', 'PagesController@apply')->name('view_apply');
 Route::get('/view_find-course', 'PagesController@find')->name('view_find-course');
 
+
 Route::post('save_apply', 'PagesController@save_apply');
 Route::post('send_message', 'PagesController@send_message');
 Route::get('get_country','PagesController@country_list');
-
+Route::get('get_university/{id}','PagesController@university_list');
+Route::get('get_program/{id}','PagesController@program_list');
+Route::get('get_courses/{id}','PagesController@course_list');
+Route::post('get_courses_details','PagesController@course_details');
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('abouts', 'AboutController');
@@ -42,6 +48,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('countries', 'CountryController');
     Route::resource('blogs', 'BlogController');
     Route::resource('contacts', 'ContactController');
+    Route::resource('institutes', 'InstituteController');
     Route::resource('courses', 'CourseController');
     Route::resource('owners', 'OwnerController');
     Route::resource('procedures', 'ProcedureController');

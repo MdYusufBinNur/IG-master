@@ -21,7 +21,7 @@
 <header class="bg-light sticky-top">
         <div class="container">
             <div class="row no-gutter d-flex justify-content-between align-items-center">
-                <a href="{{route('home')}}"><img src="{{asset('View/img/logo.png')}}" class="header-logo" alt="IG Education Logo" /></a>
+                <a href="{{url('/')}}"><img src="{{asset('View/img/logo.png')}}" class="header-logo" alt="IG Education Logo" /></a>
                 <div class="d-block d-md-none pr-3"><button class="btn" type="button" onclick="toggleMobileMenu()"><i class="fas fa-bars fa-2x"></i></button></div>
                 <div class="d-none d-md-flex justify-content-around align-items-center">
                     <a href="{{route('/')}}" class="text-uppercase px-2">home</a>

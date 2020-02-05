@@ -19,9 +19,21 @@ class PagesController extends Controller
     }
 
     public function home() {
-    	return view('View.home-new');
+        $data = $this->viewRepository->home_blade();
+        $countries = $data['countries'];
+        $institutes = $data['institutes'];
+        $sliders = $data['sliders'];
+        $testimonials = $data['testimonials'];
+        $blogs = $data['blogs'];
+        $linkers = $data['linkers'];
+        $services = $data['services'];
+        $about = $data['about'];
+        $owner = $data['owner'];
+
+    	return view('View.home-new',compact('countries','institutes','sliders','testimonials','blogs','linkers','services','about','owner'));
     }
     public function about() {
+
         return view('View.about');
     }
     public function services() {
@@ -42,6 +54,7 @@ class PagesController extends Controller
     public function apply() {
         return view('View.apply');
     }
+
     public function save_apply(Request $request){
         //return $request;
 
@@ -101,6 +114,7 @@ class PagesController extends Controller
         return back()->with($notification);
 
     }
+
     public function send_message(Request $request){
 
         $data = array();
@@ -119,6 +133,35 @@ class PagesController extends Controller
     }
 
     public function country_list(){
-        return $this->viewRepository->home_blade();
+        return $this->viewRepository->country_list();
+    }
+
+    public function university_list($id){
+        return $this->viewRepository->university_list($id);
+    }
+
+    public function program_list($id){
+        return $this->viewRepository->program_list($id);
+    }
+
+    public function course_list($id){
+        return $this->viewRepository->course_list($id);
+    }
+
+    public function course_details(Request $request){
+        if ($request->find_course == "Select one")
+        {
+            return $this->common->send_notification('Please Select All Field','error');
+        }
+        $course_details = $this->viewRepository->course_details($request->except('_token'));
+
+
+
+        return view('View.course_details',compact('course_details'));
+    }
+
+    public function sliders()
+    {
+        return $this->viewRepository->sliders();
     }
 }

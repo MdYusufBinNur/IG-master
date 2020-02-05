@@ -55,7 +55,7 @@
             </div>
         </div>
         <ul class="nav">
-            @can('admin')
+
                 <li>
                 <a data-toggle="collapse" href="#category">
                     <i class="ti-info"></i>
@@ -81,7 +81,7 @@
                     </ul>
                 </div>
             </li>
-            @endcan
+
             <li>
                 <a data-toggle="collapse" href="#apply">
                     <i class="ti-envelope"></i>
@@ -177,6 +177,8 @@
                     </ul>
                 </div>
             </li>
+
+
             <li>
                 <a data-toggle="collapse" href="#course">
                     <i class="ti-agenda"></i>
@@ -202,6 +204,33 @@
                     </ul>
                 </div>
             </li>
+            <li>
+                <a data-toggle="collapse" href="#institutes">
+                    <i class="ti-agenda"></i>
+                    <p>Institute
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="institutes">
+                    <ul class="nav">
+                        <li>
+                            <a href="{{ url('/institutes/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New Institute Info</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/institutes') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Institute Lists</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+
+
             <li>
                 <a data-toggle="collapse" href="#ownerinfos">
                     <i class="ti-user"></i>

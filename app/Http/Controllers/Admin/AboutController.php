@@ -32,7 +32,6 @@ class AboutController extends Controller
     public function index()
     {
 
-            $this->commonClass->check_user_role('isAdmin');
             $abouts =  $this->aboutRepository->index();
             // return $abouts;
             return view('Admin.About.about_list', compact('abouts'));

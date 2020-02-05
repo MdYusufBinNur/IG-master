@@ -1,17 +1,25 @@
 @extends('View.layout')
 @section('page-content')
+
     <!-- Slider Section -->
-
-
     <section>
         <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('View/img/slider2.jpg') }}" class="img-fluid" alt="Slider 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('View/img/slider.jpg') }}" class="img-fluid" alt="Slider 2">
-                </div>
+                @if(!empty($sliders))
+                @foreach($sliders as $key => $slider)
+                 @if($key == 1)
+                        <div class="carousel-item active">
+                            <img src="{{ asset($slider->slider_image) }}" class="img-fluid" alt="Slider 2">
+                        </div>
+                 @endif
+                     <div class="carousel-item">
+                         <img src="{{ asset($slider->slider_image) }}" class="img-fluid" alt="Slider 2">
+                     </div>
+
+                @endforeach
+                @endif
+
+
             </div>
 
             <!--First Slider Overlay-->
@@ -20,7 +28,9 @@
                     <div class="col-10 h-auto col-md-4 offset-1">
                         <div class="text-light slider-course-finder w-100 h-100 p-1 rounded shadow">
                             <h4 class="text-uppercase text-center">Find a course!</h4>
-                            <form class="slider-form" action="{{route('view_find-course')}}" method="GET">
+                            <form class="slider-form" action="{{url('get_courses_details')}}" method="post">
+
+                                @csrf()
                                 <div class="form-row">
                                     <div class="form-group col">
                                         <label for="find_country">Country</label>
@@ -44,21 +54,14 @@
                                         <label for="find_program">Program</label>
                                         <select name="find_program" id="find_program"
                                                 class="form-control form-control-sm">
-                                            <option selected>Select Program</option>
-                                            <option>Undergraduate</option>
-                                            <option>Masters/Post Graduation</option>
-                                            <option>Ph.D</option>
-                                            <option>D.B.A</option>
+
                                         </select>
                                     </div>
                                     <div class="form-group col">
                                         <label for="find_course">Course</label>
                                         <select name="find_course" id="find_course"
-                                                class="form-control form-control-sm">
-                                            <option selected>Select Course</option>
-                                            <option>Computer Science</option>
-                                            <option>Software Engineering</option>
-                                            <option>Accounting</option>
+                                                class="form-control form-control-sm" required>
+
                                         </select>
                                     </div>
                                 </div>
@@ -74,6 +77,7 @@
                                                 class="fas fa-times"></i></button>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -81,6 +85,7 @@
             </div>
         </div>
     </section>
+
     <!-- Inside Background (About, Numbers, Services) -->
     <div>
         <img src="{{ asset('View/img/home-about.png') }}" alt="background" class="d-none d-md-block img-fluid bg-img-about position-absolute" />
@@ -89,13 +94,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-5 text-center text-md-left">
-                        <h2 class="display-4 text-uppercase color-primary">about us</h2>
-                        <p class="text-md-justify my-5">To pursue higher education abroad, the students need relevant
-                            qualifications and experts to help support processing their applications from start to finish.
-                            Choosing the right consultant is not an easy task to do. IG Education Ltd is working for
-                            building trust, accomplishing goals and has been successful throughout in recruiting
-                            international students globally. We believe in providing excellent services to the students and
-                            to our partner institutes.</p>
+                        <h2 class="display-4 text-uppercase color-primary">About us</h2>
+                        @if(!empty($about))
+                            <p class="text-md-justify my-5 text-justify">{{ $about->about_description }}</p>
+                        @endif
+
                         <a href="{{route('view_about')}}" class="btn btn-lg btn-theme text-uppercase text-light">more <i
                                 class="fas fa-chevron-right"></i> </a>
                     </div>
@@ -106,102 +109,45 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-5 text-center text-md-left">
-                        <h2 class="display-4 text-uppercase color-primary">about us</h2>
-                        <p class="text-md-justify my-5">To pursue higher education abroad, the students need relevant
-                            qualifications and experts to help support processing their applications from start to finish.
-                            Choosing the right consultant is not an easy task to do. IG Education Ltd is working for
-                            building trust, accomplishing goals and has been successful throughout in recruiting
-                            international students globally. We believe in providing excellent services to the students and
-                            to our partner institutes.</p>
+                        <h2 class="display-4 text-uppercase color-primary">About us</h2>
+                        @if(!empty($about))
+                            <p class="text-md-justify my-5 text-justify">{{ $about->about_description }}</p>
+                        @endif
                         <a href="{{route('view_about')}}" class="btn btn-lg btn-theme text-uppercase text-light">more <i
                                 class="fas fa-chevron-right"></i> </a>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Services Grid -->
         <section id="services">
             <h2 class="display-4 text-uppercase text-center color-primary mb-5">services</h2>
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="col-12 col-md-4 text-center p-3">
-                        <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-4">
-                                    <img src="{{ asset('View/img/visa.png') }}" class="img-fluid" alt="Visa Services" />
+                    @if(!empty($services))
+                    @foreach($services as $service)
+                            <div class="col-12 col-md-4 text-center p-3">
+                                <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-4">
+                                            <img src="{{ asset($service->service_image) }}" class="img-fluid" alt="Visa Services" />
+                                        </div>
+                                    </div>
+                                    <h3 class="color-primary text-uppercase py-3">{{ $service->service_title }}</h3>
+                                    <p class="text-justify">{{ $service->service_description }}</p>
                                 </div>
                             </div>
-                            <h3 class="color-primary text-uppercase py-3">visa services</h3>
-                            <p>Inspiren Global Education Ltd. offers visa processing services to the selected countries
-                                where our affiliated institutes are located.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center p-3">
-                        <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-4">
-                                    <img src="{{ asset('View/img/assessment.png') }}" class="img-fluid" alt="Free Assessment" />
-                                </div>
-                            </div>
-                            <h3 class="color-primary text-uppercase py-3">free assessment</h3>
-                            <p>Inspiren Global Education Ltd. offers free assessment program to evaluate you and find the
-                                perfect institute and course according to your needs.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center p-3">
-                        <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-4">
-                                    <img src="{{ asset('View/img/airport.png') }}" class="img-fluid" alt="Airport Pickup" />
-                                </div>
-                            </div>
-                            <h3 class="color-primary text-uppercase py-3">airport pickup</h3>
-                            <p>Inspiren Global Education Ltd. offers Airport Pickup service to those students who processed
-                                visa through us.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center p-3">
-                        <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-4">
-                                    <img src="{{ asset('View/img/accommodation.png') }}" class="img-fluid" alt="Accommodation Services" />
-                                </div>
-                            </div>
-                            <h3 class="color-primary text-uppercase py-3">accommodation services</h3>
-                            <p>Inspiren Global Education Ltd. offers accommodation support to those selected countries where
-                                affiliate institutes are located.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center p-3">
-                        <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-4">
-                                    <img src="{{ asset('View/img/travel.png') }}" class="img-fluid" alt="Student Travel Card" />
-                                </div>
-                            </div>
-                            <h3 class="color-primary text-uppercase py-3">student travel card</h3>
-                            <p>Inspiren Global Education Ltd. help students to get Student Travel Card and Enjoy student
-                                discounts in the selected transportation systems and locations.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center p-3">
-                        <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-4">
-                                    <img src="{{ asset('View/img/bank.png') }}" class="img-fluid" alt="Student Banking" />
-                                </div>
-                            </div>
-                            <h3 class="color-primary text-uppercase py-3">student banking</h3>
-                            <p>Inspiren Global Education Ltd. helps students to open student bank accounts to save their
-                                money and enjoy other banking facilities in selected countries or territories.</p>
-                        </div>
-                    </div>
+                    @endforeach
+                    @endif
+
+
                 </div>
             </div>
         </section>
     </div>
-    <!-- Destinations Grid -->
 
+    <!-- Destinations Grid -->
     <section id="countries" class="mt-5 bg-light">
         <h2 class="display-4 color-primary text-uppercase text-center mb-5 pt-3">countries</h2>
 
@@ -210,61 +156,24 @@
                 <div class="col-12 col-md-10 mx-auto d-flex">
                     <div id="country-carousel" class="owl-carousel p-2 d-flex">
 
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img src="{{ asset('View/img/countries/uk.jpg') }}" class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">Australia</p>
-                            </a>
-                        </div>
+                        @if(!empty($countries))
+                            @foreach($countries as $country)
+                                <div class="card align-items-center justify-content-center row d-flex border-0">
+                                    <a href="#" class="text-decoration-none">
+                                        <img src="{{ asset($country->country_image) }}" class="img-fluid" />
+                                        <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">{{ $country->country_name }}</p>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @endif
 
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img src="{{ asset('View/img/countries/usa.jpg') }}" class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">canada</p>
-                            </a>
-                        </div>
 
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img src="{{ asset('View/img/countries/canada.jpg') }}" class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">ireland</p>
-                            </a>
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img  src="{{ asset('View/img/countries/australia.jpg') }}" class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">netherland</p>
-                            </a>
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img src="{{ asset('View/img/countries/netherland.jpg') }}" class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">sweden</p>
-                            </a>
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img src="{{ asset('View/img/countries/netherland.jpg') }}"  class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">UK</p>
-                            </a>
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <a href="#" class="text-decoration-none">
-                                <img src="{{ asset('View/img/countries/netherland.jpg') }}" class="img-fluid" />
-                                <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">usa</p>
-                            </a>
-                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Institutes -->
     <section id="institutes" class="my-5">
@@ -275,36 +184,16 @@
             <div class="row d-flex">
                 <div class="col-12 col-md-10 mx-auto d-flex">
                     <div id="institute-carousel" class="owl-carousel p-2 d-flex">
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <img src="{{ asset('View/img/institutes/1.jpg') }}" class="img-fluid" />
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <img src="{{ asset('View/img/institutes/2.jpg') }}" class="img-fluid" />
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <img src="{{ asset('View/img/institutes/3.jpg') }}" class="img-fluid" />
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <img src="{{ asset('View/img/institutes/4.jpg') }}" class="img-fluid" />
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <img src="{{ asset('View/img/institutes/5.jpg') }}" class="img-fluid" />
-                        </div>
-
-                        <div class="card align-items-center justify-content-center row d-flex border-0">
-                            <img src="{{ asset('View/img/institutes/6.jpg') }}" class="img-fluid" />
-                        </div>
+                        @if(!empty($institutes))
+                            @foreach($institutes as $institute)
+                                <div class="card align-items-center justify-content-center row d-flex border-0">
+                                    <img src="{{ asset($institute->institute_image) }}" class="img-fluid" />
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </section>
     <!-- Numbers Section -->
@@ -356,28 +245,20 @@
         <h2 class="text-uppercase text-center color-primary mb-5">testimonials</h2>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-3">
-                    <div class="media rounded shadow-sm p-3">
-                        <img src="https://placeimg.com/64/64/any" class="rounded-circle mr-3" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">MD Muhaiminul Haque (Bangladesh), B.Sc Honors, Bangor University</h5>
-                            <p class="text-justify text-muted">IG Education supported me and guided me entire visa
-                                application process.
-                                I will recommend others to get help for Aspire for Higher Education. </p>
+                @if(!empty($testimonials))
+                    @foreach($testimonials as $testimonial)
+                        <div class="col-md-6 mb-3">
+                            <div class="media rounded shadow-sm p-3">
+                                <img src="{{ asset($testimonial->testimonial_image) }}" class="rounded-circle mr-3" alt="">
+                                <div class="media-body">
+                                    <h5 class="mt-0">{{ $testimonial->testimonial_title }}</h5>
+                                    <p class="text-justify text-muted">{{ $testimonial->testimonial_description }}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="media rounded shadow-sm p-3">
-                        <img src="https://placeimg.com/64/64/any" class="rounded-circle mr-3" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">MD Muhaiminul Haque (Bangladesh), B.Sc Honors, Bangor University</h5>
-                            <p class="text-justify text-muted">IG Education supported me and guided me entire visa
-                                application process.
-                                I will recommend others to get help for Aspire for Higher Education. </p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
+
             </div>
         </div>
     </section>
@@ -386,58 +267,24 @@
         <h2 class="display-4 color-primary text-uppercase text-center">blog</h2>
         <div class="container">
             <div class="row pt-5">
-                <div class="col-6 col-md-3 col-lg-3 p-3">
-                    <div class="card shadow w-100 h-100 border-0">
-                        <img src="{{ asset('View/img/noimage.jpg') }}" class="card-img-top object-cover" />
-                        <div class="card-body">
-                            <h5 class="card-title">Blog Heading 1</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dolor error,
-                                exercitationem impedit incidunt ipsum itaque non quasi quia voluptatum. Assumenda aut dicta
-                                ducimus earum facilis minus, non quis voluptates?</p>
-                            <a href="/blog/1" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
-                                    class="fas fa-chevron-right"></i></a>
+                @if(!empty($blogs))
+                    @foreach($blogs as $blog)
+                        <div class="col-6 col-md-3 col-lg-3 p-3">
+                            <div class="card shadow w-100 h-100 border-0">
+                                <img src="{{ asset($blog->blog_image) }}" class="card-img-top object-cover" />
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $blog->blog_tittle }}</h5>
+                                    <p class="card-text">{!! $blog->blog_description !!}</p>
+                                    <a href="#?" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
+                                            class="fas fa-chevron-right"></i></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-md-3 col-lg-3 p-3">
-                    <div class="card shadow w-100 h-100 border-0">
-                        <img src="{{ asset('View/img/noimage.jpg') }}" class="card-img-top object-cover" />
-                        <div class="card-body">
-                            <h5 class="card-title">Blog Heading 2</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dolor error,
-                                exercitationem impedit incidunt ipsum itaque non quasi quia voluptatum. Assumenda aut dicta
-                                ducimus earum facilis minus, non quis voluptates?</p>
-                            <a href="#?" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
-                                    class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-md-3 col-lg-3 p-3">
-                    <div class="card shadow w-100 h-100 border-0">
-                        <img src="{{ asset('View/img/noimage.jpg') }}" class="card-img-top object-cover" />
-                        <div class="card-body">
-                            <h5 class="card-title">Blog Heading 3</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dolor error,
-                                exercitationem impedit incidunt ipsum itaque non quasi quia voluptatum. Assumenda aut dicta
-                                ducimus earum facilis minus, non quis voluptates?</p>
-                            <a href="/blog/3" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
-                                    class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-md-3 col-lg-3 p-3">
-                    <div class="card shadow w-100 h-100 border-0">
-                        <img src="{{ asset('View/img/noimage.jpg') }}" class="card-img-top object-cover" />
-                        <div class="card-body">
-                            <h5 class="card-title">Blog Heading 4</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A dolor error,
-                                exercitationem impedit incidunt ipsum itaque non quasi quia voluptatum. Assumenda aut dicta
-                                ducimus earum facilis minus, non quis voluptates?</p>
-                            <a href="/blog/4" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
-                                    class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
+
+
+
                 <div class="col-12 d-flex justify-content-center mt-3">
                     <a href="#" class="btn btn-lg btn-theme text-light text-uppercase">all posts <i
                             class="fas fa-chevron-right"></i></a>
@@ -482,12 +329,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-4 offset-md-1">
-                    <a href="{{route('/')}}"><img src="{{asset('View/img/logo.png')}}" class="header-logo"
-                                                     alt="IG Education Logo" /></a>
-                    <h2 class="display-5 color-primary">Inspiren Global Education Ltd.</h2>
-                    <p class="text-justify py-3">We are committed to provide the excellent services to our clients and our
-                        business partners. We take pride of our services and are determined to continuously enhance our
-                        reputation and relationships with wider stakeholders.</p>
+                    @if(!empty($owner))
+
+                        <a href="{{route('/')}}"><img src="{{asset($owner->owner_image)}}" class="header-logo"
+                                                      alt="IG Education Logo" /></a>
+                        <h2 class="display-5 color-primary">{{ $owner->owner_name }}</h2>
+                        <p class="text-justify py-3">{{ $owner->owner_message }}</p>
+                    @endif
+
                     <p class="socials">
                         <a href="https://www.facebook.com/InspirenGlobalEducation/" target="_blank"><i
                                 class="fab fa-2x fa-facebook social-fb mr-3"></i></a>

@@ -146,6 +146,10 @@ function loadData(url, response) {
         case 'blog':
             loadBlog(response);
             break;
+
+        case 'institute':
+            loadInstitute(response);
+            break;
     }
 
 }
@@ -290,4 +294,10 @@ function loadApplicant(response) {
     $('#applicant_image').attr('src',response.photo);
     $('#applicant_academic_certificate_').attr('href',response.academic_files);
     $('#applicant_research_paper_').attr('href',response.research_paper);
+}
+
+function loadInstitute(response) {
+    $('#institute_id').val(response.id);
+    $('#institute_name').val(response.institute_name);
+    $('#old_logo').attr('src',response.institute_image);
 }
