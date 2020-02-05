@@ -23,23 +23,15 @@
                             <form class="slider-form" action="{{route('view_find-course')}}" method="GET">
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label for="find-course-country">Country</label>
-                                        <select name="find-course-country" id="find-course-country"
+                                        <label for="find_country">Country</label>
+                                        <select name="find_country" id="find_country"
                                                 class="form-control form-control-sm">
-                                            <option selected>Select Country</option>
-                                            <option>UK</option>
-                                            <option>USA</option>
-                                            <option>Canada</option>
-                                            <option>Australia</option>
-                                            <option>New Zealand</option>
-                                            <option>Ireland</option>
-                                            <option>Netherland</option>
-                                            <option>Sweden</option>
+
                                         </select>
                                     </div>
                                     <div class="form-group col">
-                                        <label for="find-course-university">University</label>
-                                        <select name="find-course-university" id="find-course-university"
+                                        <label for="find_university">University</label>
+                                        <select name="find_university" id="find_university"
                                                 class="form-control form-control-sm">
                                             <option selected>Select University</option>
                                             <option>Northumbria University</option>
@@ -49,8 +41,8 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label for="find-course-program">Program</label>
-                                        <select name="find-course-program" id="find-course-program"
+                                        <label for="find_program">Program</label>
+                                        <select name="find_program" id="find_program"
                                                 class="form-control form-control-sm">
                                             <option selected>Select Program</option>
                                             <option>Undergraduate</option>
@@ -60,8 +52,8 @@
                                         </select>
                                     </div>
                                     <div class="form-group col">
-                                        <label for="find-course-course">Course</label>
-                                        <select name="find-course-course" id="find-course-course"
+                                        <label for="find_course">Course</label>
+                                        <select name="find_course" id="find_course"
                                                 class="form-control form-control-sm">
                                             <option selected>Select Course</option>
                                             <option>Computer Science</option>

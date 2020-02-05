@@ -55,7 +55,8 @@
             </div>
         </div>
         <ul class="nav">
-            <li>
+            @can('admin')
+                <li>
                 <a data-toggle="collapse" href="#category">
                     <i class="ti-info"></i>
                     <p>About
@@ -80,6 +81,7 @@
                     </ul>
                 </div>
             </li>
+            @endcan
             <li>
                 <a data-toggle="collapse" href="#apply">
                     <i class="ti-envelope"></i>
@@ -100,7 +102,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#blog">
                     <i class="ti-email"></i>
@@ -126,7 +127,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#contacts">
                     <i class="ti-email"></i>
@@ -177,7 +177,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#course">
                     <i class="ti-agenda"></i>

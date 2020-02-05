@@ -8,11 +8,18 @@ use App\Admin\Country;
 use App\Admin\Course;
 use App\Admin\Program;
 use App\Admin\University;
+use Gate;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class Common
 {
+    public function check_user_role($user_role){
+        if (!Gate::allows($user_role)){
+            abort(404,'Sorry No Page Available');
+        }
+    }
+
     public function save_file($image, String $directory)
     {
         $path = 'image/'.$directory;

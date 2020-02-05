@@ -16,9 +16,14 @@ class AboutController extends Controller
 
     public function __construct(AboutRepository $aboutRepository, Common $commonClass)
     {
+
         $this->aboutRepository = $aboutRepository;
         $this->commonClass = $commonClass;
+
     }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -26,9 +31,13 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $abouts =  $this->aboutRepository->index();
-       // return $abouts;
-        return view('Admin.About.about_list', compact('abouts'));
+
+            $this->commonClass->check_user_role('isAdmin');
+            $abouts =  $this->aboutRepository->index();
+            // return $abouts;
+            return view('Admin.About.about_list', compact('abouts'));
+
+
     }
 
     /**
