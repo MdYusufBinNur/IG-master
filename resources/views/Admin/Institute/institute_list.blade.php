@@ -105,7 +105,26 @@
                         <div class="row" style="padding: 10px">
 
                             <input type="text" id="institute_id" hidden name="institute_id">
+                            <div class="form-group">
+                                <label class="control-label" for="old_country_name">
+                                    Selected Country
+                                </label>
 
+                                <input class="form-control" type="text" name="old_country_name" id="old_country_name" readonly/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Select Country<star>*</star></label>
+                                <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="country_id" id="country_id" required >
+
+                                    @if(!empty($countries))
+                                        @foreach($countries as $country)
+                                            <option value="{!! $country->id !!}">{!! $country->country_name !!}</option>
+                                        @endforeach
+                                    @endif
+
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label" for="institute_name">
                                     Title

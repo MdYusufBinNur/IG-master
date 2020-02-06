@@ -6,12 +6,14 @@ namespace App\Http\Controllers;
 
 use App\Admin\Apply;
 use App\Admin\Contact;
+use App\Admin\Country;
 use App\Repositories\ViewRepository;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public $common,$viewRepository;
+
     public function __construct(Common $common, ViewRepository $viewRepository)
     {
         $this->common = $common;
@@ -32,28 +34,64 @@ class PagesController extends Controller
 
     	return view('View.home-new',compact('countries','institutes','sliders','testimonials','blogs','linkers','services','about','owner'));
     }
+
     public function about() {
 
-        return view('View.about');
+        $about  = $this->viewRepository->about();
+        return view('View.about', compact('about'));
     }
+
     public function services() {
-        return view('View.services');
+        $services = $this->viewRepository->services();
+        return view('View.services',compact('services'));
     }
+
     public function countries() {
         return view('View.countries');
     }
+
     public function institutes() {
-        return view('View.institutes');
+        $countries = $this->viewRepository->country_institute();
+
+//        return $countries;
+        return view('View.institutes', compact('countries'));
     }
+
     public function scholarships() {
-        return view('View.scholarships');
+
+        $countries = $this->viewRepository->success_story();
+
+        return view('View.scholarships', compact('countries'));
     }
+
     public function blog() {
-        return view('View.blog');
+        $result = $this->viewRepository->view_all_blogs();
+        $blogs = $result['blogs'];
+        $max_id = $result['max_blog_id'];
+        return view('View.blog', compact('blogs','max_id'));
     }
+
     public function apply() {
         return view('View.apply');
     }
+
+    public function course_details(Request $request){
+        if ($request->find_course == "Select one")
+        {
+            return $this->common->send_notification('Please Select All Field','error');
+        }
+        $course_details = $this->viewRepository->course_details($request->except('_token'));
+
+
+
+        return view('View.course_details',compact('course_details'));
+    }
+
+    public function blog_details($id){
+        $blog_detail = $this->viewRepository->blog_details($id);
+        return view('View.blog_details', compact('blog_detail'));
+    }
+
 
     public function save_apply(Request $request){
         //return $request;
@@ -148,20 +186,16 @@ class PagesController extends Controller
         return $this->viewRepository->course_list($id);
     }
 
-    public function course_details(Request $request){
-        if ($request->find_course == "Select one")
-        {
-            return $this->common->send_notification('Please Select All Field','error');
-        }
-        $course_details = $this->viewRepository->course_details($request->except('_token'));
-
-
-
-        return view('View.course_details',compact('course_details'));
-    }
-
     public function sliders()
     {
         return $this->viewRepository->sliders();
     }
+
+    public function load_more($id){
+
+        $result =  $this->viewRepository->load_more_blog($id);
+        return $result;
+    }
+
+
 }

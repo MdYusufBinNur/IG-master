@@ -111,7 +111,7 @@
                     <div class="col-12 col-md-5 text-center text-md-left">
                         <h2 class="display-4 text-uppercase color-primary">About us</h2>
                         @if(!empty($about))
-                            <p class="text-md-justify my-5 text-justify">{{ $about->about_description }}</p>
+                            <p class="text-md-justify my-5 text-justify">{{ substr($about->about_description,0,451) }}</p>
                         @endif
                         <a href="{{route('view_about')}}" class="btn btn-lg btn-theme text-uppercase text-light">more <i
                                 class="fas fa-chevron-right"></i> </a>
@@ -274,8 +274,8 @@
                                 <img src="{{ asset($blog->blog_image) }}" class="card-img-top object-cover" />
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $blog->blog_tittle }}</h5>
-                                    <p class="card-text">{!! $blog->blog_description !!}</p>
-                                    <a href="#?" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
+                                    <p class="card-text">{!! substr($blog->blog_description,0,255) !!}...</p>
+                                    <a href="{{ url('get_blog_details/').'/'.$blog->id }}" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
                                             class="fas fa-chevron-right"></i></a>
                                 </div>
                             </div>
@@ -286,7 +286,7 @@
 
 
                 <div class="col-12 d-flex justify-content-center mt-3">
-                    <a href="#" class="btn btn-lg btn-theme text-light text-uppercase">all posts <i
+                    <a href="{{ url('view_blog') }}" class="btn btn-lg btn-theme text-light text-uppercase">all posts <i
                             class="fas fa-chevron-right"></i></a>
                 </div>
             </div>

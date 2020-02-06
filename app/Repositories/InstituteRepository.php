@@ -45,7 +45,10 @@ class InstituteRepository extends Common implements Base
                 else{
                     File::delete($isAvailable->institute_image);
                 }
-
+                if (empty($request->country_id))
+                {
+                    $data['country_id'] =  $isAvailable->country_id;
+                }
                 $isAvailable->update($data);
                 return 'success';
             }
@@ -79,5 +82,9 @@ class InstituteRepository extends Common implements Base
         }else{
             return  'error';
         }
+    }
+
+    public function show(Model $model){
+        return Institute::with('country')->where('id','=', $model->id)->first();
     }
 }

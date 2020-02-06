@@ -15,6 +15,7 @@ class CreateInstitutesTable extends Migration
     {
         Schema::create('institutes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigIncrements('country_id');
             $table->string('institute_name');
             $table->string('institute_image')->nullable();
             $table->timestamps();

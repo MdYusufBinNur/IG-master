@@ -103,3 +103,32 @@ function make_empty_university() {
     $("#find_university").find('option').remove().end();
     $("#find_university").append("<option >Select one</option>");
 }
+$(document).on('click','#load_more', function () {
+    let max_id = $('#max_blog').text()
+
+    $.ajax({
+        url: 'load_more_blog/' + max_id,
+        method: 'get',
+        data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+        success: function (response) {
+
+            $.each(response.blogs, function (i, data) {
+                $('.blog_data').append(
+                    "                            <div class=\"card border-0 shadow-sm\">\n" +
+                    "                                <img src=\""+data.blog_image+"\" class=\"card-img-top\" alt=\"\">\n" +
+                    "                                <div class=\"card-body p-2\">\n"+
+                    "                                    <h5 class=\"card-title font-weight-bold\">"+ data.blog_title+"</h5>\n" +
+                    "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 250) +"...\n" +
+                    "                                    </p>\n" +
+                    "                                    <a href=\" get_blog_details/"+data.id+" \" class=\"btn btn-theme-sm text-white text-capitalize text-center\">Read more</a>\n" +
+                    "                                </div>\n" +
+                    "                            </div>"
+
+                )
+            })
+
+            $('#max_blog').text(response.max_blog_id);
+
+        }
+    })
+})

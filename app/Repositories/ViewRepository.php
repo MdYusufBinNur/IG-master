@@ -23,7 +23,7 @@ class ViewRepository extends Common
     public function home_blade(){
 
         $countries = $this->all_countries();
-        $institutes = Institute::all();
+        $institutes = $this->institute();
         $sliders = $this->sliders();
         $testimonials = $this->testimonials();
         $blogs = $this->blogs();
@@ -75,6 +75,12 @@ class ViewRepository extends Common
         return Linker::all();
     }
 
+    public function country_institute(){
+       return Country::with('university')->get();
+
+
+    }
+
     public function services(){
         return Service::orderBy('id','desc')->get();
     }
@@ -92,4 +98,35 @@ class ViewRepository extends Common
         return Course::with('program.university.country')->where('id', $request['find_course'])->first();
     }
 
+    public function institute(){
+        return Institute::with('country')->get();
+    }
+
+    public function blog_details($id){
+        return Blog::where('id',$id)->first();
+    }
+
+    public function view_all_blogs(){
+
+        $blogs = Blog::orderBy('id','ASC')->limit(3)->get();
+        $max_blog_id = "";
+        foreach ($blogs as $blog){
+            $max_blog_id = $blog->id;
+        }
+        return compact('max_blog_id', 'blogs');
+    }
+
+    public function load_more_blog($id){
+        $blogs = Blog::where('id', '>', $id)->limit(3)->get();
+        $max_blog_id = "";
+        foreach ($blogs as $blog){
+            $max_blog_id = $blog->id;
+        }
+        return compact('blogs','max_blog_id');
+    }
+
+    public function success_story()
+    {
+        return Country::with('story')->get();
+    }
 }

@@ -19,6 +19,7 @@ class CreateStoriesTable extends Migration
             $table->string('title');
             $table->string('source')->nullable();
             $table->longText('description')->nullable();
+            $table->string('story_image')->nullable();
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

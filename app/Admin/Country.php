@@ -20,5 +20,7 @@ class Country extends Model
         return $this->hasMany(Story::class);
     }
 
-
+    public function institute(){
+        return $this->hasMany(Institute::class);
+    }
 }

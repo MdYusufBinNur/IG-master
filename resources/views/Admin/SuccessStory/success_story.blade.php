@@ -71,7 +71,10 @@
 
                                     </textarea>
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="control-label">Title Image </label>
+                                    <input type="file" name="story_image" class="form-control" required/>
+                                </div>
 
                                 <div class="category"><star>*</star> Required fields</div>
                             </div>

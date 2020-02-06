@@ -261,6 +261,7 @@ function loadStory(response) {
     $('#description').val(response.description);
     $('#source').val(response.source);
     $('#title').val(response.title);
+    $('#old_logo').attr('src',response.story_image);
 
 }
 

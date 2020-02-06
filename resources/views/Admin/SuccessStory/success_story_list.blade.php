@@ -135,7 +135,15 @@
 
                                     </textarea>
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label">Title Image </label>
+                                <input type="file" name="story_image" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="old_logo">Old Image</label>
+                                <br>
+                                <img src="" alt="" width="50" height="auto" id="old_logo">
+                            </div>
 
                         </div>
                     </div>

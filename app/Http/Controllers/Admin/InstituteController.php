@@ -57,7 +57,7 @@ class InstituteController extends Controller
      */
     public function show(Institute $institute)
     {
-        return $institute;
+        return $this->instituteRepository->show($institute);
     }
 
     /**

@@ -41,6 +41,8 @@ Route::get('get_university/{id}','PagesController@university_list');
 Route::get('get_program/{id}','PagesController@program_list');
 Route::get('get_courses/{id}','PagesController@course_list');
 Route::post('get_courses_details','PagesController@course_details');
+Route::get('get_blog_details/{id}','PagesController@blog_details');
+Route::get('load_more_blog/{id}','PagesController@load_more');
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('abouts', 'AboutController');
