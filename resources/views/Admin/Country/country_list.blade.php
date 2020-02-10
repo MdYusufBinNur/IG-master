@@ -2,6 +2,8 @@
 
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="{{asset('Admin/paper_dashboard/assets/tinymce/tinymce.min.js') }}" ></script>
+
 @endsection
 
 @section('content')
@@ -59,8 +61,7 @@
 
                                                 <td class="text-center">
 
-                                                    <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#BrandModal"><i class="ti-eye"></i></a>
-                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "countrie" }}" data-id="{{ $country->id }}" data-target="#Modal"><i class="ti-pencil-alt"></i></a>
+                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "countrie" }}" data-id="{{ $country->id }}" data-target="#Modal" onclick="tinyMCE_init()"><i class="ti-pencil-alt"></i></a>
                                                     <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $country->id }}" data-body="{{ "countrie" }}"  ><i class="ti-trash"></i></a>
 
                                                 </td>

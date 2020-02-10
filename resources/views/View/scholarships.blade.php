@@ -17,7 +17,7 @@
                         <img src="{{ asset($story->story_image) }}"  width="250" height="auto" class="card-img-top" alt="">
                         <div class="card-body p-2">
                             <h5 class="card-title font-weight-bold">{{ $story->title }}</h5>
-                            <p class="card-text">{!! $story->description !!}
+                            <p class="card-text text-justify">{!! $story->description !!}
                             </p>
                         </div>
                     </div>

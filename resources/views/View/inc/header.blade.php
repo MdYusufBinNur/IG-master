@@ -6,7 +6,17 @@
             <a href="{{route('/')}}" class="text-uppercase p-3">home</a>
             <a href="{{route('view_about')}}" class="text-uppercase p-3">about</a>
             <a href="{{route('view_services')}}" class="text-uppercase p-3">services</a>
-            <a href="{{route('view_countries')}}" class="text-uppercase p-3">countries</a>
+            <a href="{{route('view_countries')}}" id="navDropdownMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+               class="text-uppercase p-3 dropdown dropdown-toggle">countries</a>
+
+            <div class="dropdown-menu border-0" aria-labelledby="navDropdownMobile">
+                @if(!empty($countries))
+                    @foreach($countries as $country)
+                        <a href="{{ url('country_details').'/'.$country->id }}" class="dropdown-item text-uppercase">{{ $country->country_name }}</a>
+                    @endforeach
+                @endif
+            </div>
+
             <a href="{{route('view_institutes')}}" class="text-uppercase p-3">institutes</a>
             <a href="{{route('view_scholarships')}}" class="text-uppercase p-3">scholarships</a>
             <a href="{{route('view_blog')}}" class="text-uppercase p-3">blog</a>
@@ -31,14 +41,15 @@
                     <a class="nav-link nav-item dropdown dropdown-toggle text-uppercase px-2" href="#" id="navDropdown"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Countries</a>
                     <div class="dropdown-menu" aria-labelledby="navDropdown">
-                        <a href="#" class="dropdown-item text-uppercase">australia</a>
-                        <a href="#" class="dropdown-item text-uppercase">canada</a>
-                        <a href="#" class="dropdown-item text-uppercase">ireland</a>
-                        <a href="#" class="dropdown-item text-uppercase">netherland</a>
-                        <a href="#" class="dropdown-item text-uppercase">sweden</a>
-                        <a href="#" class="dropdown-item text-uppercase">uk</a>
-                        <a href="#" class="dropdown-item text-uppercase">usa</a>
+
+                        @if(!empty($countries))
+                            @foreach($countries as $country)
+                                <a href="{{ url('country_details').'/'.$country->id }}" class="dropdown-item text-uppercase">{{ $country->country_name }}</a>
+                            @endforeach
+                        @endif
+
                     </div>
+
 
 {{--                    <a href="{{route('view_countries')}}" class="text-uppercase px-2">countries</a>--}}
                     <a href="{{route('view_institutes')}}" class="text-uppercase px-2">institutes</a>

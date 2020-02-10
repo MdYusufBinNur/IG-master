@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="card">
-                        <form id="registerFormValidation" action="{{ url('stories') }}" method="post">
+                        <form id="registerFormValidation" action="{{ url('stories') }}" method="post" enctype="multipart/form-data">
                             @csrf()
                             <div class="card-header">
                                 <a href="{{ url('stories') }}" class="btn btn-outline-dark  pull-right">List</a>

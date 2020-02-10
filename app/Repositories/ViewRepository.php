@@ -3,9 +3,10 @@
 
 namespace App\Repositories;
 
-
 use App\Admin\About;
+use App\Admin\Apply;
 use App\Admin\Blog;
+use App\Admin\Contact;
 use App\Admin\Country;
 use App\Admin\Course;
 use App\Admin\Institute;
@@ -17,6 +18,7 @@ use App\Admin\Slider;
 use App\Admin\Testimonial;
 use App\Admin\University;
 use App\Http\Controllers\Common;
+use Illuminate\Http\Request;
 
 class ViewRepository extends Common
 {
@@ -128,5 +130,75 @@ class ViewRepository extends Common
     public function success_story()
     {
         return Country::with('story')->get();
+    }
+
+    public function country_details($id){
+        return Country::with('procedure','story')->where('id','=',$id)->first();
+    }
+
+    public function save_apply(Request $request){
+        $commonClass = new Common();
+
+        $image = "";
+        $passport_file = "";
+        $academic_files = "";
+        $research_paper = "";
+
+        $dir = "Applicant/";
+        if (!empty($request->file('passport_file'))){
+            $passport_file =  $this->save_file($request->file('passport_file'), $dir);
+        }
+        if (!empty($request->file('photo'))){
+            $image =  $this->save_file($request->file('photo'), $dir);
+        }
+
+        if (!empty($request->file('academic_files'))){
+            $academic_files =  $this->save_file($request->file('academic_files'), $dir);
+        }
+
+        if (!empty($request->file('research_paper'))){
+            $research_paper =  $this->save_file($request->file('research_paper'), $dir);
+        }
+
+        $data = array();
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['email'] = $request->email;
+        $data['dob'] = $request->dob;
+        $data['present_address'] = $request->present_address;
+        $data['permanent_address'] = $request->permanent_address;
+        $data['mobile'] = $request->mobile;
+        $data['nationality'] = $request->nationality;
+        $data['passport_no'] = $request->passport_no;
+        $data['student_type'] = $request->student_type;
+        $data['previous_qualification'] = $request->previous_qualification;
+        $data['interested_course'] = $request->interested_course;
+        $data['photo'] = $image;
+        $data['passport_file'] = $passport_file;
+        $data['academic_files'] = $academic_files;
+        $data['research_paper'] = $research_paper;
+        if (Apply::create($data)){
+
+           return 'success';
+        }
+        else{
+            return 'error';
+        }
+    }
+
+    public function send_message(Request $request){
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
+        $data['message'] = $request->message;
+
+
+        if (Contact::create($data)){
+            return 'success';
+        }
+        else{
+            return 'error';
+        }
     }
 }

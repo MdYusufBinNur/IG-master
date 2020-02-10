@@ -11,7 +11,7 @@
             <div class="card border-0 shadow">
                 <div class="row">
 
-                    <div class="col-sm-6 text-center">
+                    <div class="col-sm-6 text-justify">
                         <p class=" p-3 mt-5">{{ $about->about_description }}</p>
                     </div>
                     <div class="col-sm-6 text-center">

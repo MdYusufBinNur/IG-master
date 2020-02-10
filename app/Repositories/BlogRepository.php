@@ -23,6 +23,7 @@ class BlogRepository extends Common implements Base
     public function store(Request $request)
     {
         // TODO: Implement store() method.
+
         $image = "";
         $dir = "Blog_Image";
         if (!empty($request->file('blog_image'))){

@@ -269,7 +269,7 @@
             <div class="row pt-5">
                 @if(!empty($blogs))
                     @foreach($blogs as $blog)
-                        <div class="col-6 col-md-3 col-lg-3 p-3">
+                        <div class="col-sm-12 col-md-3 col-lg-3 p-3">
                             <div class="card shadow w-100 h-100 border-0">
                                 <img src="{{ asset($blog->blog_image) }}" class="card-img-top object-cover" />
                                 <div class="card-body">
@@ -314,7 +314,7 @@
                            placeholder="name@domain.com" required>
                 </div>
                 <div class="col-12 form-group">
-                    <label for="contact-message">Email</label>
+                    <label for="contact-message">Message</label>
                     <textarea class="form-control w-100" name="message" id="contact-message"
                               placeholder="Your Message Here..." rows="5" required></textarea>
                 </div>

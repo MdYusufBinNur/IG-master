@@ -9,126 +9,72 @@
 
 
 <section class="services-details mb-5">
+    @if(!empty($country_details))
     <div class="container">
-        <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">USA <br><small>at a glance</small></h2>
+        <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">{{ $country_details->country_name }} <br><small>at a glance</small></h2>
         <div class="card shadow border-0 p-3">
             <div class="row">
-
-                <div class="col-md-6">
-                    <ul>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                    </ul>
-                </div>
-
-                <div class="col-md-6">
-                    <ul>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                        <li class="p-2">The US economy is diverse, from car manufacturing to internet technology,
-                            agriculture, and
-                            almost everything in between.</li>
-                    </ul>
+                <div class="col-md-12">
+                    {!! $country_details->at_a_glance !!}
                 </div>
             </div>
         </div>
     </div>
+    @endif
 </section>
 
 
 
 
 <section class="services-procedures mb-5">
-    <div class="container">
-        <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Procedure <br><small>for usa</small>
-        </h2>
-        <div class="card shadow border-0 p-3 list-group-flush">
-            <div class="procedure-steps list-group-item">
-                <h3><small class="text-muted">Step-1</small></h3>
-                <p class="step-details">The US economy is diverse, from car manufacturing to internet technology,
-                    agriculture, and almost everything in between.</p>
-            </div>
-            <div class="procedure-steps list-group-item">
-                <h3><small class="text-muted">Step-1</small></h3>
-                <p class="step-details">The US economy is diverse, from car manufacturing to internet technology,
-                    agriculture, and almost everything in between.</p>
+    @if(!empty($country_details))
+        <div class="container">
+            <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Procedure <br><small>for {{ $country_details->country_name }}</small>
+            </h2>
+
+            <div class="card shadow border-0 p-3 list-group-flush">
+                @if(count($country_details->procedure) > 0)
+                    @foreach($country_details->procedure as $procedure)
+                        <div class="procedure-steps list-group-item">
+                            <p class="step-details">{!! $procedure->description !!}</p>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
-    </div>
+    @endif
 </section>
 
 
 <!--Masonry Grid of Success stories-->
 <section class="success-stories mb-5">
-    <div class="container">
-        <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Success stories<br><small>of
-                usa students</small>
-        </h2>
+    @if(!empty($country_details))
+        <div class="container">
+            <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Success stories<br><small>of
+                    {{ $country_details->country_name }} students</small>
+            </h2>
 
-        <div class="card-columns shadow border-0 p-3">
+            <div class="card-columns shadow border-0 p-3">
+                @if(count($country_details->story) > 0)
+                    @foreach($country_details->story  as $story)
+                        <div class="card bg-dark text-white text-justify p-1">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$story->title}}</h5>
+                                <p class="card-text">{!! $story->description !!}</p>
+                                <footer class="blockquote-footer text-white">
+                                    <small>
+                                        Someone famous in <cite title="Source Title">{{ $story->source }}</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
 
-            <div class="card bg-dark text-white text-justify p-1">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is another card with title and supporting text below. This card has some
-                        additional content to make it slightly taller overall.</p>
-                    <footer class="blockquote-footer text-white">
-                        <small>
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </div>
-            </div>
-
-
-            <div class="card bg-dark text-white text-justify p-1">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is another card with title and supporting text below. This card has some
-                        additional content to make it slightly taller overall.</p>
-                    <footer class="blockquote-footer text-white">
-                        <small>
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </div>
-            </div>
-
-
-
-            <div class="card bg-dark text-white text-justify p-1">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is another card with title and supporting text below. This card has some
-                        additional content to make it slightly taller overall.</p>
-                    <footer class="blockquote-footer text-white">
-                        <small>
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </div>
             </div>
 
         </div>
-
-    </div>
+    @endif
 </section>
 
 

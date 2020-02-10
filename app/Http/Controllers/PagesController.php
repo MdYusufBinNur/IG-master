@@ -38,22 +38,24 @@ class PagesController extends Controller
     public function about() {
 
         $about  = $this->viewRepository->about();
-        return view('View.about', compact('about'));
+        $countries = $this->viewRepository->all_countries();
+        return view('View.about', compact('about','countries'));
     }
 
     public function services() {
         $services = $this->viewRepository->services();
-        return view('View.services',compact('services'));
+        $countries = $this->viewRepository->all_countries();
+        return view('View.services',compact('services','countries'));
     }
 
     public function countries() {
-        return view('View.countries');
+        $countries = $this->viewRepository->all_countries();
+        return view('View.countries', compact('countries'));
     }
 
     public function institutes() {
         $countries = $this->viewRepository->country_institute();
-
-//        return $countries;
+       // return $countries;
         return view('View.institutes', compact('countries'));
     }
 
@@ -68,11 +70,14 @@ class PagesController extends Controller
         $result = $this->viewRepository->view_all_blogs();
         $blogs = $result['blogs'];
         $max_id = $result['max_blog_id'];
-        return view('View.blog', compact('blogs','max_id'));
+        $countries = $this->viewRepository->all_countries();
+        return view('View.blog', compact('blogs','max_id','countries'));
     }
 
     public function apply() {
-        return view('View.apply');
+        $countries = $this->viewRepository->all_countries();
+        $courses = $this->viewRepository->all_courses();
+        return view('View.apply',compact('countries','courses'));
     }
 
     public function course_details(Request $request){
@@ -81,63 +86,27 @@ class PagesController extends Controller
             return $this->common->send_notification('Please Select All Field','error');
         }
         $course_details = $this->viewRepository->course_details($request->except('_token'));
+        $countries = $this->viewRepository->all_countries();
 
-
-
-        return view('View.course_details',compact('course_details'));
+        return view('View.course_details',compact('course_details','countries'));
     }
 
     public function blog_details($id){
         $blog_detail = $this->viewRepository->blog_details($id);
-        return view('View.blog_details', compact('blog_detail'));
+        $countries = $this->viewRepository->all_countries();
+        return view('View.blog_details', compact('blog_detail','countries'));
     }
 
+    public function country_details($id){
+        $countries = $this->viewRepository->all_countries();
+        $country_details = $this->viewRepository->country_details($id);
+        //return $country_details;
+        return view('View.countries', compact('countries','country_details'));
+    }
 
     public function save_apply(Request $request){
-        //return $request;
-
-        $commonClass = new Common();
-
-        $image = "";
-        $passport_file = "";
-        $academic_files = "";
-        $research_paper = "";
-
-        $dir = "Applicant/";
-        if (!empty($request->file('passport_file'))){
-            $passport_file =  $commonClass->save_file($request->file('passport_file'), $dir);
-        }
-        if (!empty($request->file('photo'))){
-            $image =  $commonClass->save_file($request->file('photo'), $dir);
-        }
-
-        if (!empty($request->file('academic_files'))){
-            $academic_files =  $commonClass->save_file($request->file('academic_files'), $dir);
-        }
-
-        if (!empty($request->file('research_paper'))){
-            $research_paper =  $commonClass->save_file($request->file('research_paper'), $dir);
-        }
-
-        $data = array();
-        $data['first_name'] = $request->first_name;
-        $data['last_name'] = $request->last_name;
-        $data['email'] = $request->email;
-        $data['dob'] = $request->dob;
-        $data['present_address'] = $request->present_address;
-        $data['permanent_address'] = $request->permanent_address;
-        $data['mobile'] = $request->mobile;
-        $data['nationality'] = $request->nationality;
-        $data['passport_no'] = $request->passport_no;
-        $data['student_type'] = $request->student_type;
-        $data['previous_qualification'] = $request->previous_qualification;
-        $data['interested_course'] = $request->interested_course;
-        $data['photo'] = $image;
-        $data['passport_file'] = $passport_file;
-        $data['academic_files'] = $academic_files;
-        $data['research_paper'] = $research_paper;
-        if (Apply::create($data)){
-
+        $result = $this->viewRepository->save_apply($request);
+        if ($result == 'success'){
             $notification = array(
                 'message' => 'Successfully Applied',
                 'alert-type' => 'success'
@@ -150,19 +119,19 @@ class PagesController extends Controller
             );
         }
         return back()->with($notification);
-
     }
 
     public function send_message(Request $request){
 
-        $data = array();
+        $result  = $this->viewRepository->send_message($request);
 
+        $data = array();
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['phone'] = $request->phone;
         $data['message'] = $request->message;
-
-        if (Contact::create($data)){
+        
+        if ($result == 'success'){
             return $this->common->send_notification('Message Sent','success');
         }
         else{
@@ -192,10 +161,8 @@ class PagesController extends Controller
     }
 
     public function load_more($id){
-
         $result =  $this->viewRepository->load_more_blog($id);
         return $result;
     }
-
 
 }

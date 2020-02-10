@@ -4,8 +4,6 @@
 
 @endsection
 @section('page-content')
-
-
 <section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
     <div class="page-title">
         <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-pen-nib"></i>
@@ -13,8 +11,6 @@
         </h2>
     </div>
 </section>
-
-
 
 <section class="success-stories mb-5">
     <div class="container">
@@ -60,13 +56,11 @@
                             name="permanent_address" required></textarea>
                     </div>
 
-
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="phoneNumber"><small>Phone Number</small></label>
                         <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" value="" name="mobile"
                             required>
                     </div>
-
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="nationality"><small>Nationality</small></label>
@@ -80,13 +74,12 @@
                             value="" required>
                     </div>
 
-
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="typeOfStudent"><small>Type of Student</small></label>
                         <select class="form-control typeOfStudent" required name="student_type">
                             <option value="Type of student" selected>Type of student</option>
-                            <option value="Home">One</option>
-                            <option value="International">Two</option>
+                            <option value="Home">Home</option>
+                            <option value="International">International</option>
 
                         </select>
                     </div>
@@ -97,55 +90,43 @@
                             placeholder="Previous Qualification" value="" required>
                     </div>
 
-
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="interestedCourse"><small>Interested Course</small></label>
                         <select class="form-control interestedCourse" name="interested_course" required>
-                            <option value="Interested Course" selected>Interested Course</option>
-                            <option value="CSE">CSE</option>
-                            <option value="BBA">BBA</option>
-                            <option value="LAW">LAW</option>
+
+                            <option value="" selected>Interested Course</option>
+                            @if(!empty($courses))
+                                @foreach( $courses as $course)
+                                        <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
-
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="userPhoto"><small>Upload Your Photo (Upload as JPG or PNG, maximum file size
                                 2MB)</small></label>
-                        <div class="custom-file">
-                            <input type="file" class="form-control userPhotoInput" id="userPhoto" name="photo" required>
-                            <label class="custom-file-label" for="userPhoto">Choose Photo</label>
-                        </div>
+                        <input type="file" class="form-control userPhotoInput" id="userPhoto" name="photo" required>
+
                     </div>
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="userPassport"><small>Passport Scan Copy (Minimum First 6 Pages, upload as PDF )</small></label>
-                        <div class="custom-file">
-                            <input type="file" class="form-control userPassportInput" id="userPassport" name="passport_file" required>
-                            <label class="custom-file-label" for="userPassport">Choose File</label>
-                        </div>
+                        <input type="file" class="form-control userPassportInput" id="userPassport" name="passport_file" required>
+
                     </div>
-
-
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="userCertificates"><small>Academic Transcripts & Certificates (Upload as PDF)</small></label>
-                        <div class="custom-file">
-                            <input type="file" class="form-control userCertificatesInput" id="userCertificates" name="academic_files"
-                                required>
-                            <label class="custom-file-label" for="userCertificates">Choose File</label>
-                        </div>
+                        <input type="file" class="form-control userCertificatesInput" id="userCertificates" name="academic_files"
+                               required>
                     </div>
-
-
 
                     <div class="form-group col-md-6 mb-3 px-4">
                         <label for="userResearch"><small>Upload Research Papers for D.B.A or Ph.D / Mphil or Research
                                 Degrees</small></label>
-                        <div class="custom-file">
-                            <input type="file" class="form-control userResearchInput" id="userResearch" name="research_paper" required>
-                            <label class="custom-file-label" for="userResearch">Choose Photo</label>
-                        </div>
+                        <input type="file" class="form-control userResearchInput" id="userResearch" name="research_paper" required>
+
                     </div>
 
                     <div class="form-group col-md-12 mb-3 px-4">
@@ -159,7 +140,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-group col-md-12 mb-3 d-flex align-items-center mt-5">
                         <input type="submit"  class="btn btn-dark mx-auto text-capitalize font-weight-bold rounded-0 px-5" value="SUBMIT">
 
@@ -171,8 +151,6 @@
         </div>
     </div>
 </section>
-
-
 @endsection
 @section('script')
 
