@@ -1,10 +1,8 @@
 <div class="sidebar" data-background-color="brown" data-active-color="info">
-
     <!--
         Tip 1: you can change the color of the sidebar's background using: data-background-color="white | brown"
         Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
     -->
-
     <div class="logo">
         <a href="{{ url('/ig_admin') }}" class="simple-text logo-mini">
             <i class="ti-pulse"></i>
@@ -55,8 +53,7 @@
             </div>
         </div>
         <ul class="nav">
-
-                <li>
+            <li>
                 <a data-toggle="collapse" href="#category">
                     <i class="ti-info"></i>
                     <p>About
@@ -81,7 +78,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#apply">
                     <i class="ti-envelope"></i>
@@ -177,8 +173,6 @@
                     </ul>
                 </div>
             </li>
-
-
             <li>
                 <a data-toggle="collapse" href="#course">
                     <i class="ti-agenda"></i>
@@ -229,8 +223,6 @@
                     </ul>
                 </div>
             </li>
-
-
             <li>
                 <a data-toggle="collapse" href="#ownerinfos">
                     <i class="ti-user"></i>
@@ -405,7 +397,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#successstories">
                     <i class="ti-mobile"></i>
@@ -430,7 +421,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#testimonials">
                     <i class="ti-user"></i>
@@ -455,7 +445,6 @@
                     </ul>
                 </div>
             </li>
-
             <li>
                 <a data-toggle="collapse" href="#universities">
                     <i class="ti-crown"></i>
@@ -480,9 +469,6 @@
                     </ul>
                 </div>
             </li>
-
-
-
         </ul>
     </div>
 </div>

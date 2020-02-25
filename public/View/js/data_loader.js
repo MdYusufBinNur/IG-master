@@ -78,6 +78,9 @@ $().ready(function() {
 
     })
 
+    // $('#pills-info').hide()
+    // $('#pills-academic').hide()
+
 
 });
 function callback() {
