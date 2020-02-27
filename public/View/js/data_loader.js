@@ -179,5 +179,35 @@ $(document).on('click','#list_category', function (e) {
 });
 
 $(document).on('click','#load_more_categorized_blog', function (e) {
+    let max_blog_id = $('#max_blog').text();
+    let blog_id = $('#blog_id').text();
 
+    $.ajax({
+        url: 'load_more_categorized_blog/' + blog_id + '/' +max_blog_id,
+        method: 'get',
+        data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+        success: function (response) {
+
+            $.each(response.blogs, function (i, data) {
+                $('#blog_id').text(data.blogcategory_id)
+
+                $('.change_blog').append(
+                    "                           <div class=\"card border-0 shadow-sm\">\n" +
+                    "                                <img src=\""+data.blog_image+"\" class=\"card-img-top\" alt=\"\">\n" +
+                    "                                <div class=\"card-body p-2\">\n"+
+                    "                                    <h5 class=\"card-title font-weight-bold\">"+ data.blog_title+"</h5>\n" +
+                    "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 200) +"...\n" +
+                    "                                    </p>\n" +
+                    "                                    <a href=\" get_blog_details/"+data.id+" \" class=\"btn btn-theme-sm text-white text-capitalize text-center\">Read more</a>\n" +
+                    "                                </div>\n" +
+                    "                            </div>"
+
+                )
+
+            })
+
+            $('#max_blog').text(response.max_blog_id);
+
+        }
+    });
 })

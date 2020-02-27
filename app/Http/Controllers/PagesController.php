@@ -183,4 +183,7 @@ class PagesController extends Controller
     public function load_categorized_blog($id){
         return $this->viewRepository->load_categorized_blog($id);
     }
+    public function load_more_categorized_blog($blog_id,$max_blog_id){
+        return $this->viewRepository->load_more_categorized_blog($blog_id,$max_blog_id);
+    }
 }

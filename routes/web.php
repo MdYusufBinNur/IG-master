@@ -44,6 +44,7 @@ Route::post('get_courses_details','PagesController@course_details');
 Route::get('get_blog_details/{id}','PagesController@blog_details');
 Route::get('load_more_blog/{id}','PagesController@load_more');
 Route::get('load_categorized_blog/{id}','PagesController@load_categorized_blog');
+Route::get('load_more_categorized_blog/{id}/{max_blog_id}','PagesController@load_more_categorized_blog');
 Route::get('country_details/{id}','PagesController@country_details');
 
 Route::post('projects/media', 'PagesController@test_crud')->name('projects.storeMedia');

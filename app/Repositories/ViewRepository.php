@@ -111,7 +111,7 @@ class ViewRepository extends Common
 
     public function view_all_blogs(){
 
-        $blogs = Blog::orderBy('id','ASC')->limit(3)->get();
+        $blogs = Blog::orderBy('id','ASC')->limit(6)->get();
         $max_blog_id = "";
         foreach ($blogs as $blog){
             $max_blog_id = $blog->id;
@@ -120,7 +120,7 @@ class ViewRepository extends Common
     }
 
     public function load_more_blog($id){
-        $blogs = Blog::where('id', '>', $id)->limit(3)->get();
+        $blogs = Blog::where('id', '>', $id)->limit(6)->get();
         $max_blog_id = "";
         foreach ($blogs as $blog){
             $max_blog_id = $blog->id;
@@ -129,7 +129,7 @@ class ViewRepository extends Common
     }
 
     public function load_categorized_blog($id){
-        $blogs = Blog::where('blogcategory_id', '=', $id)->limit(12)->get();
+        $blogs = Blog::where('blogcategory_id', '=', $id)->limit(9)->get();
         $max_blog_id = "";
         foreach ($blogs as $blog){
             $max_blog_id = $blog->id;
@@ -138,7 +138,7 @@ class ViewRepository extends Common
     }
 
     public function load_more_categorized_blog($id,$max_id){
-        $blogs = Blog::where('blogcategory_id', '=', $id)->where('id','>',$max_id)->limit(9)->get();
+        $blogs = Blog::where('blogcategory_id', '=', $id)->where('id','>',$max_id)->limit(6)->get();
         $max_blog_id = "";
         foreach ($blogs as $blog){
             $max_blog_id = $blog->id;
