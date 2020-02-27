@@ -63,6 +63,19 @@
 
                             <div class="card-content">
                                 <div class="form-group">
+                                    <label for="">Select Category<star>*</star></label>
+                                    <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="blogcategory_id" id="category_id" required >
+
+                                        @if(!empty($categories))
+                                            @foreach($categories as $category)
+                                                <option value="{!! $category->id !!}">{!! $category->category_name !!}</option>
+                                            @endforeach
+                                        @endif
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="control-label" for="blog_title">
                                         Blog Title
                                     </label>

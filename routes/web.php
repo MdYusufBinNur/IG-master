@@ -43,7 +43,10 @@ Route::get('get_courses/{id}','PagesController@course_list');
 Route::post('get_courses_details','PagesController@course_details');
 Route::get('get_blog_details/{id}','PagesController@blog_details');
 Route::get('load_more_blog/{id}','PagesController@load_more');
+Route::get('load_categorized_blog/{id}','PagesController@load_categorized_blog');
 Route::get('country_details/{id}','PagesController@country_details');
+
+Route::post('projects/media', 'PagesController@test_crud')->name('projects.storeMedia');
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('abouts', 'AboutController');
@@ -63,6 +66,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('stories', 'StoryController');
     Route::resource('testimonials', 'TestimonialController');
     Route::resource('universities', 'UniversityController');
+    Route::resource('blogcategories', 'BlogcategoryController');
 });
 
 

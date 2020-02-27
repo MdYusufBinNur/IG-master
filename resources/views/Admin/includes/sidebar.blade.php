@@ -53,6 +53,7 @@
             </div>
         </div>
         <ul class="nav">
+
             <li>
                 <a data-toggle="collapse" href="#category">
                     <i class="ti-info"></i>
@@ -78,6 +79,9 @@
                     </ul>
                 </div>
             </li>
+
+
+
             <li>
                 <a data-toggle="collapse" href="#apply">
                     <i class="ti-envelope"></i>
@@ -107,6 +111,18 @@
                 </a>
                 <div class="collapse" id="blog">
                     <ul class="nav">
+                        <li>
+                            <a href="{{ url('/blogcategories/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New Category</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/blogcategories') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Category List</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ url('/blogs/create') }}">
                                 <span class="sidebar-mini"><i class="ti-plus"></i></span>

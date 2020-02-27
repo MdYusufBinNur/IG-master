@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 
 
 use App\Admin\Apply;
+use App\Admin\Blogcategory;
 use App\Admin\Contact;
 use App\Admin\Country;
 use App\Repositories\ViewRepository;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PagesController extends Controller
 {
@@ -71,7 +73,8 @@ class PagesController extends Controller
         $blogs = $result['blogs'];
         $max_id = $result['max_blog_id'];
         $countries = $this->viewRepository->all_countries();
-        return view('View.blog', compact('blogs','max_id','countries'));
+        $categories = $this->viewRepository->blog_categories();
+        return view('View.blog', compact('blogs','max_id','countries','categories'));
     }
 
     public function apply() {
@@ -105,6 +108,7 @@ class PagesController extends Controller
     }
 
     public function save_apply(Request $request){
+       // return $request;
         $result = $this->viewRepository->save_apply($request);
         if ($result == 'success'){
             $notification = array(
@@ -130,7 +134,7 @@ class PagesController extends Controller
         $data['email'] = $request->email;
         $data['phone'] = $request->phone;
         $data['message'] = $request->message;
-        
+
         if ($result == 'success'){
             return $this->common->send_notification('Message Sent','success');
         }
@@ -165,4 +169,18 @@ class PagesController extends Controller
         return $result;
     }
 
+    public function test_crud(Request $request)
+    {
+        $dir = "Applicant";
+        if (!empty($request->file('file'))){
+            $imageUrl = $this->common->save_file($request->file('file'), $dir);
+        }
+        return response()->json([
+            'name' => $imageUrl
+        ]);
+    }
+
+    public function load_categorized_blog($id){
+        return $this->viewRepository->load_categorized_blog($id);
+    }
 }

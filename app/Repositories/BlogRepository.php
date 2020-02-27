@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Admin\Blog;
+use App\Admin\Blogcategory;
 use App\Http\Controllers\Common;
 use App\Http\Controllers\Helper\Base;
 use Illuminate\Database\Eloquent\Model;
@@ -30,6 +31,7 @@ class BlogRepository extends Common implements Base
             $image =  $this->save_file($request->file('blog_image'), $dir);
         }
 
+        $data['blogcategory_id'] =  $request->blogcategory_id;
         $data['blog_title'] =  $request->blog_title;
         $data['blog_description'] =  $request->blog_description;
         $data['blog_image'] =  $image;
@@ -46,6 +48,9 @@ class BlogRepository extends Common implements Base
                     File::delete($isAvailable->blog_image);
                 }
 
+                if (empty($request->blogcategory_id)){
+                    $data['blogcategory_id'] = $isAvailable->blogcategory_id;
+                }
                 $isAvailable->update($data);
                 return 'success';
             }
@@ -80,5 +85,12 @@ class BlogRepository extends Common implements Base
             return 'success';
         }
         return 'error';
+    }
+    public function categories(){
+        return Blogcategory::all();
+    }
+
+    public function show(Model $model){
+        return Blog::with('category')->where('id','=', $model->id)->first();
     }
 }

@@ -121,7 +121,7 @@ $(document).on('click','#load_more', function () {
                     "                                <img src=\""+data.blog_image+"\" class=\"card-img-top\" alt=\"\">\n" +
                     "                                <div class=\"card-body p-2\">\n"+
                     "                                    <h5 class=\"card-title font-weight-bold\">"+ data.blog_title+"</h5>\n" +
-                    "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 250) +"...\n" +
+                    "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 200) +"...\n" +
                     "                                    </p>\n" +
                     "                                    <a href=\" get_blog_details/"+data.id+" \" class=\"btn btn-theme-sm text-white text-capitalize text-center\">Read more</a>\n" +
                     "                                </div>\n" +
@@ -134,4 +134,50 @@ $(document).on('click','#load_more', function () {
 
         }
     })
+
+});
+
+$(document).on('click','#list_category', function (e) {
+    let id = $(this).data('id');
+
+    let max_id = $('#max_blog').text()
+
+    $.ajax({
+        url: 'load_categorized_blog/' + id,
+        method: 'get',
+        data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+        success: function (response) {
+
+            $('.change_blog').html("")
+            $('.blog_data').html("")
+            $('.more_blog').html("").append("<a href=\"#?\" class=\"btn btn-theme-sm mx-auto text-capitalize font-weight-bold px-5 mb-4\" id=\"load_more_categorized_blog\" >Load More</a>");
+
+
+
+            $.each(response.blogs, function (i, data) {
+                $('#blog_id').text(data.blogcategory_id)
+
+                $('.change_blog').append(
+                    "                           <div class=\"card border-0 shadow-sm\">\n" +
+                    "                                <img src=\""+data.blog_image+"\" class=\"card-img-top\" alt=\"\">\n" +
+                    "                                <div class=\"card-body p-2\">\n"+
+                    "                                    <h5 class=\"card-title font-weight-bold\">"+ data.blog_title+"</h5>\n" +
+                    "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 200) +"...\n" +
+                    "                                    </p>\n" +
+                    "                                    <a href=\" get_blog_details/"+data.id+" \" class=\"btn btn-theme-sm text-white text-capitalize text-center\">Read more</a>\n" +
+                    "                                </div>\n" +
+                    "                            </div>"
+
+                )
+
+            })
+
+            $('#max_blog').text(response.max_blog_id);
+
+        }
+    })
+});
+
+$(document).on('click','#load_more_categorized_blog', function (e) {
+
 })

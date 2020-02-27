@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin\Blog;
+use App\Admin\Blogcategory;
 use App\Http\Controllers\Controller;
 use App\Repositories\BlogRepository;
 use Illuminate\Http\Request;
@@ -22,8 +23,9 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $categories = $this->blogRepository->categories();
         $blogs = $this->blogRepository->index();
-        return view('Admin.Blog.blog_list', compact('blogs'));
+        return view('Admin.Blog.blog_list', compact('blogs','categories'));
     }
 
     /**
@@ -33,7 +35,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('Admin.Blog.blog');
+        $categories = $this->blogRepository->categories();
+        return view('Admin.Blog.blog', compact('categories'));
     }
 
     /**
@@ -52,11 +55,11 @@ class BlogController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Admin\Blog  $blog
-     * @return Blog
+     * @return Blog|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object
      */
     public function show(Blog $blog)
     {
-        return  $blog;
+        return $this->blogRepository->show($blog);
     }
 
     /**
@@ -92,4 +95,5 @@ class BlogController extends Controller
     {
         $this->blogRepository->delete($blog);
     }
+
 }

@@ -150,6 +150,10 @@ function loadData(url, response) {
         case 'institute':
             loadInstitute(response);
             break;
+
+        case 'blogcategorie':
+            loadCategory(response);
+            break;
     }
 
 }
@@ -273,8 +277,10 @@ function loadTestimonial(response) {
 }
 
 function loadBlog(response) {
+     console.log(response)
     $('#blog_id').val(response.id);
     $('#blog_title').val(response.blog_title);
+    $('#ols_blog_cat').val(response.category.category_name);
     $('#blog_description').val(response.blog_description);
     $('#old_logo').attr('src',response.blog_image);
 }
@@ -301,4 +307,10 @@ function loadInstitute(response) {
     $('#institute_id').val(response.id);
     $('#institute_name').val(response.institute_name);
     $('#old_logo').attr('src',response.institute_image);
+}
+function loadCategory(response) {
+
+    $('#category_id').val(response.id);
+    $('#category_name').val(response.category_name);
+    $('#category_description').val(response.category_description);
 }

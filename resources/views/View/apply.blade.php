@@ -51,344 +51,325 @@
             background-color: rgba(2, 19, 76, 0.87);
         }
     </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet"/>
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>--}}
+    {{-- ...Some more scripts... --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 @endsection
 @section('page-content')
-<section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
-    <div class="page-title">
-        <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-pen-nib"></i>
-            Apply Now
-        </h2>
+    <section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
+        <div class="page-title">
+            <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i
+                    class="fas fa-pen-nib"></i>
+                Apply Now
+            </h2>
+        </div>
+    </section>
+
+    <div class="row">
+
+
+        <form action="{{ url('/save_apply') }}" method="post" id="regForm" enctype="multipart/form-data">
+
+            @csrf()
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     id="progress_bar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
+                </div>
+            </div>
+
+            <h1 class="text-center" style="color: #0c1b55"><strong>Application Form</strong></h1>
+
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">
+                <div>
+                    <label for="month">Month </label>
+                    <select class="custom-select my-1 mr-sm-2" id="month" onselect="this.className" required>
+                        <option value="January" selected>January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="month">Year </label>
+                    <select class="custom-select my-1 mr-sm-2" id="year" onselect="this.className" required>
+
+                        <option value="2020" selected>2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="tab">
+                <label for="">UKVI IELTS: </label>
+                <div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio" id="yes">Yes
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" checked name="optradio" id="no">No
+                        </label>
+                    </div>
+                </div>
+                <div class="point">
+                    <label for="">Band Score</label>
+                    <input placeholder="" name="ielts_points" class="form-control" id="ielts_points">
+                </div>
+                <div>
+                    <label for="find_country">Country </label>
+                    <select class="custom-select my-1 mr-sm-2" id="find_country" name="country" onselect="this.className"
+                            required>
+
+                    </select>
+                </div>
+                <div>
+                    <label for="month">University you are interested in </label>
+                    <select class="custom-select my-1 mr-sm-2" id="find_university" name="university" onselect="this.className"
+                            required>
+
+                    </select>
+                </div>
+                <div>
+                    <label for="month">Course Level </label>
+                    <select class="custom-select my-1 mr-sm-2" id="find_program" name="program" onselect="this.className"
+                            required>
+
+                    </select>
+                </div>
+                <div>
+                    <label for="month">Course you are interested in </label>
+                    <select class="custom-select my-1 mr-sm-2" id="find_course" name="course" onselect="this.className"
+                            required>
+
+                    </select>
+                </div>
+
+
+                <div class="mb-4">
+                    <label for="month">Current Qualification </label>
+                    <input placeholder="" name="qualification" class="form-control input" oninput="this.className = ''">
+                </div>
+            </div>
+
+            <div class="tab">
+                <div>
+                    <label for="month">First Name</label>
+                    <input placeholder="" name="first_name" class="form-control input" oninput="this.className = ''">
+                </div>
+                <div>
+                    <label for="month">Last Name</label>
+                    <input placeholder="" name="last_name" class="form-control input" oninput="this.className = ''">
+                </div>
+                <div>
+                    <label for="month">Phone</label>
+                    <input placeholder="" name="mobile" class="form-control input" oninput="this.className = ''">
+                </div>
+                <div class="mb-4">
+                    <label for="month">Email</label>
+                    <input placeholder="" name="email" class="form-control input" oninput="this.className = ''">
+                </div>
+                {{--<p><input placeholder="dd" class="form-control" oninput="this.className = ''"></p>
+                <p><input placeholder="mm" class="form-control" oninput="this.className = ''"></p>
+                <p><input placeholder="yyyy" class="form-control" oninput="this.className = ''"></p>--}}
+            </div>
+
+            <div class="tab">
+                <div class="form-group">
+                    <label for="document">Upload any important document</label>
+                    <div class="needsclick dropzone" id="document-dropzone">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="document">Immigration History/Comments</label>
+                    <textarea class="form-control" rows="3" name="comments"></textarea>
+                </div>
+                {{--            <p><input placeholder="Username..." class="form-control" oninput="this.className = ''"></p>--}}
+                {{--            <p><input placeholder="Password..." class="form-control" oninput="this.className = ''"></p>--}}
+            </div>
+
+            <div>
+                <div>
+                    <button class="btn  btn-block" style="background-color: #040d21; color: white" type="button"
+                            id="prevBtn" onclick="nextPrev(-1)">Previous
+                    </button>
+                    <button type="button" class="btn btn-block" style="background-color: #0c1b55; color: white"
+                            id="nextBtn" onclick="nextPrev(1)">Next
+                    </button>
+                </div>
+            </div>
+
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+        </form>
     </div>
-</section>
+    {{--<div class="card shadow rounded p-3 border-0">
+                <form action="{{ url('/save_apply') }}" method="post" enctype="multipart/form-data">
 
-<div class="row">
+                    @csrf()
+                    <div class="form-row">
 
-    <form id="regForm" action="">
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="progress_bar" style="width: 5%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
-        </div>
-        <h1 class="text-center" style="color: #0c1b55"> <strong>Application Form</strong> </h1>
-
-        <!-- One "tab" for each step in the form: -->
-        <div class="tab">
-            <div>
-                <label for="month">Month </label>
-                <select class="custom-select my-1 mr-sm-2" id="month"  onselect="this.className" required>
-                    <option value="January" selected>January</option>
-                    <option value="February">February</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="August">August</option>
-                    <option value="September">September</option>
-                    <option value="October">October</option>
-                    <option value="November">November</option>
-                    <option value="December">December</option>
-                </select>
-            </div>
-            <div>
-                <label for="month">Year </label>
-                <select class="custom-select my-1 mr-sm-2" id="year"  onselect="this.className"  required>
-
-                    <option value="2020" selected>2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
-
-                </select>
-            </div>
-        </div>
-
-        <div class="tab">
-            <label for="">UKVI IELTS: </label>
-            <div>
-
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" id="yes">Yes
-                    </label>
-                </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" id="no">No
-                    </label>
-                </div>
-            </div>
-
-
-            <div class="point" >
-                <label for="">Band Score</label>
-                <input placeholder="" name="ielts_points" class="form-control"  id="ielts_points" >
-            </div>
-
-
-            <div>
-                <label for="month">Country </label>
-                <select class="custom-select my-1 mr-sm-2" id="country" name="country" onselect="this.className"  required>
-                    <option >Select Country</option>
-                    <option value="UAE">UAE</option>
-                    <option value="USA">USA</option>
-                    <option value="Bangladesh">Bangladesh</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="month">Course Level </label>
-                <select class="custom-select my-1 mr-sm-2" id="country" name="country" onselect="this.className"  required>
-                    <option value="2020">Please Select</option>
-                    <option value="2021">UAE</option>
-                    <option value="2021">USA</option>
-                    <option value="2022">Bangladesh</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="month">Course you are interested in </label>
-                <select class="custom-select my-1 mr-sm-2" id="country" name="country" onselect="this.className"  required>
-                    <option value="2020">Please Select</option>
-                    <option value="2021">UAE</option>
-                    <option value="2021">USA</option>
-                    <option value="2022">Bangladesh</option>
-                </select>
-            </div>
-            <div>
-                <label for="month">University you are interested in </label>
-                <select class="custom-select my-1 mr-sm-2" id="country" name="country" onselect="this.className"  required>
-                    <option value="2020">Please Select</option>
-                    <option value="2021">UAE</option>
-                    <option value="2021">USA</option>
-                    <option value="2022">Bangladesh</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="month">Current Qualification </label>
-                <input placeholder="" name="qualification" class="form-control" oninput="this.className = ''">
-            </div>
-        </div>
-
-        <div class="tab">Birthday:
-            <p><input placeholder="dd" class="form-control" oninput="this.className = ''"></p>
-            <p><input placeholder="mm" class="form-control" oninput="this.className = ''"></p>
-            <p><input placeholder="yyyy" class="form-control" oninput="this.className = ''"></p>
-        </div>
-
-        <div class="tab">Login Info:
-            <p><input placeholder="Username..." class="form-control" oninput="this.className = ''"></p>
-            <p><input placeholder="Password..." class="form-control" oninput="this.className = ''"></p>
-        </div>
-
-        <div>
-            <div>
-                <button class="btn  btn-block" style="background-color: #040d21; color: white" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" class="btn btn-block"  style="background-color: #0c1b55; color: white" id="nextBtn" onclick="nextPrev(1)">Next</button>
-            </div>
-        </div>
-
-        <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-        </div>
-
-    </form>
-</div>
-
-{{--
-<section class="success-stories mb-5">
-    <div class="container">
-        <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Please, fill up the
-            form<br><small>carefully</small>
-        </h2>
-
-        <div class="row">
-
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-time" role="tabpanel" aria-labelledby="pills-time">
-                    Home Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex.
-                    Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod vol
-                    uptate exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore vel
-                    it Lorem amet exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat par
-                    iatur ut ullamco ea tempor duis.
-                </div>
-                <div class="tab-pane fade" id="pills-academic" role="tabpanel" aria-labelledby="pills-academic">
-                    Profile Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex.
-                    Aute sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate
-                    exercitation cillum id incididunt elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet
-                    exercitation duis deserunt. Anim id labore elit adipisicing ut in id occaecat pariatur ut ullamco ea
-                    tempor duis.
-                </div>
-                <div class="tab-pane fade" id="pills-info" role="tabpanel" aria-labelledby="pills-info">
-                    Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt
-                    amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate exercitation cillum id incididunt
-                    elit sunt. Qui minim sit magna Lorem id et dolore velit Lorem amet exercitation duis deserunt. Anim id labore elit
-                    adipisicing ut in id occaecat pariatur ut ullamco ea tempor duis.
-                </div>
-            </div>
-
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="pills-time" data-toggle="pill" href="#pills-time" role="tab" aria-controls="pills-time" aria-selected="true">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-academic" data-toggle="pill" href="#pills-academic" role="tab" aria-controls="pills-academic" aria-selected="false">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-info" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="false">Contact</a>
-                </li>
-            </ul>
-
-        </div>
-        --}}
-{{--<div class="card shadow rounded p-3 border-0">
-            <form action="{{ url('/save_apply') }}" method="post" enctype="multipart/form-data">
-
-                @csrf()
-                <div class="form-row">
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="firstName"><small>First Name</small></label>
-                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value=""
-                            required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="lastName"><small>Last Name</small></label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" name="last_name" required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="email"><small>Email</small></label>
-                        <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="dob"><small>Date of Birth</small></label>
-                        <input type="date" class="form-control" id="dob" name="dob" value="" required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="presentAddress"><small>Present Address</small></label>
-                        <textarea class="form-control" id="presentAddress" rows="3" placeholder="Present Address"
-                           name="present_address" required></textarea>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="permanentAddress"><small>Permanent Address</small></label>
-                        <textarea class="form-control" id="permanentAddress" rows="3" placeholder="Permanent Address"
-                            name="permanent_address" required></textarea>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="phoneNumber"><small>Phone Number</small></label>
-                        <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" value="" name="mobile"
-                            required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="nationality"><small>Nationality</small></label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Nationality" value="" name="nationality"
-                            required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="passportNumber"><small>Passport Number</small></label>
-                        <input type="text" class="form-control" id="passportNumber" placeholder="Passport Number" name="passport_no"
-                            value="" required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="typeOfStudent"><small>Type of Student</small></label>
-                        <select class="form-control typeOfStudent" required name="student_type">
-                            <option value="Type of student" selected>Type of student</option>
-                            <option value="Home">Home</option>
-                            <option value="International">International</option>
-
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="previousQualification"><small>Previous Qualification</small></label>
-                        <input type="text" class="form-control" id="previousQualification" name="previous_qualification"
-                            placeholder="Previous Qualification" value="" required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="interestedCourse"><small>Interested Course</small></label>
-                        <select class="form-control interestedCourse" name="interested_course" required>
-
-                            <option value="" selected>Interested Course</option>
-                            @if(!empty($courses))
-                                @foreach( $courses as $course)
-                                        <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
-                                @endforeach
-                            @endif
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="userPhoto"><small>Upload Your Photo (Upload as JPG or PNG, maximum file size
-                                2MB)</small></label>
-                        <input type="file" class="form-control userPhotoInput" id="userPhoto" name="photo" required>
-
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="userPassport"><small>Passport Scan Copy (Minimum First 6 Pages, upload as PDF )</small></label>
-                        <input type="file" class="form-control userPassportInput" id="userPassport" name="passport_file" required>
-
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="userCertificates"><small>Academic Transcripts & Certificates (Upload as PDF)</small></label>
-                        <input type="file" class="form-control userCertificatesInput" id="userCertificates" name="academic_files"
-                               required>
-                    </div>
-
-                    <div class="form-group col-md-6 mb-3 px-4">
-                        <label for="userResearch"><small>Upload Research Papers for D.B.A or Ph.D / Mphil or Research
-                                Degrees</small></label>
-                        <input type="file" class="form-control userResearchInput" id="userResearch" name="research_paper" required>
-
-                    </div>
-
-                    <div class="form-group col-md-12 mb-3 px-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="userInputAuth">
-                            <label class="custom-control-label" for="userInputAuth"><small>I can confirm that the
-                                    details above
-                                    and submitted documents to Aspire Education Services Ltd are true and genuine. I do
-                                    hereby also authorize Aspire Education Services Ltd to hold these data until my
-                                    admission is successful.</small></label>
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="firstName"><small>First Name</small></label>
+                            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value=""
+                                required>
                         </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="lastName"><small>Last Name</small></label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" name="last_name" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="email"><small>Email</small></label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="dob"><small>Date of Birth</small></label>
+                            <input type="date" class="form-control" id="dob" name="dob" value="" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="presentAddress"><small>Present Address</small></label>
+                            <textarea class="form-control" id="presentAddress" rows="3" placeholder="Present Address"
+                               name="present_address" required></textarea>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="permanentAddress"><small>Permanent Address</small></label>
+                            <textarea class="form-control" id="permanentAddress" rows="3" placeholder="Permanent Address"
+                                name="permanent_address" required></textarea>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="phoneNumber"><small>Phone Number</small></label>
+                            <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" value="" name="mobile"
+                                required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="nationality"><small>Nationality</small></label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Nationality" value="" name="nationality"
+                                required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="passportNumber"><small>Passport Number</small></label>
+                            <input type="text" class="form-control" id="passportNumber" placeholder="Passport Number" name="passport_no"
+                                value="" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="typeOfStudent"><small>Type of Student</small></label>
+                            <select class="form-control typeOfStudent" required name="student_type">
+                                <option value="Type of student" selected>Type of student</option>
+                                <option value="Home">Home</option>
+                                <option value="International">International</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="previousQualification"><small>Previous Qualification</small></label>
+                            <input type="text" class="form-control" id="previousQualification" name="previous_qualification"
+                                placeholder="Previous Qualification" value="" required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="interestedCourse"><small>Interested Course</small></label>
+                            <select class="form-control interestedCourse" name="interested_course" required>
+
+                                <option value="" selected>Interested Course</option>
+                                @if(!empty($courses))
+                                    @foreach( $courses as $course)
+                                            <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="userPhoto"><small>Upload Your Photo (Upload as JPG or PNG, maximum file size
+                                    2MB)</small></label>
+                            <input type="file" class="form-control userPhotoInput" id="userPhoto" name="photo" required>
+
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="userPassport"><small>Passport Scan Copy (Minimum First 6 Pages, upload as PDF )</small></label>
+                            <input type="file" class="form-control userPassportInput" id="userPassport" name="passport_file" required>
+
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="userCertificates"><small>Academic Transcripts & Certificates (Upload as PDF)</small></label>
+                            <input type="file" class="form-control userCertificatesInput" id="userCertificates" name="academic_files"
+                                   required>
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3 px-4">
+                            <label for="userResearch"><small>Upload Research Papers for D.B.A or Ph.D / Mphil or Research
+                                    Degrees</small></label>
+                            <input type="file" class="form-control userResearchInput" id="userResearch" name="research_paper" required>
+
+                        </div>
+
+                        <div class="form-group col-md-12 mb-3 px-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="userInputAuth">
+                                <label class="custom-control-label" for="userInputAuth"><small>I can confirm that the
+                                        details above
+                                        and submitted documents to Aspire Education Services Ltd are true and genuine. I do
+                                        hereby also authorize Aspire Education Services Ltd to hold these data until my
+                                        admission is successful.</small></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12 mb-3 d-flex align-items-center mt-5">
+                            <input type="submit"  class="btn btn-dark mx-auto text-capitalize font-weight-bold rounded-0 px-5" value="SUBMIT">
+
+                        </div>
+
                     </div>
 
-                    <div class="form-group col-md-12 mb-3 d-flex align-items-center mt-5">
-                        <input type="submit"  class="btn btn-dark mx-auto text-capitalize font-weight-bold rounded-0 px-5" value="SUBMIT">
+                </form>
+            </div>
+    --}}{{--
 
-                    </div>
 
-                </div>
-
-            </form>
         </div>
---}}{{--
-
-
-    </div>
-</section>
---}}
+    </section>
+    --}}
 @endsection
 @section('script')
     <script !src="">
@@ -408,7 +389,7 @@
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n === (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
+                document.getElementById("nextBtn").innerHTML = "Request To Review Application";
             } else {
                 // $('#progress_bar').css('width' , 5 + "%")
                 document.getElementById("nextBtn").innerHTML = "Next";
@@ -427,10 +408,10 @@
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
             currentTab = currentTab + n;
-            for (let i = 0; i <currentTab; i++){
-                let k = 1 + i;
-                $('#progress_bar').css('width' , k*25 + "%");
-                $('#progress_bar').text(k*25);
+            for (let i = 0; i < currentTab; i++) {
+                let k = 2 + i;
+                $('#progress_bar').css('width', k * 25 + "%");
+                $('#progress_bar').text(k * 25);
             }
 
             // if you have reached the end of the form... :
@@ -448,7 +429,7 @@
             // This function deals with validation of the form fields
             var x, y, i, valid = true;
             x = document.getElementsByClassName("tab");
-            y = x[currentTab].getElementsByTagName("input");
+            y = x[currentTab].getElementsByClassName("input");
 
             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
@@ -490,6 +471,28 @@
             $('div.point').hide();
         })
 
+        var uploadedDocumentMap = {}
+        Dropzone.options.documentDropzone = {
+            url: '{{ route('projects.storeMedia') }}',
+            maxFilesize: 10, // MB
+            addRemoveLinks: true,
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (file, response) {
+                $('form').append('<input type="hidden" name="applicant_files[]" value="' + response.name + '">')
+                uploadedDocumentMap[file.name] = response.name
+            },
+            removedfile: function (file) {
+                file.previewElement.remove()
+                let name = ''
+                if (typeof file.file_name !== 'undefined') {
+                    name = file.file_name
+                } else {
+                    name = uploadedDocumentMap[file.name]
+                }
+                $('form').find('input[name="applicant_files[]"][value="' + name + '"]').remove()
+            }
+        }
     </script>
-
 @endsection

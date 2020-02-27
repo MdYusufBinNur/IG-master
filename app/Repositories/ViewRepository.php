@@ -6,6 +6,7 @@ namespace App\Repositories;
 use App\Admin\About;
 use App\Admin\Apply;
 use App\Admin\Blog;
+use App\Admin\Blogcategory;
 use App\Admin\Contact;
 use App\Admin\Country;
 use App\Admin\Course;
@@ -127,6 +128,24 @@ class ViewRepository extends Common
         return compact('blogs','max_blog_id');
     }
 
+    public function load_categorized_blog($id){
+        $blogs = Blog::where('blogcategory_id', '=', $id)->limit(12)->get();
+        $max_blog_id = "";
+        foreach ($blogs as $blog){
+            $max_blog_id = $blog->id;
+        }
+        return compact('blogs','max_blog_id');
+    }
+
+    public function load_more_categorized_blog($id,$max_id){
+        $blogs = Blog::where('blogcategory_id', '=', $id)->where('id','>',$max_id)->limit(9)->get();
+        $max_blog_id = "";
+        foreach ($blogs as $blog){
+            $max_blog_id = $blog->id;
+        }
+        return compact('blogs','max_blog_id');
+    }
+
     public function success_story()
     {
         return Country::with('story')->get();
@@ -137,8 +156,47 @@ class ViewRepository extends Common
     }
 
     public function save_apply(Request $request){
-        $commonClass = new Common();
 
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['email'] = $request->email;
+        $data['ielts_points'] = $request->ielts_points;
+        $data['country_id'] = $request->country;
+        $data['university_id'] = $request->university;
+        $data['program_id'] = $request->program;
+        $data['course_id'] = $request->course;
+        $data['mobile'] = $request->mobile;
+        $data['qualification'] = $request->qualification;
+        $data['comments'] = $request->comments;
+        $data['applicant_files'] = json_encode($request->applicant_files);
+
+
+        if (Apply::create($data)){
+
+           return 'success';
+        }
+        else{
+            return 'error';
+        }
+    }
+
+    public function send_message(Request $request){
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
+        $data['message'] = $request->message;
+
+
+        if (Contact::create($data)){
+            return 'success';
+        }
+        else{
+            return 'error';
+        }
+    }
+
+    public function test(Request $request){
         $image = "";
         $passport_file = "";
         $academic_files = "";
@@ -179,26 +237,14 @@ class ViewRepository extends Common
         $data['research_paper'] = $research_paper;
         if (Apply::create($data)){
 
-           return 'success';
+            return 'success';
         }
         else{
             return 'error';
         }
     }
 
-    public function send_message(Request $request){
-        $data = array();
-        $data['name'] = $request->name;
-        $data['email'] = $request->email;
-        $data['phone'] = $request->phone;
-        $data['message'] = $request->message;
-
-
-        if (Contact::create($data)){
-            return 'success';
-        }
-        else{
-            return 'error';
-        }
+    public function blog_categories(){
+        return Blogcategory::all();
     }
 }

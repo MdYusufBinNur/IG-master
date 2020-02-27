@@ -38,6 +38,7 @@
     {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     {{--<!-- Styles -->--}}
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 
