@@ -11,4 +11,7 @@ class Course extends Model
     public function program(){
         return $this->belongsTo(Program::class);
     }
+    public function application(){
+        return $this->hasMany(Apply::class);
+    }
 }

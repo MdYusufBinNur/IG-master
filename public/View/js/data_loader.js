@@ -138,6 +138,7 @@ $(document).on('click','#load_more', function () {
 });
 
 $(document).on('click','#list_category', function (e) {
+
     let id = $(this).data('id');
 
     let max_id = $('#max_blog').text()

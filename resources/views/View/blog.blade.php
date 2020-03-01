@@ -9,9 +9,15 @@
     <!--Masonry Grid of blog-->
     <section class="blog mb-5">
         <div class="container bg-light rounded">
+
+
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 blog_list_class">
+{{--                    <div class="spinner-border text-primary text-center" role="status">--}}
+{{--                        <span class="sr-only">Loading...</span>--}}
+{{--                    </div>--}}
                     <div class="card-columns rounded p-3 change_blog">
+
                         @if(!empty($blogs))
                             @foreach($blogs as $blog)
                                 <div class="card border-0 shadow-sm">
@@ -35,8 +41,6 @@
                         <a href="#?" class="btn btn-theme-sm mx-auto text-capitalize font-weight-bold px-5 mb-4" id="load_more" >Load More</a>
                     </div>
                 </div>
-
-
                 <div class="col-md-4">
                     <h4 class="text-justify text-uppercase">Categories</h4>
                     <div class="list-group" id="list-tab" role="tablist">

@@ -122,9 +122,9 @@
                                         <th>Dat Of Birth</th>
                                     </tr>
                                     <tr>
-                                        <td id="applicant_pre_address">Chittagong</td>
-                                        <td id="applicant_per_address">Chittagong</td>
-                                        <td id="applicant_dob">31/12/95</td>
+                                        <td id="applicant_pre_address">-</td>
+                                        <td id="applicant_per_address">-</td>
+                                        <td id="applicant_dob">-</td>
                                     </tr>
                                 </table>
                             </div>
@@ -132,8 +132,24 @@
                             <div class="form-group">
                                 <table class="table  table-bordered ">
                                     <tr>
+                                        <td>IELTS</td>
+                                        <td> <p id="ielts_points">-</p></td>
+                                    </tr>
+                                    <tr>
                                         <td>Present Qualification</td>
                                         <td> <p id="applicant_present_qualification">pdf</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interested Country</td>
+                                        <td id="applicant_interested_country">Country Name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interested University</td>
+                                        <td id="applicant_interested_university">University Name</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interested Program</td>
+                                        <td id="applicant_interested_program">Program Name</td>
                                     </tr>
 
                                     <tr>
@@ -142,13 +158,9 @@
                                     </tr>
                                     <tr>
                                         <td>Academic Certificates</td>
-                                        <td><a href="" target="_blank" id="applicant_academic_certificate_"> <p id="applicant_academic_certificate">pdf</p> </a></td>
+                                        <td  id="applicant_academic_certificate_"></td>
                                     </tr>
 
-                                    <tr>
-                                        <td>Research Paper</td>
-                                        <td><a href="" target="_blank" id="applicant_research_paper_"> <p id="applicant_research_paper">pdf</p> </a></td>
-                                    </tr>
                                 </table>
                             </div>
 

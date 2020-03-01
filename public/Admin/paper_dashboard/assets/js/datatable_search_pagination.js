@@ -286,21 +286,26 @@ function loadBlog(response) {
 }
 
 function loadApplicant(response) {
+    $('#applicant_academic_certificate_').html("")
     $('#applicant_id').val(response.id);
     $('#applicant_name').text(response.first_name + ' ' + response.last_name);
     $('#applicant_email').text(response.email);
     $('#applicant_mobile').text(response.mobile);
-    $('#applicant_nationality').text(response.nationality);
-    $('#applicant_pre_address').text(response.present_address);
-    $('#applicant_per_address').text(response.permanent_address);
-    $('#applicant_dob').text(response.dob);
-    $('#applicant_interested_course').text(response.interested_course);
-    $('#applicant_academic_certificate').text(response.academic_files);
-    $('#applicant_present_qualification').text(response.previous_qualification);
-    $('#applicant_research_paper').text(response.research_paper);
-    $('#applicant_image').attr('src',response.photo);
-    $('#applicant_academic_certificate_').attr('href',response.academic_files);
-    $('#applicant_research_paper_').attr('href',response.research_paper);
+    $('#ielts_points').text(response.ielts_points);
+
+    $('#applicant_interested_course').text(response.course.course_name);
+    $('#applicant_interested_country').text(response.country.country_name);
+    $('#applicant_interested_program').text(response.program.program_name);
+    $('#applicant_interested_univeristy').text(response.university.university_name);
+    $('#applicant_present_qualification').text(response.qualification);
+    /*$('#applicant_image').attr('src',response.photo);*/
+
+    $.each(JSON.parse(response.applicant_files), function (index, val) {
+
+        $('#applicant_academic_certificate_').append("<a href="+val+" target=\"_blank\"> <p id=\"applicant_academic_certificate\">"+val+"</p> </a>");
+
+    });
+
 }
 
 function loadInstitute(response) {

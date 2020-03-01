@@ -56,7 +56,7 @@ class ApplyController extends Controller
      */
     public function show(Apply $apply)
     {
-        return $apply;
+        return $this->applyRepository->show($apply);
     }
 
     /**

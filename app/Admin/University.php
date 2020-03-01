@@ -15,4 +15,8 @@ class University extends Model
     public function program(){
         return $this->hasMany(Program::class);
     }
+
+    public function application(){
+        return $this->hasMany(Apply::class);
+    }
 }

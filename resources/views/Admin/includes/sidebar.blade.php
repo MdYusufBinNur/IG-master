@@ -9,18 +9,14 @@
         </a>
 
         <a href="{{ url('/ig_admin') }}" class="simple-text logo-normal">
-            @if(!empty(\Illuminate\Support\Facades\Auth::user()))
-                {{ \Illuminate\Support\Facades\Auth::user()->name }}
-            @else
-                ADMIN
-            @endif
+            ADMIN
         </a>
     </div>
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="info">
-                <div class="photo">
-                    <img src="{{asset('Admin/paper_dashboard/assets/img/faces/img03.png') }}" />
+                <div class="photo" style="background-color: white">
+                    <img src="{{asset('View/img/logo.png') }}" />
                 </div>
 
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -79,9 +75,6 @@
                     </ul>
                 </div>
             </li>
-
-
-
             <li>
                 <a data-toggle="collapse" href="#apply">
                     <i class="ti-envelope"></i>
@@ -164,7 +157,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+           {{-- <li>
                 <a data-toggle="collapse" href="#country">
                     <i class="ti-cloud"></i>
                     <p>Country
@@ -188,8 +181,8 @@
 
                     </ul>
                 </div>
-            </li>
-            <li>
+            </li>--}}
+            {{--<li>
                 <a data-toggle="collapse" href="#course">
                     <i class="ti-agenda"></i>
                     <p>Courses
@@ -213,7 +206,7 @@
 
                     </ul>
                 </div>
-            </li>
+            </li>--}}
             <li>
                 <a data-toggle="collapse" href="#institutes">
                     <i class="ti-agenda"></i>
@@ -289,7 +282,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+           {{-- <li>
                 <a data-toggle="collapse" href="#programs">
                     <i class="ti-target"></i>
                     <p>Programs
@@ -313,7 +306,7 @@
 
                     </ul>
                 </div>
-            </li>
+            </li>--}}
             <li>
                 <a data-toggle="collapse" href="#scholarships">
                     <i class="ti-announcement"></i>
@@ -461,7 +454,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            {{--<li>
                 <a data-toggle="collapse" href="#universities">
                     <i class="ti-crown"></i>
                     <p>University
@@ -484,7 +477,68 @@
                         </li>
                     </ul>
                 </div>
+            </li>--}}
+            <li>
+                <a data-toggle="collapse" href="#settings">
+                    <i class="ti-settings"></i>
+                    <p>Preference
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="settings">
+                    <ul class="nav">
+                        <li>
+                            <a href="{{ url('/countries/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New Country Info</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/countries') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Country List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/universities/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New University</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/universities') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">University Info List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/programs/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New Program</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/programs') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Programs Info Lists</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/courses/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Add New Course Info</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/courses') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Courses Lists</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+
         </ul>
     </div>
 </div>

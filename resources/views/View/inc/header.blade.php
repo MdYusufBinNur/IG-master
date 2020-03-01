@@ -20,7 +20,7 @@
             <a href="{{route('view_institutes')}}" class="text-uppercase p-3">institutes</a>
             <a href="{{route('view_scholarships')}}" class="text-uppercase p-3">scholarships</a>
             <a href="{{route('view_blog')}}" class="text-uppercase p-3">blog</a>
-            <a href="{{route('view_apply')}}" class="text-uppercase p-3">apply</a>
+            <a href="{{route('view_apply')}}" class="text-uppercase p-3">apply online</a>
         </div>
         <div class="d-flex align-items-center justify-content-around">
             <a href="https://facebook.com/InspirenGlobalEducation" target="_blank" class="social-fb"><i class="fab fa-facebook fa-2x"></i></a>
@@ -55,7 +55,7 @@
                     <a href="{{route('view_institutes')}}" class="text-uppercase px-2">institutes</a>
                     <a href="{{route('view_scholarships')}}" class="text-uppercase px-2">scholarships</a>
                     <a href="{{route('view_blog')}}" class="text-uppercase px-2">blog</a>
-                    <a href="{{route('view_apply')}}" class="text-uppercase px-2">apply</a>
+                    <a href="{{route('view_apply')}}" class="text-uppercase px-2">apply online</a>
                 </div>
             </div>
         </div>

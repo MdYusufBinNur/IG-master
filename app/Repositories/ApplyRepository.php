@@ -32,4 +32,8 @@ class ApplyRepository implements Base
     {
         // TODO: Implement delete() method.
     }
+
+    public function show(Model $model){
+        return Apply::with('country', 'university', 'program','course')->where('id','=',$model->id)->first();
+    }
 }
