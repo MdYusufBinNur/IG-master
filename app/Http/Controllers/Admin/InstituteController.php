@@ -34,7 +34,8 @@ class InstituteController extends Controller
      */
     public function create()
     {
-        return view('Admin.Institute.institute');
+        $countries = $this->instituteRepository->countries();
+        return view('Admin.Institute.institute',compact('countries'));
     }
 
     /**

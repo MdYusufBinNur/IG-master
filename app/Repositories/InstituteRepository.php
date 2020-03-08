@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Admin\Country;
 use App\Admin\Institute;
 use App\Http\Controllers\Common;
 use App\Http\Controllers\Helper\Base;
@@ -42,13 +43,14 @@ class InstituteRepository extends Common implements Base
                 if (empty($image)){
                     $data['institute_image'] = $isAvailable->institute_image;
                 }
+
                 else{
                     File::delete($isAvailable->institute_image);
                 }
-                if (empty($request->country_id))
+              /*  if (empty($request->country_id))
                 {
                     $data['country_id'] =  $isAvailable->country_id;
-                }
+                }*/
                 $isAvailable->update($data);
                 return 'success';
             }
@@ -86,5 +88,9 @@ class InstituteRepository extends Common implements Base
 
     public function show(Model $model){
         return Institute::with('country')->where('id','=', $model->id)->first();
+    }
+
+    public function countries(){
+        return Country::all();
     }
 }

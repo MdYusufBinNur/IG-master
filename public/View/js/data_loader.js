@@ -6,13 +6,9 @@ $().ready(function() {
         success: function (data) {
             callback()
             $.each(data, function(i, data) {
-
-
                 let country_name = data.country_name;
                 let value = data.id;
-
                 $("#find_country").append("<option value="+ value +">"+country_name+"</option>");
-
             });
         },
         error: function (response) {
