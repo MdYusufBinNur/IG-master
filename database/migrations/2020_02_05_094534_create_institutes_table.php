@@ -18,8 +18,6 @@ class CreateInstitutesTable extends Migration
             $table->string('institute_name');
             $table->string('institute_image')->nullable();
             $table->timestamps();
-
-
         });
     }
 

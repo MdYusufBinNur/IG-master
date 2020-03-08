@@ -273,8 +273,9 @@
                             <div class="card shadow w-100 h-100 border-0">
                                 <img src="{{ asset($blog->blog_image) }}" class="card-img-top object-cover" />
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $blog->blog_tittle }}</h5>
-                                    <p class="card-text">{!! substr($blog->blog_description,0,255) !!}...</p>
+                                    <h5 class="card-title">{{ $blog->blog_title }}</h5>
+{{--                                    <p class="card-text">{!! substr($blog->blog_description,0,255) !!}...</p>--}}
+{{--                                    --}}
                                     <a href="{{ url('get_blog_details/').'/'.$blog->id }}" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
                                             class="fas fa-chevron-right"></i></a>
                                 </div>
