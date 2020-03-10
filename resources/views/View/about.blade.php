@@ -5,8 +5,10 @@
     <section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
         <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-info-circle"></i> about</h2>
     </section>
-    @if(!empty($about))
 
+    @if(!empty($about))
+        <section class="about-section mb-5">
+            <div class="container">
         <section class="about m-3">
             <div class="card border-0 shadow">
                 <div class="row">
@@ -37,9 +39,10 @@
                 </div>
             </div>
         </section>
-
+            </div>
+        </section>
     @endif
-   {{-- <section class="about-section mb-5">
+{{--    <section class="about-section mb-5">
         <div class="container">
             <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">IG Education<br><small>All that you
                     should know</small>
@@ -60,7 +63,7 @@
                 </div>
             </div>
         </div>
-    </section>
---}}
+    </section>--}}
+
 
 @endsection

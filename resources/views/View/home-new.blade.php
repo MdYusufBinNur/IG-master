@@ -150,7 +150,6 @@
     <!-- Destinations Grid -->
     <section id="countries" class="mt-5 bg-light">
         <h2 class="display-4 color-primary text-uppercase text-center mb-5 pt-3">countries</h2>
-
         <div class="container-fluid">
             <div class="row d-flex">
                 <div class="col-12 col-md-10 mx-auto d-flex">
@@ -179,8 +178,6 @@
     <section id="institutes" class="my-5">
         <h2 class="display-4 text-uppercase text-center color-primary mb-5">institutes</h2>
         <div class="container-fluid">
-
-
             <div class="row d-flex">
                 <div class="col-12 col-md-10 mx-auto d-flex">
                     <div id="institute-carousel" class="owl-carousel p-2 d-flex">

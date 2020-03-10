@@ -18,7 +18,7 @@ homeSlider.owlCarousel({
 // Sliders starts
 $('#country-carousel, #institute-carousel').owlCarousel({
     loop: true,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 5000,
     slideTransition: 'linear',
     autoplaySpeed: 5000,
@@ -36,7 +36,7 @@ $('#country-carousel, #institute-carousel').owlCarousel({
             nav: false
         },
         1000: {
-            items: 3,
+            items: 4,
             margin: 40,
             nav: true,
         }
