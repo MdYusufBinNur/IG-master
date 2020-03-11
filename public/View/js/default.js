@@ -28,12 +28,12 @@ $('#country-carousel, #institute-carousel').owlCarousel({
         0: {
             items: 1,
             margin: 20,
-            nav: false,
+            nav: true,
         },
         600: {
             items: 2,
             margin: 20,
-            nav: false
+            nav: true
         },
         1000: {
             items: 4,
@@ -41,6 +41,33 @@ $('#country-carousel, #institute-carousel').owlCarousel({
             nav: true,
         }
     }
-})
+});
+$('#story-carousel').owlCarousel({
+    loop: true,
+    slideTransition: 'linear',
+    responsiveClass: true,
+    responsive: {
+        0: {
+            items: 1,
+            margin: 20,
+            nav: true,
+        },
+        600: {
+            items: 1,
+            margin: 20,
+            nav: true
+        },
+        1000: {
+            items: 3,
+            margin: 20,
+            nav: true,
+        },
+        2000: {
+            items: 4,
+            margin: 20,
+            nav: true,
+        }
+    }
+});
 document.getElementsByClassName('owl-prev')[1].innerHTML = '<i class="fas fa-4x fa-caret-left"></i>'
 document.getElementsByClassName('owl-next')[1].innerHTML = '<i class="fas fa-4x fa-caret-right"></i>'

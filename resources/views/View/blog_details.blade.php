@@ -9,12 +9,12 @@
 
     <section class="blog-details">
         <div class="container">
-            <div class="row">
+            <div class="row card shadow m-2">
                 @if(!empty($blog_detail))
                     <div class="col-12">
                         <img src="{{ asset($blog_detail->blog_image) }}" class="img-fluid rounded-top mx-auto d-block" alt="">
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 ">
                         <h5 class="font-weight-bold display-4 pt-3 pb-3">{!! $blog_detail->blog_title !!}</h5>
                         <p class="text-justify">{!! $blog_detail->blog_description !!}</p>
                     </div>

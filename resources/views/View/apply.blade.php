@@ -67,171 +67,173 @@
         </div>
     </section>
 
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
+            <form action="{{ url('/save_apply') }}" method="post" id="regForm" enctype="multipart/form-data">
 
-        <form action="{{ url('/save_apply') }}" method="post" id="regForm" enctype="multipart/form-data">
-
-            @csrf()
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     id="progress_bar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
-                </div>
-            </div>
-
-            <h1 class="text-center" style="color: #0c1b55"><strong>Application Form</strong></h1>
-
-            <!-- One "tab" for each step in the form: -->
-            <div class="tab">
-                <div>
-                    <label for="month">Month </label>
-                    <select class="custom-select my-1 mr-sm-2" id="month" onselect="this.className" required>
-                        <option value="January" selected>January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="month">Year </label>
-                    <select class="custom-select my-1 mr-sm-2" id="year" onselect="this.className" required>
-
-                        <option value="2020" selected>2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                        <option value="2027">2027</option>
-                        <option value="2028">2028</option>
-                        <option value="2029">2029</option>
-                        <option value="2030">2030</option>
-
-                    </select>
-                </div>
-            </div>
-
-            <div class="tab">
-                <label for="">UKVI IELTS: </label>
-                <div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio" id="yes">Yes
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" checked name="optradio" id="no">No
-                        </label>
+                @csrf()
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                         id="progress_bar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
                     </div>
                 </div>
-                <div class="point">
-                    <label for="">Band Score</label>
-                    <input placeholder="" name="ielts_points" class="form-control" id="ielts_points">
-                </div>
-                <div>
-                    <label for="find_country">Country </label>
-                    <select class="custom-select my-1 mr-sm-2" id="find_country" name="country" onselect="this.className"
-                            required>
 
-                    </select>
-                </div>
-                <div>
-                    <label for="month">University you are interested in </label>
-                    <select class="custom-select my-1 mr-sm-2" id="find_university" name="university" onselect="this.className"
-                            required>
+                <h1 class="text-center" style="color: #0c1b55"><strong>Application Form</strong></h1>
 
-                    </select>
-                </div>
-                <div>
-                    <label for="month">Course Level </label>
-                    <select class="custom-select my-1 mr-sm-2" id="find_program" name="program" onselect="this.className"
-                            required>
+                <!-- One "tab" for each step in the form: -->
+                <div class="tab">
+                    <div>
+                        <label for="month">Month </label>
+                        <select class="custom-select my-1 mr-sm-2" id="month" onselect="this.className" required>
+                            <option value="January" selected>January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="month">Year </label>
+                        <select class="custom-select my-1 mr-sm-2" id="year" onselect="this.className" required>
 
-                    </select>
-                </div>
-                <div>
-                    <label for="month">Course you are interested in </label>
-                    <select class="custom-select my-1 mr-sm-2" id="find_course" name="course" onselect="this.className"
-                            required>
+                            <option value="2020" selected>2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
 
-                    </select>
-                </div>
-
-
-                <div class="mb-4">
-                    <label for="month">Current Qualification </label>
-                    <input placeholder="" name="qualification" class="form-control input" oninput="this.className = ''">
-                </div>
-            </div>
-
-            <div class="tab">
-                <div>
-                    <label for="month">First Name</label>
-                    <input placeholder="" name="first_name" class="form-control input" oninput="this.className = ''">
-                </div>
-                <div>
-                    <label for="month">Last Name</label>
-                    <input placeholder="" name="last_name" class="form-control input" oninput="this.className = ''">
-                </div>
-                <div>
-                    <label for="month">Phone</label>
-                    <input placeholder="" name="mobile" class="form-control input" oninput="this.className = ''">
-                </div>
-                <div class="mb-4">
-                    <label for="month">Email</label>
-                    <input placeholder="" name="email" class="form-control input" oninput="this.className = ''">
-                </div>
-                {{--<p><input placeholder="dd" class="form-control" oninput="this.className = ''"></p>
-                <p><input placeholder="mm" class="form-control" oninput="this.className = ''"></p>
-                <p><input placeholder="yyyy" class="form-control" oninput="this.className = ''"></p>--}}
-            </div>
-
-            <div class="tab">
-                <div class="form-group">
-                    <label for="document">Upload any important document</label>
-                    <div class="needsclick dropzone" id="document-dropzone">
-
+                        </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="document">Immigration History/Comments</label>
-                    <textarea class="form-control" rows="3" name="comments"></textarea>
-                </div>
-                {{--            <p><input placeholder="Username..." class="form-control" oninput="this.className = ''"></p>--}}
-                {{--            <p><input placeholder="Password..." class="form-control" oninput="this.className = ''"></p>--}}
-            </div>
 
-            <div>
+                <div class="tab">
+                    <label for="">UKVI IELTS: </label>
+                    <div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio" id="yes">Yes
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" checked name="optradio" id="no">No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="point">
+                        <label for="">Band Score</label>
+                        <input placeholder="" name="ielts_points" class="form-control" id="ielts_points">
+                    </div>
+                    <div>
+                        <label for="find_country">Country </label>
+                        <select class="custom-select my-1 mr-sm-2" id="find_country" name="country" onselect="this.className"
+                                required>
+
+                        </select>
+                    </div>
+                    <div>
+                        <label for="month">University you are interested in </label>
+                        <select class="custom-select my-1 mr-sm-2" id="find_university" name="university" onselect="this.className"
+                                required>
+
+                        </select>
+                    </div>
+                    <div>
+                        <label for="month">Course Level </label>
+                        <select class="custom-select my-1 mr-sm-2" id="find_program" name="program" onselect="this.className"
+                                required>
+
+                        </select>
+                    </div>
+                    <div>
+                        <label for="month">Course you are interested in </label>
+                        <select class="custom-select my-1 mr-sm-2" id="find_course" name="course" onselect="this.className"
+                                required>
+
+                        </select>
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label for="month">Current Qualification </label>
+                        <input placeholder="" name="qualification" class="form-control input" oninput="this.className = ''">
+                    </div>
+                </div>
+
+                <div class="tab">
+                    <div>
+                        <label for="month">First Name</label>
+                        <input placeholder="" name="first_name" class="form-control input" oninput="this.className = ''">
+                    </div>
+                    <div>
+                        <label for="month">Last Name</label>
+                        <input placeholder="" name="last_name" class="form-control input" oninput="this.className = ''">
+                    </div>
+                    <div>
+                        <label for="month">Phone</label>
+                        <input placeholder="" name="mobile" class="form-control input" oninput="this.className = ''">
+                    </div>
+                    <div class="mb-4">
+                        <label for="month">Email</label>
+                        <input placeholder="" name="email" class="form-control input" oninput="this.className = ''">
+                    </div>
+                    {{--<p><input placeholder="dd" class="form-control" oninput="this.className = ''"></p>
+                    <p><input placeholder="mm" class="form-control" oninput="this.className = ''"></p>
+                    <p><input placeholder="yyyy" class="form-control" oninput="this.className = ''"></p>--}}
+                </div>
+
+                <div class="tab">
+                    <div class="form-group">
+                        <label for="document">Upload any important document</label>
+                        <div class="needsclick dropzone" id="document-dropzone">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="document">Immigration History/Comments</label>
+                        <textarea class="form-control" rows="3" name="comments"></textarea>
+                    </div>
+                    {{--            <p><input placeholder="Username..." class="form-control" oninput="this.className = ''"></p>--}}
+                    {{--            <p><input placeholder="Password..." class="form-control" oninput="this.className = ''"></p>--}}
+                </div>
+
                 <div>
-                    <button class="btn  btn-block" style="background-color: #040d21; color: white" type="button"
-                            id="prevBtn" onclick="nextPrev(-1)">Previous
-                    </button>
-                    <button type="button" class="btn btn-block" style="background-color: #0c1b55; color: white"
-                            id="nextBtn" onclick="nextPrev(1)">Next
-                    </button>
+                    <div>
+                        <button class="btn  btn-block" style="background-color: #040d21; color: white" type="button"
+                                id="prevBtn" onclick="nextPrev(-1)">Previous
+                        </button>
+                        <button type="button" class="btn btn-block" style="background-color: #0c1b55; color: white"
+                                id="nextBtn" onclick="nextPrev(1)">Next
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-            </div>
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
 
-        </form>
+            </form>
+        </div>
     </div>
+
     {{--<div class="card shadow rounded p-3 border-0">
                 <form action="{{ url('/save_apply') }}" method="post" enctype="multipart/form-data">
 

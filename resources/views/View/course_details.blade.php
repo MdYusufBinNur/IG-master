@@ -12,25 +12,26 @@
             @if(!empty($course_details))
                 <div class="row">
                     <div class="col-sm-6 col-md-6 pb-1">
-                        <h5>COUNTRY: <strong class="text-muted">{{ $course_details->program->university->country->country_name }}</strong></h5>
+                        <h5>Country : <strong class="text-muted">{{ $course_details->program->university->country->country_name }}</strong></h5>
                     </div>
                     <div class="col-sm-6 col-md-6 pb-1">
-                        <h5>UNIVERSITY: <strong class="text-muted">{{ $course_details->program->university->university_name }}</strong></h5>
+                        <h5>University : <strong class="text-muted">{{ $course_details->program->university->university_name }}</strong></h5>
                     </div>
 
                 </div>
                 <div class="row">
+
                     <div class="col-sm-6 col-md-6 pb-1">
-                        <h5>PROGRAM: <strong class="text-muted">{{ $course_details->program->program_name }}</strong></h5>
+                        <h5>Program : <strong class="text-muted">{{ $course_details->program->program_name }}</strong></h5>
                     </div>
                     <div class="col-sm-6 col-md-6 pb-1">
-                        <h5>COURSE: <strong class="text-muted">{{ $course_details->course_name }}</strong></h5>
+                        <h5>Course : <strong class="text-muted">{{ $course_details->course_name }}</strong></h5>
                     </div>
                 </div>
+                <hr class="gradient-bg left-line">
                 <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Courses Description:</h2>
                 <div class="card shadow border-0 p-3">
                     {!! $course_details->course_details !!}
-
                 </div>
 
             @endif

@@ -1,5 +1,26 @@
 @extends('layouts.app')
+@section('style')
 
+    <script src="{{asset('Admin/paper_dashboard/assets/tinymce/tinymce.min.js') }}" >
+    </script>
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            toolbar: 'undo redo',
+            // enable title field in the Image dialog
+            image_title: true,
+            // enable automatic uploads of images represented by blob or data URIs
+            automatic_uploads: true,
+            // add custom filepicker only to Image dialog
+            file_picker_types: 'image',
+
+            entity_encoding : "raw",
+            height: 200,
+
+        });
+    </script>
+
+@endsection
 @section('content')
 
     <div class="content">

@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="card">
-                        <form id="registerFormValidation" action="{{ url('procedures') }}" method="post">
+                        <form id="registerFormValidation" action="{{ url('procedures') }}" method="post" enctype="multipart/form-data">
                             @csrf()
                             <div class="card-header">
                                 <a href="{{ url('procedures') }}" class="btn btn-outline-dark  pull-right">List</a>
@@ -86,7 +86,10 @@
 
                                     </textarea>
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="control-label" for="country_map_image">Map Image with university icons for Selected country</label>
+                                    <input type="file" name="country_map_image" class="form-control" required/>
+                                </div>
                                 <div class="category"><star>*</star> Required fields</div>
                             </div>
 

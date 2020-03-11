@@ -126,7 +126,8 @@ header a:hover { color: #0c1b55 !important; font-weight: bold; }
 }
 
 #country-carousel .owl-prev,
-#institute-carousel .owl-prev {
+#institute-carousel .owl-prev,
+#story-carousel .owl-prev{
     display: block;
     float: left;
     margin-left: -50px;
@@ -136,6 +137,7 @@ header a:hover { color: #0c1b55 !important; font-weight: bold; }
 }
 
 #country-carousel .owl-next,
+#story-carousel .owl-next,
 #institute-carousel .owl-next {
     float: right;
     margin-right: -50px;
@@ -146,11 +148,103 @@ header a:hover { color: #0c1b55 !important; font-weight: bold; }
 }
 
 
+hr {
+    border: 0;
+    height: 5px;
+    width: 80px;
+}
+
+hr.left-line {
+    margin: 20px 0 20px 0;
+}
+
+hr.gradient-bg {
+    background: #0c1b55;
+    background: -moz-linear-gradient(left, #0c1b55 0%, #2b0ee4 100%);
+
+    background: -webkit-linear-gradient(left, #0c1b55 0%, #2b0ee4 100%);
+    background: -o-linear-gradient(left, #0c1b55 0%, #2b0ee4 100%);
+    background: -ms-linear-gradient(left, #0c1b55 0%, #2b0ee4 100%);
+    background: linear-gradient(to right, #0c1b55 0%, #2b0ee4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c1b55', endColorstr='#2b0ee4', GradientType=1 );
+}
+
+.team-img {
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    overflow: hidden;
+    margin-bottom: 27px;
+    position: relative;
+    max-width: 370px;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.team-img img {
+    display: block;
+    width: 100%;
+    max-width: 370px;
+    min-height: 205px;
+    object-fit: cover;
+}
+
+.team-img::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 21, 30, 0);
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all;
+    z-index: 10;
+}
+
+.team-img:hover .team-soc-list {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all;
+}
 
 
+/*/ Back to Top /*/
+.back2top {
+    position: fixed;
+    z-index: 999;
+    width: 45px;
+    height: 45px;
+    background: #0c1b55;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: none;
+    bottom: 30px;
+    right: 30px;
+    text-indent: -9999px;
+    -webkit-transition: background-color 300ms, bottom 400ms;
+    transition: background-color 300ms, bottom 400ms;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+}
 
+.back2top::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 20px;
+    width: 12px;
+    height: 7px;
+    background: url("../img/back2top__img.png") no-repeat center center;
+}
 
-
+.back2top:hover {
+    background-color: #ccc;
+}
 
 
 

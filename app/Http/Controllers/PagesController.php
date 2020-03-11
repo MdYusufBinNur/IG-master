@@ -41,31 +41,35 @@ class PagesController extends Controller
 
         $about  = $this->viewRepository->about();
         $countries = $this->viewRepository->all_countries();
-        return view('View.about', compact('about','countries'));
+        $owner = $this->viewRepository->owner();
+        return view('View.about', compact('about','countries','owner'));
     }
 
     public function services() {
         $services = $this->viewRepository->services();
         $countries = $this->viewRepository->all_countries();
-        return view('View.services',compact('services','countries'));
+        $owner = $this->viewRepository->owner();
+        return view('View.services',compact('services','countries','owner'));
     }
 
     public function countries() {
         $countries = $this->viewRepository->all_countries();
-        return view('View.countries', compact('countries'));
+        $owner = $this->viewRepository->owner();
+        return view('View.countries', compact('countries','owner'));
     }
 
     public function institutes() {
         $countries = $this->viewRepository->country_institute();
+        $owner = $this->viewRepository->owner();
        // return $countries;
-        return view('View.institutes', compact('countries'));
+        return view('View.institutes', compact('countries','owner'));
     }
 
     public function scholarships() {
 
         $countries = $this->viewRepository->success_story();
-
-        return view('View.scholarships', compact('countries'));
+        $owner = $this->viewRepository->owner();
+        return view('View.scholarships', compact('countries','owner'));
     }
 
     public function blog() {
@@ -74,13 +78,15 @@ class PagesController extends Controller
         $max_id = $result['max_blog_id'];
         $countries = $this->viewRepository->all_countries();
         $categories = $this->viewRepository->blog_categories();
-        return view('View.blog', compact('blogs','max_id','countries','categories'));
+        $owner = $this->viewRepository->owner();
+        return view('View.blog', compact('blogs','max_id','countries','categories','owner'));
     }
 
     public function apply() {
         $countries = $this->viewRepository->all_countries();
         $courses = $this->viewRepository->all_courses();
-        return view('View.apply',compact('countries','courses'));
+        $owner = $this->viewRepository->owner();
+        return view('View.apply',compact('countries','courses','owner'));
     }
 
     public function course_details(Request $request){
@@ -90,21 +96,23 @@ class PagesController extends Controller
         }
         $course_details = $this->viewRepository->course_details($request->except('_token'));
         $countries = $this->viewRepository->all_countries();
-
-        return view('View.course_details',compact('course_details','countries'));
+        $owner = $this->viewRepository->owner();
+        return view('View.course_details',compact('course_details','countries','owner'));
     }
 
     public function blog_details($id){
         $blog_detail = $this->viewRepository->blog_details($id);
         $countries = $this->viewRepository->all_countries();
-        return view('View.blog_details', compact('blog_detail','countries'));
+        $owner = $this->viewRepository->owner();
+        return view('View.blog_details', compact('blog_detail','countries','owner'));
     }
 
     public function country_details($id){
         $countries = $this->viewRepository->all_countries();
         $country_details = $this->viewRepository->country_details($id);
+        $owner = $this->viewRepository->owner();
         //return $country_details;
-        return view('View.countries', compact('countries','country_details'));
+        return view('View.countries', compact('countries','country_details','owner'));
     }
 
     public function save_apply(Request $request){

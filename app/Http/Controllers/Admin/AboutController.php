@@ -16,10 +16,8 @@ class AboutController extends Controller
 
     public function __construct(AboutRepository $aboutRepository, Common $commonClass)
     {
-
         $this->aboutRepository = $aboutRepository;
         $this->commonClass = $commonClass;
-
     }
 
 

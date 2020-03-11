@@ -7,5 +7,6 @@
             @yield('page-content')
 
         @include ('View.inc.footer')
+
     </body>
 </html>

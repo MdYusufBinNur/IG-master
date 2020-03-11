@@ -17,6 +17,7 @@ class CreateProceduresTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('country_id')->unsigned();
             $table->longText('description')->nullable();
+            $table->longText('country_map_image')->nullable();
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

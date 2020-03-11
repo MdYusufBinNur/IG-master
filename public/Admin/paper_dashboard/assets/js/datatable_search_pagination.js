@@ -67,7 +67,7 @@ $().ready(function() {
                                         swal("error", "Failed to delete", "error");
                                     }
                                 })
-                                // window.location.href = url+'s/'+id;
+                  we              // window.location.href = url+'s/'+id;
                             } else {
                                 swal("Cancelled", "Your imaginary file is safe :)", "error");
                             }
@@ -161,6 +161,8 @@ function loadData(url, response) {
 function tinyMCE_init() {
     tinymce.init({
         selector:'textarea',
+        plugins: "lists",
+        toolbar: "numlist bullist *",
         height: 200,
     });
 }
@@ -172,9 +174,9 @@ function modalHide() {
 function loadAbout(response) {
     $('#about_id').val(response.id);
     $('#about_title').val(response.about_title);
-    $('#about_description').val(response.about_description);
-    $('#about_mission').val(response.about_mission);
-    $('#about_vision').val(response.about_vision);
+    $('#about_description').text(response.about_description);
+    $('#about_mission').text(response.about_mission);
+    $('#about_vision').text(response.about_vision);
     $('#old_logo').attr('src',response.about_image);
 }
 
@@ -227,7 +229,7 @@ function loadProcedure(response) {
     $('#procedure_id').val(response.id);
     $('#old_country_name').val(response.country['country_name']);
     $('#description').val(response.description);
-
+    $('#old_logo').attr('src',response.country_map_image);
 }
 
 function loadScholarship(response) {

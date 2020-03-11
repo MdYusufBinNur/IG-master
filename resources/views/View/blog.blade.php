@@ -3,12 +3,12 @@
 @section('page-content')
 
     <section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
-        <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> IG Education Blogposts and News</h2>
+        <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> IG Education Blog posts and News</h2>
     </section>
 
     <!--Masonry Grid of blog-->
     <section class="blog mb-5">
-        <div class="container bg-light rounded">
+        <div class="container rounded">
 
 
             <div class="row">
@@ -31,15 +31,17 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="container bg-light rounded ">
+                    <div class="container rounded ">
                         <div class="card-columns rounded p-3 blog_data">
 
                         </div>
                     </div>
 
+                    @if(count($blogs) > 0)
                     <div class="form-group col-md-12 mb-3 d-flex align-items-center more_blog">
                         <a href="#?" class="btn btn-theme-sm mx-auto text-capitalize font-weight-bold px-5 mb-4" id="load_more" >Load More</a>
                     </div>
+                    @endif
                 </div>
                 <div class="col-md-4">
                     <h4 class="text-justify text-uppercase">Categories</h4>

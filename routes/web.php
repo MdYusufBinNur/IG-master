@@ -21,6 +21,7 @@ Auth::routes([
 ]);
 
 Route::get('/ig_admin', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'PagesController@home')->name('/');
 

@@ -150,26 +150,41 @@ $(document).on('click','#list_category', function (e) {
             $('.more_blog').html("").append("<a href=\"#?\" class=\"btn btn-theme-sm mx-auto text-capitalize font-weight-bold px-5 mb-4\" id=\"load_more_categorized_blog\" >Load More</a>");
 
 
+                if (response.blogs.length > 0){
+                    $.each(response.blogs, function (i, data) {
+                        $('#blog_id').text(data.blogcategory_id)
 
-            $.each(response.blogs, function (i, data) {
-                $('#blog_id').text(data.blogcategory_id)
+                        $('.change_blog').append(
+                            "                           <div class=\"card border-0 shadow-sm\">\n" +
+                            "                                <img src=\""+data.blog_image+"\" class=\"card-img-top\" alt=\"\">\n" +
+                            "                                <div class=\"card-body p-2\">\n"+
+                            "                                    <h5 class=\"card-title font-weight-bold\">"+ data.blog_title+"</h5>\n" +
+                            "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 200) +"...\n" +
+                            "                                    </p>\n" +
+                            "                                    <a href=\" get_blog_details/"+data.id+" \" class=\"btn btn-theme-sm text-white text-capitalize text-center\">Read more</a>\n" +
+                            "                                </div>\n" +
+                            "                            </div>"
 
-                $('.change_blog').append(
-                    "                           <div class=\"card border-0 shadow-sm\">\n" +
-                    "                                <img src=\""+data.blog_image+"\" class=\"card-img-top\" alt=\"\">\n" +
-                    "                                <div class=\"card-body p-2\">\n"+
-                    "                                    <h5 class=\"card-title font-weight-bold\">"+ data.blog_title+"</h5>\n" +
-                    "                                    <p class=\"card-text\">"+ data.blog_description.substring(0, 200) +"...\n" +
-                    "                                    </p>\n" +
-                    "                                    <a href=\" get_blog_details/"+data.id+" \" class=\"btn btn-theme-sm text-white text-capitalize text-center\">Read more</a>\n" +
-                    "                                </div>\n" +
-                    "                            </div>"
+                        )
 
-                )
+                    })
 
-            })
+                    $('#max_blog').text(response.max_blog_id);
+                }
+                else {
 
-            $('#max_blog').text(response.max_blog_id);
+                    $('.change_blog').append(
+                        "<div class='row'> <div class='col-md-4 offset-4'>" +
+                        "<img src='../../View/img/noimage.jpg' class='text-center'> <br> "+
+
+                        " </div></div>"
+                    )
+                    $('.more_blog').html("")
+                }
+
+
+
+
 
         }
     })
@@ -208,3 +223,23 @@ $(document).on('click','#load_more_categorized_blog', function (e) {
         }
     });
 })
+//Back to top
+$(window).on('scroll', function () {
+    if ($(window).scrollTop() > 0) {
+        $('.back2top').fadeIn();
+    } else {
+        $('.back2top').fadeOut();
+    }
+    /*var bottom_pad = parseInt($('.footer_wrapper').height())+parseInt($('.footer_wrapper').attr('data-pad-top'))+parseInt($('.footer_wrapper').attr('data-pad-bottom')) + 30;
+    if ($(window).scrollTop() > $(doc).height() - $(window).height() - bottom_pad) {
+        $('.back2top').css({'bottom': bottom_pad+'px'});
+    } else {
+        $('.back2top').css({'bottom': '30px'});
+    }*/
+});
+$('.back2top').on('click', function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 400);
+    return false;
+});

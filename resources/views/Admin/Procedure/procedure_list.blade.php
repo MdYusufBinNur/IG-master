@@ -128,7 +128,17 @@
 
                                 </textarea>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label" for="country_map_image">Map Image with university icons for Selected country</label>
+                                <input type="file" name="country_map_image" class="form-control" />
+                            </div>
 
+
+                            <div class="form-group">
+                                <label for="old_logo">Old Image</label>
+                                <br>
+                                <img src="" alt="" width="50" height="auto" id="old_logo">
+                            </div>
                         </div>
                     </div>
 

@@ -1,3 +1,39 @@
+<footer class="py-5 border border-top border-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-1">
+                @if(!empty($owner))
+
+                    <a href="{{route('/')}}"><img src="{{asset($owner->owner_image)}}" class="header-logo"
+                                                  alt="IG Education Logo" /></a>
+                    <h2 class="display-5 color-primary">{{ $owner->owner_name }}</h2>
+                    <p class="text-justify py-3">{{ $owner->owner_message }}</p>
+                @endif
+
+                <p class="socials">
+                    <a href="https://www.facebook.com/InspirenGlobalEducation/" target="_blank"><i
+                            class="fab fa-2x fa-facebook social-fb mr-3"></i></a>
+                    <a href="https://twitter.com/InspirenEdu" target="_blank"><i
+                            class="fab fa-twitter social-twitter fa-2x mr-3"></i></a>
+                    <a href="https://www.linkedin.com/in/inspiren-global-education-b79457194/" target="_blank"><i
+                            class="fab fa-2x fa-linkedin social-linkedin mr-3"></i></a>
+                </p>
+            </div>
+            <div class="col-12 col-md-4 offset-md-2">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.7751628087376!2d-0.06868078384391355!3d51.51734077963678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761dd04a1cbff1%3A0x973021f589122d30!2sInspiren%20Global%20Education%20Ltd.!5e0!3m2!1sen!2sbd!4v1577269861290!5m2!1sen!2sbd"
+                    class="w-100 h-100" frameborder="0" style="border:0;" allowfullscreen="" ></iframe>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<section class="bg-color-primary pt-3 pb-2 text-light">
+    <p class="text-justify text-center">Copyright &copy; 2019 | All rights reserved by Inspiren Global Education Ltd.
+    </p>
+</section>
+<a href="#" class="back2top" title="Back to Top" style="display: inline; bottom: 30px;">Back to Top</a>
+
 {{--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"--}}
 {{--        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">--}}
 {{--</script>--}}
