@@ -539,6 +539,24 @@
                 </div>
             </li>
 
+            <li>
+                <a data-toggle="collapse" href="#reset_pass">
+                    <i class="ti-user"></i>
+                    <p>Reset Credentials
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="reset_pass">
+                    <ul class="nav">
+                        <li>
+                            <a href="{{ url('/reset/credential') }}">
+                                <span class="sidebar-mini"><i class="ti-reload"></i></span>
+                                <span class="sidebar-normal">Reset</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

@@ -47,6 +47,8 @@ Route::get('load_more_blog/{id}','PagesController@load_more');
 Route::get('load_categorized_blog/{id}','PagesController@load_categorized_blog');
 Route::get('load_more_categorized_blog/{id}/{max_blog_id}','PagesController@load_more_categorized_blog');
 Route::get('country_details/{id}','PagesController@country_details');
+Route::get('/reset/credential','HomeController@reset')->middleware('auth');
+Route::post('reset','HomeController@reset_pass')->name('reset/credential')->middleware('auth');
 
 Route::post('projects/media', 'PagesController@test_crud')->name('projects.storeMedia');
 
@@ -70,6 +72,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('universities', 'UniversityController');
     Route::resource('blogcategories', 'BlogcategoryController');
 });
+
+Route::get('{path}',"PagesController@home")->where( 'path', '([A-z]+)?' );
+Route::get('{path}/{id}',"PagesController@home")->where( 'path', '([A-z]+)?' );
+Route::get('{path}/{id}/{d}',"PagesController@home")->where( 'path', '([A-z]+)?' );
 
 
 
