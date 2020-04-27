@@ -40,16 +40,20 @@
                             <div class="clearfix"></div>
 
                             <div class="card-content">
-
                                 <div class="form-group">
-                                    <label for="">Select University<star>*</star></label>
-                                    <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="university_id" id="university_id" required >
-
-                                        @if(!empty($universities))
-                                            @foreach($universities as $university)
-                                                <option value="{!! $university->id !!}">{!! $university->university_name !!}</option>
+                                    <label for="">Select Country<star>*</star></label>
+                                    <select class="form-control" data-style="btn-dark  btn-block" data-size="4"  name="country_id" id="country_id" onchange="get_university(this)" required >
+                                        @if(!empty($countries))
+                                            @foreach($countries as $country)
+                                                <option value="{!! $country->id !!}">{!! $country->country_name !!}</option>
                                             @endforeach
                                         @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Select University<star>*</star></label>
+
+                                    <select class="form-control sub_class" name="university_id" id="university_id"   required="" tabindex="-98">
 
                                     </select>
                                 </div>
@@ -74,5 +78,6 @@
             </div>
         </div>
     </div>
+
 
 @endsection

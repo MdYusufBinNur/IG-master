@@ -26,7 +26,9 @@ class CourseController extends Controller
         $results = $this->courseRepository->index();
         $programs = $results['programs'];
         $courses = $results['courses'];
-        return view('Admin.Course.course_list', compact('courses','programs'));
+        $countries = $this->courseRepository->all_countries();
+
+        return view('Admin.Course.course_list', compact('courses','programs','countries'));
     }
 
     /**
@@ -36,8 +38,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $programs = $this->courseRepository->all_programs();
-        return view("Admin.Course.course",compact('programs'));
+        $countries = $this->courseRepository->all_countries();
+
+        return view("Admin.Course.course",compact('countries'));
     }
 
     /**

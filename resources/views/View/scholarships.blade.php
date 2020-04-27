@@ -3,7 +3,9 @@
 @section('page-content')
 
 <!--Masonry Grid of Success stories-->
-
+<section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
+    <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> Success Stories</h2>
+</section>
 <section class="success-stories mb-5">
     <div class="container">
         @if(!empty($countries))

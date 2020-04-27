@@ -96,4 +96,11 @@ class UniversityController extends Controller
     {
         $this->universityRepository->delete($university);
     }
+
+    public function find_university($id){
+        return $this->universityRepository->find_university($id);
+    }
+    public function find_program($id){
+        return $this->universityRepository->find_program($id);
+    }
 }

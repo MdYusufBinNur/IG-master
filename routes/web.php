@@ -35,6 +35,7 @@ Route::get('/view_apply', 'PagesController@apply')->name('view_apply');
 Route::get('/view_find-course', 'PagesController@find')->name('view_find-course');
 
 
+
 Route::post('save_apply', 'PagesController@save_apply');
 Route::post('send_message', 'PagesController@send_message');
 Route::get('get_country','PagesController@country_list');
@@ -71,6 +72,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']] , function () {
     Route::resource('testimonials', 'TestimonialController');
     Route::resource('universities', 'UniversityController');
     Route::resource('blogcategories', 'BlogcategoryController');
+
+    Route::get('/university/{id}', 'UniversityController@find_university');
+    Route::get('/program/{id}', 'UniversityController@find_program');
 });
 
 Route::get('{path}',"PagesController@home")->where( 'path', '([A-z]+)?' );

@@ -25,7 +25,8 @@ class ProgramController extends Controller
         $results = $this->programRepository->index();
         $programs = $results['programs'];
         $universities = $results['universities'];
-        return view('Admin.Program.program_list', compact('programs','universities'));
+        $countries = $this->programRepository->all_countries();
+        return view('Admin.Program.program_list', compact('programs','universities','countries'));
     }
 
     /**
@@ -35,8 +36,8 @@ class ProgramController extends Controller
      */
     public function create()
     {
-       $universities = $this->programRepository->all_universities();
-        return view('Admin.Program.program', compact('universities'));
+       $countries = $this->programRepository->all_countries();
+        return view('Admin.Program.program', compact('countries'));
     }
 
     /**

@@ -36,7 +36,7 @@ class ServiceRepository extends Common implements Base
         if (!empty($request->service_id)){
             $isAvailable = Service::find($request->service_id);
 
-            if (!empty($isAvailable))web{
+            if (!empty($isAvailable)){
                 //return $isAvailable->country_image;
                 if (empty($image)){
                     $data['service_image'] = $isAvailable->service_image;

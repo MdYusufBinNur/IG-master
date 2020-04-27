@@ -78,4 +78,11 @@ class Common
     public function all_courses(){
         return Course::all();
     }
+
+    public function find_university($id){
+        return University::where('country_id',$id)->get();
+    }
+    public function find_program($id){
+        return Program::where('university_id',$id)->get();
+    }
 }

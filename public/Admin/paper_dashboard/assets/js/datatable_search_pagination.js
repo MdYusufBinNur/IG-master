@@ -67,7 +67,7 @@ $().ready(function() {
                                         swal("error", "Failed to delete", "error");
                                     }
                                 })
-                  we              // window.location.href = url+'s/'+id;
+                              // window.location.href = url+'s/'+id;
                             } else {
                                 swal("Cancelled", "Your imaginary file is safe :)", "error");
                             }
