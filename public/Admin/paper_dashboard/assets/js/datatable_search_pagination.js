@@ -18,16 +18,17 @@ $().ready(function() {
                     let id = $(this).data('id');
                     let url = $(this).data('body');
 
-                    //alert(url)
+                   // alert(id)
                     $.ajax({
                         url: url+'s/'+id,
                         method: 'GET',
                         success: function (response) {
 
+                            //console.log(url)
                             loadData(url, response)
 
                         }, error: function (response) {
-
+                            console.log(response)
                             modalHide();
                             swal("Failed to load data", "", "error");
                         }
@@ -64,6 +65,7 @@ $().ready(function() {
                                         window.location.href = url+'s'
                                     },
                                     error: function (response) {
+                                        // console.log(response)
                                         swal("error", "Failed to delete", "error");
                                     }
                                 })
@@ -77,7 +79,9 @@ $().ready(function() {
                 } );
 
 
+
 });
+
 
 function loadData(url, response) {
     switch (url) {
@@ -154,6 +158,24 @@ function loadData(url, response) {
         case 'blogcategorie':
             loadCategory(response);
             break;
+
+        case 'uni_categorie':
+            loadUniCategory(response);
+            break;
+
+        case 'set_up_apply_processe':
+            // alert('hi')
+            loadProcess(response);
+            break;
+
+        case 'parent_program':
+            load_parent_programs(response);
+            break;
+
+        case 'req_to_call_back':
+
+            loadAppointment(response);
+            break;
     }
 
 }
@@ -171,6 +193,16 @@ function modalHide() {
     $('#Modal').modal('hide')
 }
 
+function load_parent_programs(response) {
+    $('#parent_program_id').val(response.id);
+    $('#name').val(response.name);
+}
+
+function loadProcess(response) {
+    $('#process_id').val(response.id);
+    $('#apply_details').val(response.apply_details);
+}
+
 function loadAbout(response) {
     $('#about_id').val(response.id);
     $('#about_title').val(response.about_title);
@@ -182,7 +214,7 @@ function loadAbout(response) {
 
 function loadCountry(response) {
 
-    console.log(response)
+    //console.log(response)
     $('#country_id').val(response.id);
     $('#country_name').val(response.country_name);
     $('#at_a_glance').val(response.at_a_glance);
@@ -190,7 +222,7 @@ function loadCountry(response) {
 }
 
 function loadUniversity(response) {
-    console.log(response)
+    //console.log(response)
     $('#university_id').val(response.id)
     $('#old_country_name').val(response.country['country_name'])
     $('#university_name').val(response.university_name)
@@ -204,16 +236,29 @@ function loadPrograms(response) {
 
     $('#program_id').val(response.id);
     $('#old_university_name').val(response.university['university_name']);
+    $('#old_program_name').val(response.program_name);
     $('#program_name').val(response.program_name);
 
 }
 
-function loadCourse(response) {
+function loadCourse(data) {
 
-    $('#course_id').val(response.id);
-    $('#old_program_name').val(response.program['program_name']);
-    $('#course_name').val(response.course_name);
-    $('#course_details').text(response.course_details);
+
+    $.each(data, function (index, response) {
+        //console.log(response.id)
+        $('#course_id').val(response.id);
+        $('#old_program_name').val(response.program_name);
+        $('#course_name').val(response.course_name);
+        $('#course_full_name').val(response.course_full_name);
+        $('#course_fee').val(response.course_fee);
+        $('#course_duration').val(response.course_duration);
+        $('#intake').val(response.intake);
+        $('#course_details').text(response.course_details);
+        $('#university_id').append("<option value="+ response.university_id +" selected>"+response.university_name+"</option>")
+        $('#country_id').append("<option value="+ response.country_id +" selected>"+response.country_name+"</option>")
+        $('#program_id').append("<option value="+ response.program_id +" selected>"+response.program_name+"</option>")
+    })
+
 }
 
 function loadOwnerInfo(response) {
@@ -300,6 +345,7 @@ function loadApplicant(response) {
     $('#applicant_interested_program').text(response.program.program_name);
     $('#applicant_interested_univeristy').text(response.university.university_name);
     $('#applicant_present_qualification').text(response.qualification);
+    $('#applicant_comments').text(response.comments);
     /*$('#applicant_image').attr('src',response.photo);*/
 
     $.each(JSON.parse(response.applicant_files), function (index, val) {
@@ -307,6 +353,27 @@ function loadApplicant(response) {
         $('#applicant_academic_certificate_').append("<a href="+val+" target=\"_blank\"> <p id=\"applicant_academic_certificate\">"+val+"</p> </a>");
 
     });
+
+}
+
+function loadAppointment(response) {
+    console.log(response)
+    $('#applicant_academic_certificate_').html("")
+    $('#applicant_id').val(response.id);
+    $('#applicant_name').text(response.first_name + ' ' + response.last_name);
+    $('#applicant_email').text(response.email);
+    $('#applicant_mobile').text(response.mobile);
+    $('#ielts_points').text(response.ielts_points);
+
+    $('#applicant_interested_course').text(response.course.course_name);
+    $('#applicant_interested_country').text(response.country.country_name);
+    $('#applicant_present_qualification').text(response.qualification);
+    $('.check_switch').show();
+    if (response.accepted === 1)
+    {
+        $('.check_switch').hide();
+    }
+
 
 }
 
@@ -320,4 +387,40 @@ function loadCategory(response) {
     $('#category_id').val(response.id);
     $('#category_name').val(response.category_name);
     $('#category_description').val(response.category_description);
+}
+function loadUniCategory(response) {
+
+    $('#category_id').val(response.id);
+    $('#category_name').val(response.name);
+
+}
+
+
+function init_db() {
+
+
+    let table = $('#daaa').DataTable();
+    // Edit record
+    table.on( 'click', '.edit', function (e) {
+
+        let id = $(this).data('id');
+        let url = $(this).data('body');
+
+        // alert(id)
+        $.ajax({
+            url: url+'s/'+id,
+            method: 'GET',
+            success: function (response) {
+
+                //console.log(url)
+                loadData(url, response)
+
+            }, error: function (response) {
+
+                modalHide();
+                swal("Failed to load data", "", "error");
+            }
+        })
+    });
+
 }

@@ -49,6 +49,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('View/css/default.css') }}" />
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet">
 
     @yield('style')
 </head>

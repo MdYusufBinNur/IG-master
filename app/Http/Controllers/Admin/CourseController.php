@@ -6,6 +6,7 @@ use App\Admin\Course;
 use App\Http\Controllers\Controller;
 use App\Repositories\CourseRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -63,7 +64,13 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        return  $this->courseRepository->show($course);
+        return DB::table('courses')->select('courses.*','programs.*','universities.university_name','countries.country_name')
+            ->leftJoin('programs','courses.program_id','=','programs.id')
+            ->leftJoin('universities','programs.university_id','=','universities.id')
+            ->leftJoin('countries','countries.id','=','universities.country_id')
+            ->where('courses.id','=',$course->id)
+            ->get();
+        //return  $this->courseRepository->show($course);
     }
 
     /**

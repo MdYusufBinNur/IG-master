@@ -50,6 +50,7 @@
                                         @endif
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="">Select University<star>*</star></label>
 
@@ -58,11 +59,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="program_name">
-                                        Program Name<star>*</star>
-                                    </label>
-                                    <input class="form-control" type="text" name="program_name" id="program_name" required/>
+                                    <label for="">Select Country<star>*</star></label>
+                                    <select class="form-control" data-style="btn-dark  btn-block" data-size="4"  name="parent_program_id" id="parent_program_id"  required >
+                                        @if(!empty($parent_programs))
+                                            @foreach($parent_programs as $program)
+                                                <option value="{!! $program->id !!}">{!! $program->name !!}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
                                 </div>
+{{--                                <div class="form-group">--}}
+{{--                                    <label class="control-label" for="program_name">--}}
+{{--                                        Program Name<star>*</star>--}}
+{{--                                    </label>--}}
+{{--                                    <input class="form-control" type="text" name="program_name" id="program_name" required/>--}}
+{{--                                </div>--}}
 
                                 <div class="category"><star>*</star> Required fields</div>
                             </div>

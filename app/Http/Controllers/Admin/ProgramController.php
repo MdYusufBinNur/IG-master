@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin\ParentProgram;
 use App\Admin\Program;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProgramRepository;
@@ -25,8 +26,9 @@ class ProgramController extends Controller
         $results = $this->programRepository->index();
         $programs = $results['programs'];
         $universities = $results['universities'];
+        $parent_programs = ParentProgram::all();
         $countries = $this->programRepository->all_countries();
-        return view('Admin.Program.program_list', compact('programs','universities','countries'));
+        return view('Admin.Program.program_list', compact('programs','universities','countries','parent_programs'));
     }
 
     /**
@@ -37,7 +39,9 @@ class ProgramController extends Controller
     public function create()
     {
        $countries = $this->programRepository->all_countries();
-        return view('Admin.Program.program', compact('countries'));
+        $parent_programs = ParentProgram::all();
+
+        return view('Admin.Program.program', compact('countries','parent_programs'));
     }
 
     /**

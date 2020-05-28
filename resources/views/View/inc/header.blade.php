@@ -18,7 +18,7 @@
             </div>
 
             <a href="{{route('view_institutes')}}" class="text-uppercase p-3">institutes</a>
-            <a href="{{route('view_scholarships')}}" class="text-uppercase p-3">scholarships</a>
+            <a href="{{route('view_stories')}}" class="text-uppercase p-3">success stories</a>
             <a href="{{route('view_blog')}}" class="text-uppercase p-3">blog</a>
             <a href="{{route('view_apply')}}" class="text-uppercase p-3">apply online</a>
         </div>
@@ -53,9 +53,9 @@
 
 {{--                    <a href="{{route('view_countries')}}" class="text-uppercase px-2">countries</a>--}}
                     <a href="{{route('view_institutes')}}" class="text-uppercase px-2">institutes</a>
-                    <a href="{{route('view_scholarships')}}" class="text-uppercase px-2">scholarships</a>
+                    <a href="{{route('view_stories')}}" class="text-uppercase px-2">success stories</a>
                     <a href="{{route('view_blog')}}" class="text-uppercase px-2">blog</a>
-                    <a href="{{route('view_apply')}}" class="text-uppercase px-2">apply online</a>
+                    <a href="{{route('view_apply')}}" class="btn btn-online btn-sm text-uppercase text-light animate__animated animate__infinite animate__heartBeat">apply online</a>
                 </div>
             </div>
         </div>

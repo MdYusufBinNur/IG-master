@@ -4,35 +4,56 @@
 
 <!--Masonry Grid of Success stories-->
 <section class="breadcrumb py-5 bg-color-primary justify-content-center rounded-0">
-    <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> Success Stories</h2>
+    <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> Scholarships</h2>
 </section>
 <section class="success-stories mb-5">
     <div class="container">
-        @if(!empty($countries))
-        @foreach($countries as $country)
-                @if(count($country->story) > 0)
-                <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Success stories<br><small>of
-                        {{ $country->country_name }} students</small></h2>
-                <div class="card-columns bg-light rounded p-3">
-                    @foreach($country->story as $story)
-                        <div class="card border-0 shadow-sm">
-                            <img src="{{ asset($story->story_image) }}"  width="250" height="auto" class="card-img-top" alt="">
-                            <div class="card-body p-2">
-                                <h5 class="card-title font-weight-bold">{{ $story->title }}</h5>
-                                <p class="card-text text-justify">{!! $story->description !!}
-                                </p>
-                            </div>
-                        </div>
+        <div class="row">
+            @if(!empty($processes))
+                @foreach($processes as $scholarship)
 
-                    @endforeach
-
-                </div>
-                @endif
-        @endforeach
-        @endif
-
+                    <div class="col-md-12">
+                        <p  style="font-family: 'Times New Roman',sans-serif">{!! $scholarship->apply_details !!}</p>
+                    </div>
+                @endforeach
+            @endif
+        </div>
     </div>
 </section>
+<section class="success-stories mb-5">
+    <h2 class="display-5 text-uppercase text-center color-primary mb-5">{{ "International Student Scholarships information page" }}</h2>
+    <div class="container">
+        <div class="row">
+            @if(!empty($scholarships))
+                @foreach($scholarships as $scholarship)
+                    <div class="col-md-12">
+                        <h2 style="font-family: 'Times New Roman',sans-serif">{{ $scholarship->scholarship_title }}</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <p  style="font-family: 'Times New Roman',sans-serif">{!! $scholarship->scholarship_description !!}</p>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    </div>
+</section>
+
+<section id="" class="my-5">
+    <h1 class="display-5 text-uppercase text-center color-primary mb-5">{{ "Apply Now For Scholarship" }}</h1>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center mt-1">
+                <a class="btn btn-call text-white" href="{{ url('req_call_back') }}">Request For A Call &nbsp; <i class="fas fa-phone"></i></a>
+
+            </div>
+            <div class="col-md-2 text-center mt-1">
+                <a href="{{ url('book_an_appointment') }}" class="btn btn-book text-white">Book Appointment &nbsp; <i class="fas fa-calendar"></i></a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 @endsection

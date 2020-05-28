@@ -99,6 +99,13 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label" for="category_info">
+                                Program
+                            </label>
+                            <input class="form-control" type="text" name="old_program_name" id="old_program_name" readonly/>
+                        </div>
+
+                        <div class="form-group">
                             <label for="">Select Country<star>*</star></label>
                             <select class="form-control" data-style="btn-dark  btn-block" data-size="4"  name="country_id" id="country_id" onchange="get_university(this)" required >
                                 @if(!empty($countries))
@@ -116,11 +123,21 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="program_name">
-                                Program Name<star>*</star>
-                            </label>
-                            <input class="form-control" type="text" name="program_name" id="program_name" required/>
+                            <label for="">Select Country<star>*</star></label>
+                            <select class="form-control" data-style="btn-dark  btn-block" data-size="4"  name="parent_program_id" id="parent_program_id"   >
+                                @if(!empty($parent_programs))
+                                    @foreach($parent_programs as $program)
+                                        <option value="{!! $program->id !!}">{!! $program->name !!}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label class="control-label" for="program_name">--}}
+{{--                                Program Name<star>*</star>--}}
+{{--                            </label>--}}
+{{--                            <input class="form-control" type="text" name="program_name" id="program_name" required/>--}}
+{{--                        </div>--}}
 
                     </div>
                     <div class="modal-footer">

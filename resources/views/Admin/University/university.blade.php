@@ -1,5 +1,26 @@
 @extends('layouts.app')
+@section('style')
 
+    <script src="{{asset('Admin/paper_dashboard/assets/tinymce/tinymce.min.js') }}" >
+    </script>
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            toolbar: 'undo redo',
+            // enable title field in the Image dialog
+            image_title: true,
+            // enable automatic uploads of images represented by blob or data URIs
+            automatic_uploads: true,
+            // add custom filepicker only to Image dialog
+            file_picker_types: 'image',
+
+            entity_encoding : "raw",
+            height: 200,
+
+        });
+    </script>
+
+@endsection
 @section('content')
 
     <div class="content">
@@ -54,7 +75,18 @@
 
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Select Category<star>*</star></label>
+                                    <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="category" id="category" required >
 
+                                        @if(!empty($categories))
+                                            @foreach($categories as $category)
+                                                <option value="{!! $category->id !!}">{!! $category->name !!}</option>
+                                            @endforeach
+                                        @endif
+
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label" for="university_name">
                                         Title

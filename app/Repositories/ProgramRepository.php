@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 
+use App\Admin\ParentProgram;
 use App\Admin\Program;
 use App\Admin\University;
 use App\Http\Controllers\Common;
@@ -19,14 +20,23 @@ class ProgramRepository extends Common implements Base
         // TODO: Implement index() method.
         $universities = University::all();
         $programs = Program::all();
-        return compact('universities', 'programs');
+        $parent_programs = ParentProgram::all();
+        return compact('universities', 'programs','parent_programs');
     }
 
     public function store(Request $request)
     {
 
+        $data['program_name'] =  "";
+        $parent_programs = ParentProgram::find($request->parent_program_id);
+        if ($parent_programs)
+        {
+            $program_name = $parent_programs->name;
+            $data['program_name'] =  $program_name;
+        }
         $data['university_id'] =  $request->university_id;
-        $data['program_name'] =  $request->program_name;
+
+        $data['parent_program_id'] =  $request->parent_program_id;
 
         if (!empty($request->program_id)){
             $isAvailable = Program::find($request->program_id);
@@ -35,6 +45,9 @@ class ProgramRepository extends Common implements Base
                 if (empty($request->university_id))
                 {
                     $data['university_id'] =  $isAvailable->university_id;
+                }if (empty($request->parent_program_id))
+                {
+                    $data['parent_program_id'] =  $isAvailable->parent_program_id;
                 }
                 $isAvailable->update($data);
                 return 'success';

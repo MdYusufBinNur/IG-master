@@ -38,6 +38,7 @@ class UniversityRepository extends Common implements Base
         $data['university_description'] =  $request->university_description;
         $data['university_link'] =  $request->university_link;
         $data['university_image'] =  $image;
+        $data['uni_category_id'] =  $request->category;
 
         if (!empty($request->university_id)){
             $isAvailable = University::find($request->university_id);

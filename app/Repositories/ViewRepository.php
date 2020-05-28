@@ -14,12 +14,14 @@ use App\Admin\Institute;
 use App\Admin\Linker;
 use App\Admin\Owner;
 use App\Admin\Program;
+use App\Admin\ReqToCallBack;
 use App\Admin\Service;
 use App\Admin\Slider;
 use App\Admin\Testimonial;
 use App\Admin\University;
 use App\Http\Controllers\Common;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ViewRepository extends Common
 {
@@ -39,6 +41,8 @@ class ViewRepository extends Common
     }
 
     public function country_list(){
+
+//        return Country::with('university','university.program','university.program.course')->get();
 
         return Country::all();
     }
@@ -96,13 +100,19 @@ class ViewRepository extends Common
         return Owner::orderBy('id','desc')->first();
     }
 
-    public function course_details( $request){
+    public function course_details($request){
         //return $request['find_course'];
-        return Course::with('program.university.country')->where('id', $request['find_course'])->first();
+        return DB::table('courses')->select('courses.*','programs.*','universities.university_name','countries.country_name')
+            ->leftJoin('programs','courses.program_id','=','programs.id')
+            ->leftJoin('universities','programs.university_id','=','universities.id')
+            ->leftJoin('countries','countries.id','=','universities.country_id')
+            ->where('courses.id','=',$request['find_course'])
+            ->get();
+        //return Course::with('program.university.country')->where('id', $request['find_course'])->first();
     }
 
     public function institute(){
-        return Institute::with('country')->get();
+        return University::all();
     }
 
     public function blog_details($id){
@@ -170,6 +180,9 @@ class ViewRepository extends Common
         $data['comments'] = $request->comments;
         $data['applicant_files'] = json_encode($request->applicant_files);
 
+        if (empty($request->country) || empty($request->university) ||  empty($request->program) ||  empty($request->course) ){
+            return 'error';
+        }
 
         if (Apply::create($data)){
 
@@ -246,5 +259,28 @@ class ViewRepository extends Common
 
     public function blog_categories(){
         return Blogcategory::all();
+    }
+
+    public function req_to_callback(Request $request)
+    {
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['email'] = $request->email;
+        $data['ielts'] = $request->ielts;
+        $data['country_id'] = $request->country_id;
+        $data['course_id'] = $request->course_id;
+        $data['mobile'] = $request->mobile;
+        $data['qualification'] = $request->qualification;
+
+        if (empty($request->country_id)  ||  empty($request->course_id) ){
+            return 'errors';
+        }
+
+        if (ReqToCallBack::create($data)){
+            return 'success';
+        }
+        else{
+            return 'error';
+        }
     }
 }

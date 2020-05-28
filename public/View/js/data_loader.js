@@ -1,14 +1,18 @@
 $().ready(function() {
+    $('#check_if_checked').hide()
     $.ajax({
         url: '/get_country',
         method: 'get',
         data: {"_token": $('meta[name="csrf-token"]').attr('content')},
         success: function (data) {
-            callback()
+            callback();
+            //console.log(data);
+            $("#find_country").append("<option >Select Country</option>");
+
             $.each(data, function(i, data) {
                 let country_name = data.country_name;
                 let value = data.id;
-                $("#find_country").append("<option value="+ value +">"+country_name+"</option>");
+                $("#find_country").append("<option value="+ value +" >"+country_name+"</option>");
             });
         },
         error: function (response) {
@@ -80,27 +84,28 @@ $().ready(function() {
 
 });
 function callback() {
-    $("#find_country").append("<option>Select one</option>");
+    $('#check_if_selected').hide()
+    //$("#find_country").append("<option>Select one</option>");
     $("#find_university").find('option').remove().end();
-    $("#find_university").append("<option >Select one</option>");
+   // $("#find_university").append("<option >Select one</option>");
     $('#find_course').find('option').remove().end()
-    $("#find_course").append("<option >Select one</option>");
+   // $("#find_course").append("<option >Select one</option>");
     $('#find_program').find('option').remove().end()
-    $("#find_program").append("<option =>Select one</option>");
+    //$("#find_program").append("<option =>Select one</option>");
 }
 
 function make_empty_program() {
     $('#find_program').find('option').remove().end()
-    $("#find_program").append("<option >Select one</option>");
+    //$("#find_program").append("<option >Select one</option>");
 }
 function make_empty_course() {
     $('#find_course').find('option').remove().end()
-    $("#find_course").append("<option value=''>Select one</option>");
+   // $("#find_course").append("<option value=''>Select one</option>");
 }
 
 function make_empty_university() {
     $("#find_university").find('option').remove().end();
-    $("#find_university").append("<option >Select one</option>");
+   // $("#find_university").append("<option >Select one</option>");
 }
 $(document).on('click','#load_more', function () {
     let max_id = $('#max_blog').text()
@@ -180,6 +185,7 @@ $(document).on('click','#list_category', function (e) {
                         " </div></div>"
                     )
                     $('.more_blog').html("")
+
                 }
 
 
@@ -222,6 +228,14 @@ $(document).on('click','#load_more_categorized_blog', function (e) {
 
         }
     });
+})
+
+$(document).on('click','#req_call', function (e) {
+
+    if (!$('#userInputAuth').is(":checked")){
+        $('#check_if_checked').show()
+    }
+
 })
 //Back to top
 $(window).on('scroll', function () {

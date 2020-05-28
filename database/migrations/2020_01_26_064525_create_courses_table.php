@@ -17,10 +17,12 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('program_id');
             $table->string('course_name');
+            $table->string('course_full_name')->nullable();
+            $table->string('course_duration')->nullable();
+            $table->string('course_fee')->nullable();
+            $table->string('intake')->nullable();
             $table->longText('course_details')->nullable();
             $table->timestamps();
-
-            $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade');
 
         });
     }

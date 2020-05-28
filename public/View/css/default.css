@@ -9,11 +9,25 @@ Company URL: https://octoriz.com
 /* Common Settings */
 * { box-sizing: border-box; }
 html, body { width: 100%; height: 100%; margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; }
+body { overflow-x: hidden; }
 header a { text-decoration: none !important; color: #0c1b55; }
 header a:hover { color: #0c1b55 !important; font-weight: bold; }
 .color-primary { color: #0c1b55; }
 .bg-color-primary { background-color: #0c1b55; }
 .btn-theme { background-image: linear-gradient(to right, #03073a, #143f90); padding: 15px 40px; font-size: 1.2rem; border-radius: 50px; }
+.btn-online { background-image: linear-gradient(to right, #03073a, #143f90); padding: 7px 20px; font-size: 1rem; border-radius: 25px; }
+.btn-find { background-image: linear-gradient(to right, #03073a, #143f90); }
+.btn-book { background-image: linear-gradient(to right, #774729, #b06139); }
+.btn-call { background-image: linear-gradient(to right, #297745, #2fb060); }
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #0c1b55;
+}
+a {
+    color: #0c0c0c;
+    text-decoration: none;
+    background-color: transparent;
+}
 .btn-theme-sm {
     background-image: linear-gradient(to right, #03073a, #143f90);
     padding: 4px 10px;
@@ -246,7 +260,12 @@ hr.gradient-bg {
     background-color: #ccc;
 }
 
-
+.register-focus{width:10rem;  color: #fff;
+    background-image: linear-gradient(#0c1b55, #2b0ee4);
+    margin: 1.3rem 0.3rem;
+    padding: 0.7rem;
+    border-radius: 5px;}
+.register-focus:hover{text-decoration: none;color: #fff3cd}
 
 
 

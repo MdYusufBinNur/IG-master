@@ -91,11 +91,35 @@
 
                                 <div class="form-group">
                                     <label class="control-label" for="course_name">
-                                        Course Name<star>*</star>
+                                        Course Title<star>*</star>
                                     </label>
                                     <input class="form-control" type="text" name="course_name" id="course_name" required/>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="course_full_name">
+                                        Course Full Name<star>*</star>
+                                    </label>
+                                    <input class="form-control" type="text" name="course_full_name" id="course_full_name" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="course_fee">
+                                        Course Fee<star>*</star>
+                                    </label>
+                                    <input class="form-control" type="text" name="course_fee" id="course_fee" required/>
+                                </div>
 
+                                <div class="form-group">
+                                    <label class="control-label" for="course_duration">
+                                        Course Duration<star>*</star>
+                                    </label>
+                                    <input class="form-control" type="text" name="course_duration" id="course_duration" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="intake">
+                                        Intake<star>*</star>
+                                    </label>
+                                    <input class="form-control" type="text" name="intake" id="intake"/>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label" for="course_details">
                                         Course Details<star>*</star>

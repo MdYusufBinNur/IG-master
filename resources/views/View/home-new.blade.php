@@ -6,17 +6,17 @@
         <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @if(!empty($sliders))
-                @foreach($sliders as $key => $slider)
-                 @if($key == 1)
-                        <div class="carousel-item active">
+                    @foreach($sliders as $key => $slider)
+                        @if($key == 1)
+                            <div class="carousel-item active">
+                                <img src="{{ asset($slider->slider_image) }}" class="img-fluid" alt="Slider 2">
+                            </div>
+                        @endif
+                        <div class="carousel-item">
                             <img src="{{ asset($slider->slider_image) }}" class="img-fluid" alt="Slider 2">
                         </div>
-                 @endif
-                     <div class="carousel-item">
-                         <img src="{{ asset($slider->slider_image) }}" class="img-fluid" alt="Slider 2">
-                     </div>
 
-                @endforeach
+                    @endforeach
                 @endif
 
 
@@ -88,7 +88,8 @@
 
     <!-- Inside Background (About, Numbers, Services) -->
     <div>
-        <img src="{{ asset('View/img/home-about.png') }}" alt="background" class="d-none d-md-block img-fluid bg-img-about position-absolute" />
+        <img src="{{ asset('View/img/home-about.png') }}" alt="background"
+             class="d-none d-md-block img-fluid bg-img-about position-absolute"/>
         <!-- About Section -->
         <section id="about" class="d-none d-md-flex mt-md-5 pt-md-5 w-100 vh-100 align-items-md-center">
             <div class="container">
@@ -111,7 +112,7 @@
                     <div class="col-12 col-md-5 text-center text-md-left">
                         <h2 class="display-4 text-uppercase color-primary">About us</h2>
                         @if(!empty($about))
-                            <p class="text-md-justify my-5 text-justify">{{ substr($about->about_description,0,451) }}</p>
+                            <p class="text-md-justify my-5 text-justify">{!! substr($about->about_description,0,451) !!}</p>
                         @endif
                         <a href="{{route('view_about')}}" class="btn btn-lg btn-theme text-uppercase text-light">more <i
                                 class="fas fa-chevron-right"></i> </a>
@@ -126,19 +127,21 @@
             <div class="container">
                 <div class="row justify-content-between">
                     @if(!empty($services))
-                    @foreach($services as $service)
+                        @foreach($services as $service)
                             <div class="col-12 col-md-4 text-center p-3">
-                                <div class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
+                                <div
+                                    class="p-3 w-100 h-100 shadow rounded d-flex flex-column justify-content-center bg-white">
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-4">
-                                            <img src="{{ asset($service->service_image) }}" class="img-fluid" alt="Visa Services" />
+                                            <img src="{{ asset($service->service_image) }}" class="img-fluid"
+                                                 alt="Visa Services"/>
                                         </div>
                                     </div>
                                     <h3 class="color-primary text-uppercase py-3">{{ $service->service_title }}</h3>
                                     <p class="text-justify">{{ $service->service_description }}</p>
                                 </div>
                             </div>
-                    @endforeach
+                        @endforeach
                     @endif
 
 
@@ -147,7 +150,68 @@
         </section>
     </div>
 
-    <!-- Destinations Grid -->
+    <!-- Solution -->
+
+    <section id="blog" class="py-5">
+        <h2 class="display-4 color-primary text-uppercase text-center">Solution for Higher Studies</h2>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-sm-12 col-md-3 col-lg-3 p-3">
+                    <div class="card shadow w-100 h-100 border-0 ">
+                        <a href="{{ url('find_universities') }}" style="text-decoration:none">
+                            <img src="{{ asset('View/img/uni.png') }}"
+                                 class="card-img-top object-cover">
+
+                            <p  class="text-center text-uppercase text-dark mt-2">Find A
+                                University</p>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 p-3">
+                    <div class="card shadow w-100 h-100 border-0 ">
+                        <a href="{{ url('find_courses') }}" style="text-decoration:none">
+                            <img src="{{ asset('View/img/course.png') }}"
+                                 class="card-img-top object-cover">
+
+                            <p  class="text-center text-uppercase text-dark mt-2">Find A
+                                Course</p>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 p-3">
+                    <div class="card shadow w-100 h-100 border-0 ">
+                        <a href="{{ url('find_scholarships') }}" style="text-decoration:none">
+                            <img src="{{ asset('View/img/scholarship.png') }}"
+                                 class="card-img-top object-cover">
+
+                            <p  class="text-center text-uppercase text-dark mt-2">Find A
+                                Scholarship</p>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 p-3">
+                    <div class="card shadow w-100 h-100 border-0 ">
+                        <a href="{{ url('view_apply') }}" style="text-decoration:none">
+                            <img src="{{ asset('View/img/application.png') }}"
+                                 class="card-img-top object-cover">
+
+                            <p  class="text-center text-uppercase text-dark mt-2">Application Process</p>
+                        </a>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Countries Grid -->
     <section id="countries" class="mt-5 bg-light">
         <h2 class="display-4 color-primary text-uppercase text-center mb-5 pt-3">countries</h2>
         <div class="container-fluid">
@@ -159,7 +223,7 @@
                             @foreach($countries as $country)
                                 <div class="card align-items-center justify-content-center row d-flex border-0">
                                     <a href="#" class="text-decoration-none">
-                                        <img src="{{ asset($country->country_image) }}" class="img-fluid" />
+                                        <img src="{{ asset($country->country_image) }}" class="img-fluid"/>
                                         <p class="text-center text-uppercase pt-2 text-dark font-weight-bold">{{ $country->country_name }}</p>
                                     </a>
                                 </div>
@@ -182,7 +246,7 @@
                         @if(!empty($institutes))
                             @foreach($institutes as $institute)
                                 <div class="card align-items-center justify-content-center row d-flex border-0">
-                                    <img src="{{ asset($institute->institute_image) }}" class="img-fluid" />
+                                    <img src="{{ asset($institute->university_image) }}" class="img-fluid"/>
                                 </div>
                             @endforeach
                         @endif
@@ -244,7 +308,8 @@
                     @foreach($testimonials as $testimonial)
                         <div class="col-md-6 mb-3">
                             <div class="media rounded shadow-sm p-3">
-                                <img src="{{ asset($testimonial->testimonial_image) }}" class="rounded-circle mr-3" alt="">
+                                <img src="{{ asset($testimonial->testimonial_image) }}" class="rounded-circle mr-3"
+                                     alt="">
                                 <div class="media-body">
                                     <h5 class="mt-0">{{ $testimonial->testimonial_title }}</h5>
                                     <p class="text-justify text-muted">{{ $testimonial->testimonial_description }}</p>
@@ -266,19 +331,20 @@
                     @foreach($blogs as $blog)
                         <div class="col-sm-12 col-md-3 col-lg-3 p-3">
                             <div class="card shadow w-100 h-100 border-0">
-                                <img src="{{ asset($blog->blog_image) }}" class="card-img-top object-cover" />
+                                <img src="{{ asset($blog->blog_image) }}" class="card-img-top object-cover"/>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $blog->blog_title }}</h5>
-{{--                                    <p class="card-text">{!! substr($blog->blog_description,0,255) !!}...</p>--}}
-{{--                                    --}}
-                                    <a href="{{ url('get_blog_details/').'/'.$blog->id }}" class="btn btn-outline-dark btn-sm text-uppercase">read more <i
-                                            class="fas fa-chevron-right"></i></a>
+                                    <p class="card-text">{!! substr($blog->blog_description,0,150) !!}...</p>
+
+
+                                    <a href="{{ url('get_blog_details/').'/'.$blog->id }}"
+                                       class="btn btn-theme-sm text-white text-center text-capitalize text-center">read
+                                        more ..</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 @endif
-
 
 
                 <div class="col-12 d-flex justify-content-center mt-3">
@@ -315,7 +381,8 @@
                               placeholder="Your Message Here..." rows="5" required></textarea>
                 </div>
                 <div class="col-12 d-flex justify-content-center align-items-center">
-                    <button type="submit" class="btn btn-lg btn-theme mt-3 text-light text-uppercase">send message</button>
+                    <button type="submit" class="btn btn-lg btn-theme mt-3 text-light text-uppercase">send message
+                    </button>
                 </div>
             </form>
         </div>

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
+
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="{{asset('Admin/paper_dashboard/assets/tinymce/tinymce.min.js') }}" ></script>
+
 @endsection
 
 @section('content')
@@ -63,7 +66,7 @@
                                                 <td class="text-center">
 
                                                     <a href="#" class="btn btn-simple btn-success btn-icon detail_view" data-toggle="modal"  data-target="#BrandModal"><i class="ti-eye"></i></a>
-                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "universitie" }}" data-id="{{ $university->id }}" data-target="#Modal"><i class="ti-pencil-alt"></i></a>
+                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "universitie" }}" data-id="{{ $university->id }}" data-target="#Modal"  onclick="tinyMCE_init()"><i class="ti-pencil-alt"></i></a>
                                                     <a href="" class="btn btn-simple btn-info btn-icon del_brand remove" data-id="{{ $university->id }}" data-body="{{ "universitie" }}" id="del_brand_item" ><i class="ti-trash"></i></a>
 
                                                 </td>
@@ -120,6 +123,16 @@
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="">Select Category<star>*</star></label>
+                                <select  title="-" class="selectpicker"  data-style="btn-dark btn-block" data-size="4" name="category" id="category" required >
+                                    @if(!empty($categories))
+                                        @foreach($categories as $category)
+                                            <option value="{!! $category->id !!}">{!! $category->name !!}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <label class="control-label" for="university_name">
@@ -131,7 +144,7 @@
 
                             <div class="form-group">
                                 <label class="control-label" for="university_description"> Description<star>*</star></label>
-                                <textarea class="form-control" name="university_description" id="university_description" rows="3" required>
+                                <textarea class="form-control" name="university_description" id="university_description" rows="3">
 
                                     </textarea>
                             </div>

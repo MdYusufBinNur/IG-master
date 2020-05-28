@@ -43,10 +43,10 @@
                                 <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th class="text-center"> Program Name</th>
+{{--                                        <th class="text-center"> Program Name</th>--}}
                                         <th class="text-center"> Course Name</th>
 
-                                        <th class="text-center"> Program Details</th>
+                                        <th class="text-center"> Course Details</th>
 
                                         <th class="text-center disabled-sorting">Actions</th>
                                     </tr>
@@ -56,9 +56,9 @@
                                     @if(!empty($courses))
                                         @foreach($courses as $course)
                                             <tr>
-                                                <td class="text-center">{!! $course->program->program_name !!}</td>
+{{--                                                <td class="text-center">{!! $course->program->program_name !!}</td>--}}
                                                 <td class="text-center">{!! $course->course_name !!}</td>
-                                                <td class="text-center text-justify">{!! $course->course_details!!}</td>
+                                                <td class="text-center text-justify">{!! substr($course->course_details,0,350)!!}</td>
 
                                                 <td class="text-center">
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit" data-toggle="modal" data-body="{{ "course" }}" data-id="{{ $course->id }}" data-target="#Modal"  onclick="tinyMCE_init()"><i class="ti-pencil-alt"></i></a>
@@ -98,14 +98,13 @@
 
                             <input type="hidden" id="course_id"  name="course_id">
 
-                            <div class="form-group">
-                                <label class="control-label" for="category_info">
-                                    Old Program<star>*</star>
-                                </label>
-                                <input class="form-control" type="text" name="old_program_name" id="old_program_name" readonly/>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label class="control-label" for="category_info">--}}
+{{--                                    Old Program<star>*</star>--}}
+{{--                                </label>--}}
+{{--                                <input class="form-control" type="text" name="old_program_name" id="old_program_name" readonly/>--}}
+{{--                            </div>--}}
 
-                            <label for="">Select Program<star>*</star></label>
 
                             <div class="form-group">
                                 <label for="">Select Country<star>*</star></label>
@@ -134,9 +133,34 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="course_name">
-                                Course Name<star>*</star>
+                                Course Title<star>*</star>
                             </label>
                             <input class="form-control" type="text" name="course_name" id="course_name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="course_full_name">
+                                Course Full Name<star>*</star>
+                            </label>
+                            <input class="form-control" type="text" name="course_full_name" id="course_full_name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="course_fee">
+                                Course Fee<star>*</star>
+                            </label>
+                            <input class="form-control" type="text" name="course_fee" id="course_fee" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="course_duration">
+                                Course Duration<star>*</star>
+                            </label>
+                            <input class="form-control" type="text" name="course_duration" id="course_duration" required/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="intake">
+                                Intake<star>*</star>
+                            </label>
+                            <input class="form-control" type="text" name="intake" id="intake"/>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="course_details">

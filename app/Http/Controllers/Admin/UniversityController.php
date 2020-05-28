@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin\UniCategory;
 use App\Admin\University;
 use App\Http\Controllers\Controller;
 use App\Repositories\UniversityRepository;
@@ -22,10 +23,11 @@ class UniversityController extends Controller
      */
     public function index()
     {
+        $categories = UniCategory::all();
         $universities = $this->universityRepository->index();
         $countries = $universities['countries'];
         $universities = $universities['universities'];
-        return view('Admin.University.university_list', compact('universities', 'countries'));
+        return view('Admin.University.university_list', compact('universities', 'countries','categories'));
     }
 
     /**
@@ -35,8 +37,9 @@ class UniversityController extends Controller
      */
     public function create()
     {
+        $categories = UniCategory::all();
         $countries = $this->universityRepository->all_countries();
-        return view('Admin.University.university', compact('countries'));
+        return view('Admin.University.university', compact('countries','categories'));
     }
 
     /**

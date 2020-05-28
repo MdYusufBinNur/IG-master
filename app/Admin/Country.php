@@ -26,4 +26,9 @@ class Country extends Model
     public function application(){
         return $this->hasMany(Apply::class);
     }
+    public function reqToCallback()
+    {
+        return $this->hasMany(ReqToCallBack::class);
+    }
+
 }

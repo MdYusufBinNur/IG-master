@@ -43,7 +43,6 @@
                                         <th class="text-center"> Name</th>
                                         <th class="text-center"> Email</th>
                                         <th class="text-center"> Phone</th>
-                                        <th class="text-center"> Image</th>
                                         <th class="text-center disabled-sorting">Actions</th>
                                     </tr>
                                     </thead>
@@ -55,11 +54,6 @@
                                                 <td class="text-center">{!! $applicant->first_name .' '. $applicant->last_name !!}</td>
                                                 <td class="text-center">{!! $applicant->email !!}</td>
                                                 <td class="text-center">{!! $applicant->mobile !!}</td>
-
-                                                <td class="text-center">
-                                                    <img src="{!! $applicant->photo !!}" width="50px" height="auto" alt="">
-                                                </td>
-
 
                                                 <td class="text-center">
 
@@ -89,7 +83,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Applicant Information</h4>
+                    <h4 class="modal-title text-center">Applicant Information</h4>
                 </div>
                 <form action="" method="post" enctype="multipart/form-data">
                     @csrf()
@@ -104,11 +98,11 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <img src="{{ asset('Admin/paper_dashboard/assets/img/default-avatar.png') }}" alt="" width="100" height="auto" id="applicant_image">
+                                        <img src="{{ asset('image/user.png') }}" alt="" width="100" height="auto" id="applicant_image">
                                     </div>
                                     <div class="col-md-6 text-right">
                                         <p id="applicant_email">arya@octoriz.com  </p>
-                                        <p id="applicant_mobile">01815625375 </p>
+                                        <p id="applicant_mobile">+971 xxxxxxx </p>
                                         <p id="applicant_nationality">Bnagladeshi </p>
                                     </div>
                                 </div>
@@ -164,8 +158,18 @@
                                 </table>
                             </div>
 
+                            <div class="form-group">
+                                <div class="row">
+                                    <h4 class="modal-title text-center">Comments</h4>
+                                    <div class="col-md-12">
+                                        <p id="applicant_comments"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
+
 
                 </form>
 

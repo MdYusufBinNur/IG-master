@@ -92,6 +92,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="{{ url('/req_to_call_backs') }}">
+                                <span class="sidebar-mini"><i class="ti-mobile"></i></span>
+                                <span class="sidebar-normal">Appointment</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </li>
@@ -207,31 +214,31 @@
                     </ul>
                 </div>
             </li>--}}
-            <li>
-                <a data-toggle="collapse" href="#institutes">
-                    <i class="ti-agenda"></i>
-                    <p>Institute
-                        <b class="caret"></b>
-                    </p>
-                </a>
-                <div class="collapse" id="institutes">
-                    <ul class="nav">
-                        <li>
-                            <a href="{{ url('/institutes/create') }}">
-                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
-                                <span class="sidebar-normal">Add New Institute Info</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/institutes') }}">
-                                <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                <span class="sidebar-normal">Institute Lists</span>
-                            </a>
-                        </li>
+{{--            <li>--}}
+{{--                <a data-toggle="collapse" href="#institutes">--}}
+{{--                    <i class="ti-agenda"></i>--}}
+{{--                    <p>Institute--}}
+{{--                        <b class="caret"></b>--}}
+{{--                    </p>--}}
+{{--                </a>--}}
+{{--                <div class="collapse" id="institutes">--}}
+{{--                    <ul class="nav">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ url('/institutes/create') }}">--}}
+{{--                                <span class="sidebar-mini"><i class="ti-plus"></i></span>--}}
+{{--                                <span class="sidebar-normal">Add New Institute Info</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ url('/institutes') }}">--}}
+{{--                                <span class="sidebar-mini"><i class="ti-list"></i></span>--}}
+{{--                                <span class="sidebar-normal">Institute Lists</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                    </ul>
-                </div>
-            </li>
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </li>--}}
             <li>
                 <a data-toggle="collapse" href="#ownerinfos">
                     <i class="ti-user"></i>
@@ -316,6 +323,18 @@
                 </a>
                 <div class="collapse" id="scholarships">
                     <ul class="nav">
+                        <li>
+                            <a href="{{ url('/set_up_apply_processes/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Set Up Process</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/set_up_apply_processes') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Process List</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ url('/scholarships/create') }}">
                                 <span class="sidebar-mini"><i class="ti-plus"></i></span>
@@ -487,6 +506,25 @@
                 </a>
                 <div class="collapse" id="settings">
                     <ul class="nav">
+                        <li>
+                            <a href="{{ url('/uni_categories/create') }}">
+                                <span class="sidebar-mini"><i class="ti-agenda"></i></span>
+                                <span class="sidebar-normal">Uni Category</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/parent_programs/create') }}">
+                                <span class="sidebar-mini"><i class="ti-plus"></i></span>
+                                <span class="sidebar-normal">Set Parent Program</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/parent_programs') }}">
+                                <span class="sidebar-mini"><i class="ti-list"></i></span>
+                                <span class="sidebar-normal">Edit Parent Program</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ url('/countries/create') }}">
                                 <span class="sidebar-mini"><i class="ti-plus"></i></span>

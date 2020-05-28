@@ -30,3 +30,26 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$('#find_country').on('change', function () {
+    $.ajax({
+        url: 'get_university/'+ this.value,
+        method: 'get',
+        data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+        success: function (data) {
+            make_empty_course();
+            make_empty_program();
+            make_empty_university();
+
+            $.each(data, function(i, data) {
+                let university_name = data.university_name;
+                let value = data.id;
+                $("#find_university").append("<option value="+ value +">"+university_name+"</option>");
+            });
+
+        }, error: function (data) {
+
+        }
+    })
+
+});

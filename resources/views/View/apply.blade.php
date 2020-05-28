@@ -140,33 +140,35 @@
                     </div>
                     <div>
                         <label for="find_country">Country </label>
-                        <select class="custom-select my-1 mr-sm-2" id="find_country" name="country" onselect="this.className"
+                        <select class="custom-select my-1 mr-sm-2 find_country" id="find_country" name="country" onselect="this.className"
                                 required>
 
                         </select>
                     </div>
                     <div>
                         <label for="month">University you are interested in </label>
-                        <select class="custom-select my-1 mr-sm-2" id="find_university" name="university" onselect="this.className"
+                        <select class="custom-select my-1 mr-sm-2 find_university" id="find_university" name="university"  onselect="this.className"
                                 required>
 
                         </select>
                     </div>
                     <div>
-                        <label for="month">Course Level </label>
-                        <select class="custom-select my-1 mr-sm-2" id="find_program" name="program" onselect="this.className"
+                        <label for="month">Program you are interested in </label>
+                        <select class="custom-select my-1 mr-sm-2 find_program" id="find_program" name="program" onselect="this.className"
                                 required>
 
                         </select>
                     </div>
                     <div>
                         <label for="month">Course you are interested in </label>
-                        <select class="custom-select my-1 mr-sm-2" id="find_course" name="course" onselect="this.className"
+                        <select class="custom-select my-1 mr-sm-2 find_course" id="find_course" name="course" onselect="this.className"
                                 required>
 
                         </select>
                     </div>
-
+                    <div id="check_if_selected">
+                        <span class="text-danger"> Select All Filed</span>
+                    </div>
 
                     <div class="mb-4">
                         <label for="month">Current Qualification </label>
@@ -223,155 +225,17 @@
                 </div>
 
                 <!-- Circles which indicates the steps of the form: -->
-                <div style="text-align:center;margin-top:40px;">
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
+{{--                <div style="text-align:center;margin-top:40px;">--}}
+{{--                    <span class="step"></span>--}}
+{{--                    <span class="step"></span>--}}
+{{--                    <span class="step"></span>--}}
+{{--                    <span class="step"></span>--}}
+{{--                </div>--}}
 
             </form>
         </div>
     </div>
 
-    {{--<div class="card shadow rounded p-3 border-0">
-                <form action="{{ url('/save_apply') }}" method="post" enctype="multipart/form-data">
-
-                    @csrf()
-                    <div class="form-row">
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="firstName"><small>First Name</small></label>
-                            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" value=""
-                                required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="lastName"><small>Last Name</small></label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" name="last_name" required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="email"><small>Email</small></label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="dob"><small>Date of Birth</small></label>
-                            <input type="date" class="form-control" id="dob" name="dob" value="" required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="presentAddress"><small>Present Address</small></label>
-                            <textarea class="form-control" id="presentAddress" rows="3" placeholder="Present Address"
-                               name="present_address" required></textarea>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="permanentAddress"><small>Permanent Address</small></label>
-                            <textarea class="form-control" id="permanentAddress" rows="3" placeholder="Permanent Address"
-                                name="permanent_address" required></textarea>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="phoneNumber"><small>Phone Number</small></label>
-                            <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" value="" name="mobile"
-                                required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="nationality"><small>Nationality</small></label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Nationality" value="" name="nationality"
-                                required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="passportNumber"><small>Passport Number</small></label>
-                            <input type="text" class="form-control" id="passportNumber" placeholder="Passport Number" name="passport_no"
-                                value="" required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="typeOfStudent"><small>Type of Student</small></label>
-                            <select class="form-control typeOfStudent" required name="student_type">
-                                <option value="Type of student" selected>Type of student</option>
-                                <option value="Home">Home</option>
-                                <option value="International">International</option>
-
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="previousQualification"><small>Previous Qualification</small></label>
-                            <input type="text" class="form-control" id="previousQualification" name="previous_qualification"
-                                placeholder="Previous Qualification" value="" required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="interestedCourse"><small>Interested Course</small></label>
-                            <select class="form-control interestedCourse" name="interested_course" required>
-
-                                <option value="" selected>Interested Course</option>
-                                @if(!empty($courses))
-                                    @foreach( $courses as $course)
-                                            <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
-                                    @endforeach
-                                @endif
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="userPhoto"><small>Upload Your Photo (Upload as JPG or PNG, maximum file size
-                                    2MB)</small></label>
-                            <input type="file" class="form-control userPhotoInput" id="userPhoto" name="photo" required>
-
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="userPassport"><small>Passport Scan Copy (Minimum First 6 Pages, upload as PDF )</small></label>
-                            <input type="file" class="form-control userPassportInput" id="userPassport" name="passport_file" required>
-
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="userCertificates"><small>Academic Transcripts & Certificates (Upload as PDF)</small></label>
-                            <input type="file" class="form-control userCertificatesInput" id="userCertificates" name="academic_files"
-                                   required>
-                        </div>
-
-                        <div class="form-group col-md-6 mb-3 px-4">
-                            <label for="userResearch"><small>Upload Research Papers for D.B.A or Ph.D / Mphil or Research
-                                    Degrees</small></label>
-                            <input type="file" class="form-control userResearchInput" id="userResearch" name="research_paper" required>
-
-                        </div>
-
-                        <div class="form-group col-md-12 mb-3 px-4">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="userInputAuth">
-                                <label class="custom-control-label" for="userInputAuth"><small>I can confirm that the
-                                        details above
-                                        and submitted documents to Aspire Education Services Ltd are true and genuine. I do
-                                        hereby also authorize Aspire Education Services Ltd to hold these data until my
-                                        admission is successful.</small></label>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-12 mb-3 d-flex align-items-center mt-5">
-                            <input type="submit"  class="btn btn-dark mx-auto text-capitalize font-weight-bold rounded-0 px-5" value="SUBMIT">
-
-                        </div>
-
-                    </div>
-
-                </form>
-            </div>
-    --}}{{--
-
-
-        </div>
-    </section>
-    --}}
 @endsection
 @section('script')
     <script !src="">
@@ -397,7 +261,7 @@
                 document.getElementById("nextBtn").innerHTML = "Next";
             }
             // ... and run a function that displays the correct step indicator:
-            fixStepIndicator(n)
+           // fixStepIndicator(n)
         }
 
 
@@ -436,19 +300,45 @@
             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
                 // If a field is empty...
+                //console.log()
                 if (y[i].value === "") {
                     // add an "invalid" class to the field:
                     y[i].className += " invalid";
                     // and set the current valid status to false:
                     valid = false;
                 }
+                if (!$('#find_university').val() ||
+                    !$('#find_country').val() ||
+                    !$('#find_course').val() ||
+                    !$('#find_program').val())
+                {
+                    $('#check_if_selected').show()
+                    document.getElementById('find_country')
+                        .setCustomValidity('Select');
+                    valid = false;
+                }
+                // if (!$('#find_country').val()){
+                //     document.getElementById('find_country')
+                //         .setCustomValidity('Select Country');
+                //     valid = false;
+                // }
+                // if (!$('#find_course').val()){
+                //     document.getElementById('find_course')
+                //         .setCustomValidity('Select Course');
+                //     valid = false;
+                // }
+                // if (!$('#find_program').val()){
+                //     document.getElementById('find_program')
+                //         .setCustomValidity('Select Program');
+                //     valid = false;
+                // }
             }
 
 
-            // If the valid status is true, mark the step as finished and valid:
-            if (valid) {
-                document.getElementsByClassName("step")[currentTab].className += " finish";
-            }
+            // // If the valid status is true, mark the step as finished and valid:
+            // if (valid) {
+            //     document.getElementsByClassName("step")[currentTab].className += " finish";
+            // }
             return valid; // return the valid status
         }
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Common;
 use App\Http\Controllers\Helper\Base;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseRepository extends Common implements Base
 {
@@ -28,6 +29,10 @@ class CourseRepository extends Common implements Base
         // TODO: Implement store() method.
         $data['program_id'] =  $request->program_id;
         $data['course_name'] =  $request->course_name;
+        $data['course_fee'] =  $request->course_fee;
+        $data['course_duration'] =  $request->course_duration;
+        $data['course_full_name'] =  $request->course_full_name;
+        $data['intake'] =  $request->intake;
         $data['course_details'] =  $request->course_details;
 
         if (!empty($request->course_id)){
@@ -41,7 +46,6 @@ class CourseRepository extends Common implements Base
                 $isAvailable->update($data);
                 return 'success';
             }
-
         }
         else{
             Course::create($data);
@@ -71,6 +75,11 @@ class CourseRepository extends Common implements Base
     }
 
     public function show(Model $model){
-        return Course::with('program')->where('id','=', $model->id)->first();
+
+        return DB::table('courses')->select('courses.*','programs.*')
+            ->leftJoin('programs','courses.program_id','=','programs.id')
+            ->where('courses.id','=',$model->id)
+            ->first();
+       // return Course::with('programs')->where('id','=', $model->id)->first();
     }
 }
