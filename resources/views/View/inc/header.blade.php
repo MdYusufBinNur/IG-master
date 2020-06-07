@@ -28,7 +28,8 @@
             <a href="https://www.linkedin.com/in/inspiren-global-education-b79457194/" target="_blank" class="social-linkedin"><i class="fab fa-linkedin fa-2x"></i></a>
         </div>
     </div>
-<header class="bg-light sticky-top">
+<header class="bg-light sticky-top" id="navbar">
+
         <div class="container">
             <div class="row no-gutter d-flex justify-content-between align-items-center">
                 <a href="{{url('/')}}"><img src="{{asset('View/img/logo.png')}}" class="header-logo" alt="IG Education Logo" /></a>
@@ -55,7 +56,8 @@
                     <a href="{{route('view_institutes')}}" class="text-uppercase px-2">institutes</a>
                     <a href="{{route('view_stories')}}" class="text-uppercase px-2">success stories</a>
                     <a href="{{route('view_blog')}}" class="text-uppercase px-2">blog</a>
-                    <a href="{{route('view_apply')}}" class="btn btn-online btn-sm text-uppercase text-light animate__animated animate__infinite animate__heartBeat">apply online</a>
+{{--                    <a href="{{route('view_apply')}}" class="btn btn-online btn-sm text-uppercase text-light animate__animated animate__infinite animate__heartBeat">apply online</a>--}}
+                    <a href="{{route('view_apply')}}" class="btn btn-online btn-sm text-uppercase text-light">apply online</a>
                 </div>
             </div>
         </div>
