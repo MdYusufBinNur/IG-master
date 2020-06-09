@@ -8,7 +8,7 @@
     </section>
 
     <section class="institutes mb-5">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-md-12 text-center">
                 <h1 class="display-5 text-uppercase text-center color-primary mb-5"> Program List</h1>
             </div>
@@ -110,7 +110,7 @@
         </div>
     </section>
     <section class="courses_list mb-5">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-md-12 text-center">
                 <h1 class="display-5 text-uppercase text-center color-primary mb-5"> Popular Courses </h1>
             </div>

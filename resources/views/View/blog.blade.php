@@ -8,7 +8,7 @@
 
     <!--Masonry Grid of blog-->
     <section class="blog mb-5">
-        <div class="container rounded">
+        <div class="container-fluid rounded">
 
 
             <div class="row">

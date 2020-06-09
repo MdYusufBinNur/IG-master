@@ -10,7 +10,7 @@
 </section>
 
 <section class="services-details mb-5">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
 
         @if(!empty($services))

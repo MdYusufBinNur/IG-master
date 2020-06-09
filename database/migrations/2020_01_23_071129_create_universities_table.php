@@ -16,9 +16,10 @@ class CreateUniversitiesTable extends Migration
         Schema::create('universities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('country_id')->unsigned();
+            $table->bigInteger('uni_category_id')->unsigned();
             $table->string('university_name');
             $table->string('university_image')->nullable();
-            $table->string('university_description')->nullable();
+            $table->longText('university_description')->nullable();
             $table->string('university_link')->nullable();
             $table->timestamps();
 

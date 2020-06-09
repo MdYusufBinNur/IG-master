@@ -9,7 +9,7 @@
 
 
     <section class="institutes mb-5">
-        <div class="container">
+        <div class="container-fluid">
             @if(!empty($course_details))
                 <div class="row">
                     <div class="col-md-12">

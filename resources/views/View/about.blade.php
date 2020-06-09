@@ -9,7 +9,7 @@
     @if(!empty($about))
 
         <section class="about-section mb-5">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="card border-0 shadow p-3">
                     <div class="row">
                         <div class="col-sm-8 ">
@@ -27,10 +27,9 @@
         </section>
     @endif
 
-
     @if(!empty($about))
         <section class="mission-vision m-3">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="card border-0 shadow p-3">
                     <div class="row">
                         <div class="text-justify p-3">

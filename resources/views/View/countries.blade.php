@@ -10,7 +10,7 @@
 
 <section class="country-details mb-5">
     @if(!empty($country_details))
-    <div class="container">
+    <div class="container-fluid">
         <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">{{ $country_details->country_name }} <br><small>at a glance</small></h2>
         <div class="card shadow border-0 p-3 list-group-flush">
             <div class="row">
@@ -28,7 +28,7 @@
 @if(!empty($country_details))
 <section class="services-procedures mb-5">
 
-        <div class="container">
+        <div class=" container-fluid">
             <h2 class="text-left text-uppercase font-weight-bold color-primary p-2">Procedure <br><small>for {{ $country_details->country_name }}</small>
             </h2>
 
@@ -68,7 +68,7 @@
 
 @if(!empty($country_details))
 <section class="success-stories mb-5">
-     <div class="container">
+     <div class="container-fluid">
             <h2 class="text-left text-uppercase font-weight-bold color-primary">Success stories<br><small>of
                     {{ $country_details->country_name }} students</small>
             </h2>

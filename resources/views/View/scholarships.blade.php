@@ -7,7 +7,7 @@
     <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> Scholarships</h2>
 </section>
 <section class="success-stories mb-5">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             @if(!empty($processes))
                 @foreach($processes as $scholarship)
@@ -22,7 +22,7 @@
 </section>
 <section class="success-stories mb-5">
     <h2 class="display-5 text-uppercase text-center color-primary mb-5">{{ "International Student Scholarships information page" }}</h2>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             @if(!empty($scholarships))
                 @foreach($scholarships as $scholarship)

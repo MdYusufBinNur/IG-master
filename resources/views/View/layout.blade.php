@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
 @include('View.inc.head')
-    <body>
+<body>
+
+    <div>
         @include('View.inc.header')
+    </div>
 
-            @yield('page-content')
+    <div>
+        @yield('page-content')
+    </div>
 
-        @include ('View.inc.footer')
+@include ('View.inc.footer')
 
-    </body>
+</body>
 </html>

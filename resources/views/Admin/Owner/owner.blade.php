@@ -47,6 +47,18 @@
                                     </label>
                                     <input class="form-control" type="text" name="owner_name" id="owner_name" required/>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="owner_name">
+                                        Owner Email
+                                    </label>
+                                    <input class="form-control" type="email" name="owner_email" id="owner_email" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="owner_mobile">
+                                        Owner Mobile
+                                    </label>
+                                    <input class="form-control" type="tel" name="owner_mobile" id="owner_mobile" required/>
+                                </div>
 
                                 <div class="form-group">
                                     <label class="control-label" for="owner_message"> Message <star>*</star></label>

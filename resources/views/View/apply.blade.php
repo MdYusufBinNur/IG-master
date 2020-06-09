@@ -67,7 +67,7 @@
         </div>
     </section>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
 
             <form action="{{ url('/save_apply') }}" method="post" id="regForm" enctype="multipart/form-data">

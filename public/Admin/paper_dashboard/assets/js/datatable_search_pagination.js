@@ -266,6 +266,8 @@ function loadOwnerInfo(response) {
 
     $('#owner_id').val(response.id);
     $('#owner_name').val(response.owner_name);
+    $('#owner_email').val(response.owner_email);
+    $('#owner_mobile').val(response.owner_mobile);
     $('#owner_message').val(response.owner_message);
     $('#old_logo').attr('src',response.owner_image);
 }

@@ -107,8 +107,17 @@ a {
         padding: 8px;
         font-size: 80%;
     }
+    .navbar
+    {
+        display: none;
+    }
 }
-
+@media (max-width: 414px) {
+    .navbar
+    {
+        display: none;
+    }
+}
 
 /* About Section */
 .bg-img-about { right: 0; z-index: -9; }
@@ -306,9 +315,18 @@ flip card
 .sticky {
     position: fixed;
     top: 0;
+    left: 0;
+    z-index: 1001;
     width: 100%;
 }
 
-/*.sticky + .content {*/
-/*    padding-top: 20px;*/
-/*}*/
+.sticky + .content  {
+    padding-top: 60px;
+}
+
+#main{
+    overflow: auto;
+    position: relative;
+}
+
+

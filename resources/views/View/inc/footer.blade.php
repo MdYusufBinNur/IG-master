@@ -1,7 +1,9 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=252147962630867&autoLogAppEvents=1" nonce="P5rFEJkE"></script>
 <footer class="py-5 border border-top border-1">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-4 offset-md-1">
+            <div class="col-12 col-md-4">
                 @if(!empty($owner))
 
                     <a href="{{route('/')}}"><img src="{{asset($owner->owner_image)}}" class="header-logo"
@@ -19,11 +21,13 @@
                             class="fab fa-2x fa-linkedin social-linkedin mr-3"></i></a>
                 </p>
             </div>
-            <div class="col-12 col-md-4 offset-md-2">
+            <div class="col-12 col-md-4">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.7751628087376!2d-0.06868078384391355!3d51.51734077963678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761dd04a1cbff1%3A0x973021f589122d30!2sInspiren%20Global%20Education%20Ltd.!5e0!3m2!1sen!2sbd!4v1577269861290!5m2!1sen!2sbd"
                     class="w-100 h-100" frameborder="0" style="border:0;" allowfullscreen="" ></iframe>
             </div>
+            <div class="col-12 col-md-4 mt-1">
+                <div class="fb-page" data-href="https://www.facebook.com/InspireGlobalEducation/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/InspireGlobalEducation/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/InspireGlobalEducation/">Inspire Global Education</a></blockquote></div>            </div>
         </div>
     </div>
 </footer>
@@ -82,8 +86,10 @@
     var sticky = navbar.offsetTop;
 
     function myFunction() {
+        //$('.sticky').css('margin-bottom','30px')
         if (window.pageYOffset >= sticky) {
             navbar.classList.add("sticky")
+
         } else {
             navbar.classList.remove("sticky");
         }

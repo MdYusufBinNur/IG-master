@@ -9,7 +9,7 @@
 
 
 <section class="institutes mb-5">
-    <div class="container">
+    <div class="container-fluid">
         <div class="card shadow border-0 p-3 list-group-flush">
 
             <div class="row">

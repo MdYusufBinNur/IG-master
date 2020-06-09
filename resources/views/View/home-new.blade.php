@@ -2,7 +2,7 @@
 @section('page-content')
 
     <!-- Slider Section -->
-    <section>
+    <section id="main">
         <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @if(!empty($sliders))
@@ -88,7 +88,7 @@
                  class="d-none d-md-block img-fluid bg-img-about position-absolute"/>
             <!-- About Section -->
             <section id="about" class="d-none d-md-flex mt-md-5 pt-md-5 w-100 vh-100 align-items-md-center">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 col-md-5 text-center text-md-left">
                             <h2 class="display-4 text-uppercase color-primary">About us</h2>
@@ -103,7 +103,7 @@
                 </div>
             </section>
             <section id="about" class="d-flex d-md-none mt-md-5 pt-md-5 w-100 d-flex align-items-md-center">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 col-md-5 text-center text-md-left">
                             <h2 class="display-4 text-uppercase color-primary">About us</h2>
@@ -143,7 +143,7 @@
 
                     </div>
                 </div>--}}
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row pt-5 text-center">
                         @if(!empty($services))
                             @foreach($services as $service)
@@ -167,53 +167,46 @@
             <!-- Solution -->
             <section id="" class="py-5">
                 <h2 class="display-4 color-primary text-uppercase text-center">Solution for Higher Studies</h2>
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row pt-5">
-                        <div class="col-sm-12 col-md-3 col-lg-3 p-3">
-                            <div class="card shadow w-100 h-100 border-0 ">
-                                <a href="{{ url('find_universities') }}" style="text-decoration:none">
+                        <div class="col-sm-12 col-md-3 col-lg-3 p-3 text-center ">
+                            <div class="card shadow w-100 h-100 border-0 text-center">
+                                <h3 class="text-center">
                                     <img src="{{ asset('View/img/uni.png') }}"
-                                         class="card-img-top object-cover">
-
-                                    <p class="text-center text-uppercase text-dark mt-2">Find A
-                                        University</p>
-                                </a>
-
+                                         class="text-center object-cover p-2" width="100" height="auto">
+                                </h3>
+                                <a href="{{ url('find_universities') }}" style="text-decoration: none">
+                                    <h3 class="color-primary text-uppercase p-3">Find A <br>University</h3></a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-lg-3 p-3">
-                            <div class="card shadow w-100 h-100 border-0 ">
-                                <a href="{{ url('find_courses') }}" style="text-decoration:none">
+                        <div class="col-sm-12 col-md-3 col-lg-3 p-3 text-center ">
+                            <div class="card shadow w-100 h-100 border-0 text-center">
+                                <h3 class="text-center">
                                     <img src="{{ asset('View/img/course.png') }}"
-                                         class="card-img-top object-cover">
-
-                                    <p class="text-center text-uppercase text-dark mt-2">Find A
-                                        Course</p>
-                                </a>
-
+                                         class="text-center object-cover p-2" width="100" height="auto">
+                                </h3>
+                                <a href="{{ url('find_courses') }}" style="text-decoration: none">
+                                    <h3 class="color-primary text-uppercase p-3">Find A <br> Course</h3></a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-lg-3 p-3">
-                            <div class="card shadow w-100 h-100 border-0 ">
-                                <a href="{{ url('find_scholarships') }}" style="text-decoration:none">
+                        <div class="col-sm-12 col-md-3 col-lg-3 p-3 text-center ">
+                            <div class="card shadow w-100 h-100 border-0 text-center">
+                                <h3 class="text-center">
                                     <img src="{{ asset('View/img/scholarship.png') }}"
-                                         class="card-img-top object-cover">
-
-                                    <p class="text-center text-uppercase text-dark mt-2">Find A
-                                        Scholarship</p>
-                                </a>
-
+                                         class="text-center object-cover p-2" width="100" height="auto">
+                                </h3>
+                                <a href="{{ url('find_scholarships') }}" style="text-decoration: none">
+                                    <h3 class="color-primary text-uppercase p-3">Find A Scholarship</h3></a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-lg-3 p-3">
-                            <div class="card shadow w-100 h-100 border-0 ">
-                                <a href="{{ url('view_apply') }}" style="text-decoration:none">
+                        <div class="col-sm-12 col-md-3 col-lg-3 p-3 text-center ">
+                            <div class="card shadow w-100 h-100 border-0 text-center">
+                                <h3 class="text-center">
                                     <img src="{{ asset('View/img/application.png') }}"
-                                         class="card-img-top object-cover">
-
-                                    <p class="text-center text-uppercase text-dark mt-2">Application Process</p>
-                                </a>
-
+                                         class="text-center object-cover p-2" width="100" height="auto">
+                                </h3>
+                                <a href="{{ url('view_apply') }}" style="text-decoration: none">
+                                    <h3 class="color-primary text-uppercase p-3">Application Process</h3></a>
                             </div>
                         </div>
 
@@ -269,7 +262,7 @@
 
             <!-- Numbers Section -->
             <section id="numbers" class="py-5 bg-light">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div
                             class="col-4 col-md-2 col-lg-2 d-flex flex-column justify-content-center align-items-center text-center mb-3">
@@ -314,7 +307,7 @@
             <section id="testimonial" class="my-5">
 
                 <h2 class="text-uppercase text-center color-primary mb-5">testimonials</h2>
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         @if(!empty($testimonials))
                             @foreach($testimonials as $testimonial)
@@ -338,7 +331,7 @@
             <!-- Blog -->
             <section id="blog" class="py-5">
                 <h2 class="display-4 color-primary text-uppercase text-center">blog</h2>
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row pt-5">
                         @if(!empty($blogs))
                             @foreach($blogs as $blog)
@@ -371,7 +364,7 @@
             <!-- Contact Form -->
             <section id="contact" class="py-5">
                 <h2 class="display-4 color-primary text-uppercase text-center">contact</h2>
-                <div class="container pt-3">
+                <div class="container-fluid pt-3">
                     <form class="row" action="{{ '/send_message' }}" method="post">
                         @csrf()
                         <div class="col-6 form-group">

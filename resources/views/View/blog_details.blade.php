@@ -8,7 +8,7 @@
     </section>
 
     <section class="blog-details">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row card shadow m-2">
                 @if(!empty($blog_detail))
                     <div class="col-12">

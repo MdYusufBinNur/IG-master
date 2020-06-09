@@ -32,6 +32,8 @@ class OwnerRepository extends Common implements Base
         }
 
         $data['owner_name'] =  $request->owner_name;
+        $data['owner_mobile'] =  $request->owner_mobile;
+        $data['owner_email'] =  $request->owner_email;
         $data['owner_message'] =  $request->owner_message;
         $data['owner_image'] =  $image;
 

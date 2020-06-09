@@ -7,7 +7,7 @@
         <h2 class="text-center text-uppercase text-light display-4 d-flex flex-column"><i class="fas fa-blog"></i> Success Stories</h2>
     </section>
     <section class="success-stories mb-5">
-        <div class="container">
+        <div class="container-fluid">
             @if(!empty($countries))
                 @foreach($countries as $country)
                     @if(count($country->story) > 0)
